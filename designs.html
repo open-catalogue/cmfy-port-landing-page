@@ -38,10 +38,12 @@
     }
     /* image background fallback (only for loading, not required) */
     .card-img-top {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16/ 9;
       object-fit: cover;
       background-color: #f4f4f4;
+      /* min-height: 25rem; */
     }
+
     /* footer minimal border – only to separate */
     .footer {
       border-top: 1px solid #eaeaea;
@@ -51,6 +53,11 @@
     @media (max-width: 576px) {
       .hero-section {
         padding: 4rem 1rem;
+      }
+    }
+    @media (min-width: 992px) {
+      .card-text{
+        min-height: 3rem;
       }
     }
     
@@ -82,13 +89,13 @@
       <h1 class="display-5 text-secondary fw-bold lh-1">
        <div class="ampersand fw-ligh text-secondary mb-4 pt-5">Explore Designs</div> 
       </h1>
-      <a href="#productcatalogues" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">Product Catalogues →</a>
-      <a href="#portfolios" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">Portfolios →</a>
+      <a href="#productcatalogues" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">Product Catalogues →</a>
+      <a href="#portfolios" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">Portfolios →</a>
 
     </div>
   </section>
 
-  <!-- ████████ CARD SECTION (picture on top, info + view button) -->
+  <!-- ████████ Product Catalogues Designs SECTION (picture on top, info + view button) -->
   <section class="py-5" id="productcatalogues">
     <div class="container py-lg-4">
         <h1 class="fs-3 text-secondary text-center mb-4 fw-bold lh-1">Product Catalogues</h1>
@@ -96,36 +103,37 @@
         <!-- card 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
-            <img src="./assets/images/designs/catalogues/minimal.jpg" class="card-img-to img-fluid" alt="mountain landscape">
+            <img src="./assets/images/designs/catalogues/minimal.jpg" class="card-img-top img-fluid" alt="mountain landscape">
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Minimal ( 4 Products in a Row )</h5>
               <p class="card-text text-secondary">Minimalistic design, 4 products in a row. Suitable for cloths, stationaries or other 
                 related products
               </p>
-              <a href="https://open-catalogue.github.io/product-listing-sample-template/" target="_blank" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://open-catalogue.github.io/product-listing-sample-template/" target="_blank" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
         <!-- card 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
-            <img src="./assets/images/designs/catalogues/minimal-2-cols.jpg" class="card-img-to img-fluid" alt="white studio interior">
+            <img src="./assets/images/designs/catalogues/minimal-2-cols.jpg" class="card-img-top img-fluid" alt="white studio interior">
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Minimal ( 4 Products in a Row )</h5>
               <p class="card-text text-secondary">Minimalistic design, 2 products in a row. Suitable for jewelleries, Crafts, Medicines or other 
                 related products.</p>
-              <a href="https://open-catalogue.github.io/product-listing-sample-template/2col-design" target="_blank" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://open-catalogue.github.io/product-listing-sample-template/2col-design" target="_blank" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
         <!-- card 3 -->
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
-            <img src="https://picsum.photos/id/1043/600/400" class="card-img-top" alt="calm water surface">
+            <!-- <img src="https://picsum.photos/id/1043/600/400" class="card-img-top" alt="calm water surface"> -->
+            <img src="./assets/images/designs/catalogues/plants-store.jpg" class="card-img-top" alt="calm water surface">
             <div class="card-body px-0">
-              <h5 class="card-title fw-semibold">still water</h5>
-              <p class="card-text text-secondary">Reflections and silence. a study in monochrome and tranquility.</p>
-              <a href="#" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <h5 class="card-title fw-semibold">Gardening Plants Collection</h5>
+              <p class="card-text text-secondary">Plant items listed in a row, Description added on bottom.</p>
+              <a href="https://website-templates-collection.github.io/plant-store-landing-page-html-css-tailwind/" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -140,36 +148,36 @@
         <!-- card 1 -->
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
-            <img src="./assets/images/designs/portfolios/portfolio-1.jpg" class="img-fluid" alt="mountain landscape">
+            <img src="./assets/images/designs/portfolios/portfolio-1.jpg" class="card-img-top img-fluid" alt="mountain landscape">
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Artist Portfolio - Mordern Design</h5>
               <p class="card-text text-secondary">Modern UI template for artist portfolio. Navigation menu on left side</p>
-              <a href="https://website-templates-collection.github.io/artist-portfolio-collage-design-sidebar-left/" target="_blank" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/artist-portfolio-collage-design-sidebar-left/" target="_blank" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
         <!-- card 2 -->
         <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
-            <img src="./assets/images/designs/portfolios/portfolio-3.jpg" class="w-100 overflow-hidden" alt="white studio interior">
+            <img src="./assets/images/designs/portfolios/portfolio-3.jpg" class="card-img-top w-100 overflow-hidden" alt="white studio interior">
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Artist Portfolio - Minimalistic</h5>
               <p class="card-text text-secondary">Minimalistic design, White theme</p>
-              <a href="https://website-templates-collection.github.io/simple-portfolio-template/" target="_blank" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/simple-portfolio-template/" target="_blank" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
         <!-- card 3 -->
-        <div class="col-md-6 col-lg-4">
+        <!-- <div class="col-md-6 col-lg-4">
           <div class="card h-100 bg-transparent">
             <img src="https://picsum.photos/id/1043/600/400" class="card-img-top" alt="calm water surface">
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">still water</h5>
               <p class="card-text text-secondary">Reflections and silence. a study in monochrome and tranquility.</p>
-              <a href="#" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="#" class="btn btn-dark rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
