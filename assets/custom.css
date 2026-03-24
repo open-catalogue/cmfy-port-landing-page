@@ -1,0 +1,7 @@
+/* Landing page  */
+.product-catalogue-service-card{
+    background-image: url('./images/designs/catalogues/textiles-ecommerce.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
