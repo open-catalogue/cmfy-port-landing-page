@@ -139,7 +139,7 @@
     els.suggestions.innerHTML = '';
     items.forEach(txt => {
       const btn = document.createElement('button');
-      btn.className = 'btn btn-outline-secondary btn-sm';
+      btn.className = 'btn btn-outline-secondary btn-sm helpchat-btn';
       btn.textContent = txt;
       btn.addEventListener('click', () => sendUserText(txt));
       els.suggestions.appendChild(btn);
