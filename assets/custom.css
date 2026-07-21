@@ -17,3 +17,10 @@
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important; /* Matches Bootstrap .shadow-lg */
 }
+
+@media(min-width: 992px) {
+  .lg-text-bg-danger {
+    color: #fff !important;
+    background-color: RGBA(var(--bs-danger-rgb),var(--bs-bg-opacity,1)) !important;
+  }
+}
