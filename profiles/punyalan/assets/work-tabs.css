@@ -1,0 +1,22 @@
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .swiper-slide {
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+        .swiper-slide:not(.swiper-slide-active) {
+            opacity: 0.7;
+            transform: scale(0.95);
+        }
+        .swiper-slide.swiper-slide-active {
+            opacity: 1;
+            transform: scale(1);
+        }

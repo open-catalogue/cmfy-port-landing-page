@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Poster Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .swiper-slide {
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+        .swiper-slide:not(.swiper-slide-active) {
+            opacity: 0.7;
+            transform: scale(0.95);
+        }
+        .swiper-slide.swiper-slide-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <section class="py-16 px-4 md:px-8 lg:px-16">
+        <div class="container mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Poster Design Collection</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our designer's diverse range of poster creations across different styles and themes.</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="flex flex-wrap justify-center mb-8 gap-2 md:gap-4">
+                <button class="tab-btn px-4 py-2 rounded-full bg-white text-gray-800 font-medium shadow-sm hover:bg-gray-100 transition-all duration-300 active bg-indigo-600 text-white" data-tab="minimalist">
+                    Minimalist
+                </button>
+                <button class="tab-btn px-4 py-2 rounded-full bg-white text-gray-800 font-medium shadow-sm hover:bg-gray-100 transition-all duration-300" data-tab="typography">
+                    Typography
+                </button>
+                <button class="tab-btn px-4 py-2 rounded-full bg-white text-gray-800 font-medium shadow-sm hover:bg-gray-100 transition-all duration-300" data-tab="vintage">
+                    Vintage
+                </button>
+                <button class="tab-btn px-4 py-2 rounded-full bg-white text-gray-800 font-medium shadow-sm hover:bg-gray-100 transition-all duration-300" data-tab="abstract">
+                    Abstract
+                </button>
+                <button class="tab-btn px-4 py-2 rounded-full bg-white text-gray-800 font-medium shadow-sm hover:bg-gray-100 transition-all duration-300" data-tab="photographic">
+                    Photographic
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="tab-contents">
+                <!-- Minimalist Tab -->
+                <div id="minimalist" class="tab-content active">
+                    <div class="relative">
+                        <div class="swiper minimalistSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?minimalist,poster,1" alt="Minimalist Poster 1" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Minimalist Design</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?minimalist,poster,2" alt="Minimalist Poster 2" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Clean Lines</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?minimalist,poster,3" alt="Minimalist Poster 3" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">White Space</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?minimalist,poster,4" alt="Minimalist Poster 4" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Simple Elegance</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?minimalist,poster,5" alt="Minimalist Poster 5" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Essential Forms</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="minimalistSwiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="minimalistSwiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other tabs (Typography, Vintage, Abstract, Photographic) -->
+                <!-- Typography Tab -->
+                <div id="typography" class="tab-content">
+                    <div class="relative">
+                        <div class="swiper typographySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?typography,poster,1" alt="Typography Poster 1" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Bold Type</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?typography,poster,2" alt="Typography Poster 2" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Letter Play</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?typography,poster,3" alt="Typography Poster 3" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Font Fusion</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?typography,poster,4" alt="Typography Poster 4" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Textured Type</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="typographySwiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="typographySwiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vintage Tab -->
+                <div id="vintage" class="tab-content">
+                    <div class="relative">
+                        <div class="swiper vintageSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?vintage,poster,1" alt="Vintage Poster 1" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Retro Vibes</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?vintage,poster,2" alt="Vintage Poster 2" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Classic Design</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?vintage,poster,3" alt="Vintage Poster 3" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Old School</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?vintage,poster,4" alt="Vintage Poster 4" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Timeless</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?vintage,poster,5" alt="Vintage Poster 5" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Nostalgia</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="vintageSwiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="vintageSwiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Tab -->
+                <div id="abstract" class="tab-content">
+                    <div class="relative">
+                        <div class="swiper abstractSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?abstract,poster,1" alt="Abstract Poster 1" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Color Explosion</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?abstract,poster,2" alt="Abstract Poster 2" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Organic Forms</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?abstract,poster,3" alt="Abstract Poster 3" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Geometric</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?abstract,poster,4" alt="Abstract Poster 4" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Fluid Motion</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="abstractSwiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="abstractSwiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photographic Tab -->
+                <div id="photographic" class="tab-content">
+                    <div class="relative">
+                        <div class="swiper photographicSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?photography,poster,1" alt="Photographic Poster 1" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Urban Life</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?photography,poster,2" alt="Photographic Poster 2" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Portrait</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?photography,poster,3" alt="Photographic Poster 3" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Landscape</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?photography,poster,4" alt="Photographic Poster 4" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Street View</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="relative overflow-hidden rounded-xl shadow-lg aspect-[3/4]">
+                                        <img src="https://source.unsplash.com/random/600x800/?photography,poster,5" alt="Photographic Poster 5" 
+                                             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-4 opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <div>
+                                                <h3 class="text-white text-lg font-bold">Architecture</h3>
+                                                <p class="text-gray-200 text-sm">2023 Collection</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Navigation buttons -->
+                        <div class="photographicSwiper-button-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <div class="photographicSwiper-button-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all swipers
+            const swipers = {
+                minimalist: initSwiper('.minimalistSwiper', '.minimalistSwiper-button-prev', '.minimalistSwiper-button-next'),
+                typography: initSwiper('.typographySwiper', '.typographySwiper-button-prev', '.typographySwiper-button-next'),
+                vintage: initSwiper('.vintageSwiper', '.vintageSwiper-button-prev', '.vintageSwiper-button-next'),
+                abstract: initSwiper('.abstractSwiper', '.abstractSwiper-button-prev', '.abstractSwiper-button-next'),
+                photographic: initSwiper('.photographicSwiper', '.photographicSwiper-button-prev', '.photographicSwiper-button-next')
+            };
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons and tab contents
+                    tabButtons.forEach(btn => btn.classList.remove('active', 'bg-indigo-600', 'text-white'));
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    // Add active class to clicked button and corresponding content
+                    this.classList.add('active', 'bg-indigo-600', 'text-white');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+
+                    // Update the swiper when tab changes
+                    swipers[tabId].update();
+                });
+            });
+
+            // Function to initialize swiper with navigation
+            function initSwiper(swiperClass, prevButton, nextButton) {
+                return new Swiper(swiperClass, {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    centeredSlides: true,
+                    loop: true,
+                    speed: 800,
+                    // autoplay: {
+                    //     delay: 3000,
+                    //     disableOnInteraction: false,
+                    // },
+                    navigation: {
+                        nextEl: nextButton,
+                        prevEl: prevButton,
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

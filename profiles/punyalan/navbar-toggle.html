@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consistent Dark Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen">
+    <nav class="bg-gray-800 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <!-- Logo and primary items (always visible) -->
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-xl font-bold text-white">DarkNav</a>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-900">Home</a>
+                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Services</a>
+                    </div>
+                </div>
+                
+                <!-- Secondary items (visible on desktop, hidden on mobile) -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
+                    <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-white">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-md text-sm font-medium text-white">
+                        Sign Up
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu (contains all elements) -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Home</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Services</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Portfolio</a>
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+            </div>
+            <div class="pt-4 pb-3 border-t border-gray-700">
+                <div class="flex items-center px-5 space-x-3">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <button class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-md text-sm font-medium text-white ml-auto">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-4">Welcome to our website</h1>
+        <p class="text-gray-400">Resize your browser window to see the responsive navigation in action. All elements are present in both desktop and mobile views.</p>
+    </main>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
