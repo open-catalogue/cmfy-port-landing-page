@@ -15,7 +15,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="./assets/global.css">
   <!-- Swiper CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
+<link rel="stylesheet" href="./assets/swiper-bundle.min.css"/>
 
 </head>
 
@@ -124,7 +125,7 @@
       <img loading="lazy" src="./assets/images/peofile/img-2.jpg" alt="Jonathan profile" class="rounded-full w-96 h-96 object-cover shadow-lg" />
       <!-- Social Links -->
       <div class="flex justify-center md:justify-start space-x-6 mb-6 mt-4 text-2xl">
-        <a href="#" class="hover:text-green-400 text-gray-500"><i class="fa-brands fa-behance"></i></i></a>
+        <a href="https://www.behance.net/ananthukrishna8" target="_blank" class="hover:text-green-400 text-gray-500"><i class="fa-brands fa-behance"></i></i></a>
         <!-- <a href="#" class="hover:text-green-400">X</a> -->
         <a href="https://www.instagram.com/pun_yalan?igsh=MWp1NzZ6Z2xpMHBoNw==" target="_blank" class="hover:text-green-400 text-gray-500"><i class="fab fa-instagram"></i></a>
         <a href="#" class="hover:text-green-400 text-gray-500"><i class="fa-brands fa-facebook-f"></i></a>
@@ -133,7 +134,7 @@
 
       <!-- Hire Me Button -->
       <a href="https://wa.me/9048062544" class="border border-white w-100 px-12 py-2 rounded hover:bg-green-400 hover:text-black transition duration-300">
-        <i class="fa fa-whatsapp"></i>
+        <i class="fab fa-whatsapp"></i>
         Contact me
     </a>
     </div>
@@ -756,15 +757,17 @@
   <footer class="bg-gray-900 text-white px-6 py-6 mt-16 relative">
     <div class="flex flex-col md:flex-row justify-between items-center">
       <div class="flex space-x-4 mt-4 md:mt-0 text-2xl">
-        <a href="#" class="hover:text-green-400"><i class="fa-brands fa-behance"></i></i></a>
+        <a href="https://www.behance.net/ananthukrishna8" target="_blank" class="hover:text-green-400"><i class="fa-brands fa-behance"></i></i></a>
         <a href="https://www.instagram.com/pun_yalan?igsh=MWp1NzZ6Z2xpMHBoNw==" target="_blank" class="hover:text-green-400"><i class="fab fa-instagram"></i></a>
         <a href="#" class="hover:text-green-400"><i class="fa-brands fa-facebook-f"></i></a>
         <!-- <a href="#" class="hover:text-green-400"><i class="fab fa-linkedin"></i></a> -->
       </div>
-      <p class="text-sm">&copy; 2025 Ananthu Krishnan. All rights reserved.</p>
+      <p class="text-sm">&copy; <span id="footer-year"></span> Ananthu Krishnan. All rights reserved.</p>
     </div>
     <div class="text-center">
-        Built with <span class="text-green-400">Respect  <i class="fa-solid fa-thumbs-up"></i></span> by <a href="https://cmfyport.in" target="_blank" class="text-red-400 hover:text-red-500">Cmfy Digital</a>
+        Created by <span class="text-green-400">  
+            <!-- <i class="fa-solid fa-thumbs-up"></i> -->
+        </span><a href="https://cmfyport.in" target="_blank" class="text-red-400 hover:text-red-500">Cmfy Digital</a>
     </div>
       
   </footer>
@@ -818,7 +821,8 @@
   <script src="./assets/swiper-updated.js"></script>
   <script src="./assets/navbar.js"></script>
   <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+<script src="./assets/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
 
 <!-- Initialize Swiper -->
@@ -834,6 +838,7 @@
       clickable: true,
     },
   });
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
 </script>
 
 
