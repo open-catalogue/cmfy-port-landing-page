@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nila Treat · Catering & Events</title>
+  <!-- Bootstrap 5 + Icons -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="./assets/bootstrap-grid.min.css" rel="stylesheet"> -->
+  <!-- <link href="./assets/bootstrap-utilities.min.css" rel="stylesheet"> -->
+  <link href="./assets/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Font (optional, but adds a neat Indian touch) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcf8f3;
+      color: #2d2a24;
+    }
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #4a3f33 !important;
+      transition: 0.2s;
+    }
+    .nav-link:hover {
+      color: #b45f3b !important;
+      background-color: rgba(180, 95, 59, 0.06);
+      border-radius: 6px;
+    }
+    .hero-section {
+      background: linear-gradient(145deg, #f3ede4 0%, #e8dfd2 100%);
+      padding: 4rem 0 3.5rem;
+      border-bottom: 2px solid #dacfbf;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 600;
+      color: #3e2f23;
+      letter-spacing: 1px;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      color: #5f4c38;
+      border-left: 4px solid #b45f3b;
+      padding-left: 1rem;
+      background: rgba(255, 242, 229, 0.5);
+      display: inline-block;
+      backdrop-filter: blur(1px);
+      border-radius: 0 12px 12px 0;
+    }
+    .hero-contact i {
+      color: #b45f3b;
+      width: 1.8rem;
+      font-size: 1.2rem;
+    }
+    .hero-contact span {
+      font-weight: 500;
+      color: #3e2f23;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      color: #3e2f23;
+      border-bottom: 3px double #dac09a;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-card {
+      background: #fffcf7;
+      border: 1px solid #e6dccf;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(70, 50, 30, 0.08);
+      border-color: #ccb69b;
+    }
+    .service-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-bottom: 1px solid #efe6d9;
+      background-color: #ede5d9;
+    }
+    .card-body {
+      padding: 1.2rem 1rem 1.2rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #4d3827;
+      letter-spacing: 0.3px;
+    }
+    .card-text {
+      color: #5d4e3b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .badge-india {
+      background-color: #dac09a;
+      color: #2d241b;
+      font-weight: 400;
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+    }
+    .footer {
+      background: #e8ddd0;
+      color: #3e3227;
+      padding: 1.5rem 0;
+      border-top: 1px solid #d2c3b2;
+      font-size: 0.95rem;
+    }
+    /* small tweaks */
+    .bg-soft-warm {
+      background-color: #f5efe8;
+    }
+    .card-img-top {
+      background: #e6dbce; /* fallback */
+    }
+    /* lazy load blur effect (optional) */
+    img[loading="lazy"] {
+      background-color: #dcd0c1;
+    }
+    @media (max-width: 576px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-sub { font-size: 1rem; padding-left: 0.8rem; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- TOP NAVIGATION -->
+  <nav class="navbar navbar-expand-lg bg-white py-2 shadow-sm" style="border-bottom: 1px solid #e2d5c6;">
+    <div class="container">
+      <a class="navbar-brand fs-3" href="#">
+        <img src="./assets/images/logo-nila-treat.png" alt="Nila Treat Logo" class="img-fluid" style="max-height: 40px;">
+        Nila Treat
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-door me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catering"><i class="bi bi-egg-fried me-1"></i>Catering</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events"><i class="bi bi-calendar-event me-1"></i>Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-telephone me-1"></i>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / HEADER SECTION -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <h1 class="hero-title">Nila Treat</h1>
+          <div class="hero-sub mb-3 py-1 px-2">
+            <i class="bi bi-geo-alt-fill me-2" style="color:#b45f3b;"></i> Edappal · Koodallur
+          </div>
+          <div class="hero-contact d-flex flex-wrap gap-4 mt-3">
+            <div><i class="bi bi-telephone-fill"></i> 
+              <span>+91 9496974020 |</span>
+              <span>+91 8111952801 |</span>
+              <span>+91 9995145913</span>
+            </div>
+            <!-- <div><i class="bi bi-envelope-fill"></i> <span>hello@royalplatter.in</span></div> -->
+            <!-- <div><i class="bi bi-clock-fill"></i> <span>7:00 AM – 10:00 PM</span></div> -->
+          </div>
+          <div class="mt-3">
+            <span class="badge-india"><i class="bi bi-award me-1"></i> 15+ years of flavour</span>
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block text-end">
+          <i class="bi bi-brightness-high-fill fs-1" style="color: #d4a373; opacity: 0.4;"></i>
+          <p class="fst-italic text-muted small" style="color: #5f4c38 !important;">“Authentic taste, royal service”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="container py-5">
+
+    <!-- CATERING SECTION -->
+    <section id="catering">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <h2 class="section-title mb-0">Catering</h2>
+        <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · corporate · private</span>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Card 1 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Indian thali spread" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-droplet me-2" style="color:#b45f3b;"></i>Royal Thali</h5>
+              <p class="card-text">Authentic Rajasthani & Mughlai thali with dal bati, gatte ki sabzi, and fluffy puris. Perfect for weddings.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1559314809-0d155014e29e?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Biryani and kebabs" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-fire me-2" style="color:#b45f3b;"></i>Kebab & Biryani</h5>
+              <p class="card-text">Juicy seekh kebabs, tangdi, and aromatic dum biryani – a crowd favourite for corporate events.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1565557623262-b5c2c3abc4bb?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Dessert platter" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-cup-straw me-2" style="color:#b45f3b;"></i>Sweet Finale</h5>
+              <p class="card-text">Gulab jamun, rasmalai, and jalebi with rabri – end your meal on a royal sweet note.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Healthy salad and chaat" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-basket me-2" style="color:#b45f3b;"></i>Chaat & Fresh</h5>
+              <p class="card-text">Healthy salad, papdi chaat, and fresh fruits – light bites for pre-wedding functions.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Paneer and vegetable" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-flower1 me-2" style="color:#b45f3b;"></i>Pure Veg Delight</h5>
+              <p class="card-text">Paneer lababdar, dal makhani, mix veg, and naan – vegetarian feast for all occasions.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Card 6 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Live cooking station" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-grid-3x3-gap me-2" style="color:#b45f3b;"></i>Live Station</h5>
+              <p class="card-text">Live pasta, chaat, or dosa counter – interactive dining experience for your guests.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT MANAGEMENT SECTION -->
+    <section id="events" class="mt-5 pt-3">
+      <div class="d-flex align-items-center gap-3 mb-4">
+        <h2 class="section-title mb-0">Event Management</h2>
+        <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">decoration · planning · coordination</span>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Event card 1 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Elegant stage decoration with flowers" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-flower2 me-2" style="color:#b45f3b;"></i>Stage & Mandap</h5>
+              <p class="card-text">Grand floral stage, traditional mandap, and drapery – tailored for Indian weddings.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Event card 2 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1530023367847-a683933f4172?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Lighting and decor" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-brightness-high me-2" style="color:#b45f3b;"></i>Lighting & Ambiance</h5>
+              <p class="card-text">Fairy lights, up lighting, and chandeliers to create a magical evening atmosphere.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Event card 3 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Outdoor tent and seating" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-tent me-2" style="color:#b45f3b;"></i>Outdoor Setup</h5>
+              <p class="card-text">Canopy tents, lounge seating, and ethnic furniture for garden or poolside events.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Event card 4 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Wedding reception decor" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-gem me-2" style="color:#b45f3b;"></i>Reception Glam</h5>
+              <p class="card-text">Sparkling reception backdrops, centrepieces, and aisle decor with a royal touch.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Event card 5 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1478147427282-58a87a120781?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Mehendi and haldi decor" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-palette me-2" style="color:#b45f3b;"></i>Mehendi / Haldi</h5>
+              <p class="card-text">Colourful floral swings, marigold garlands, and rustic props for pre-wedding rituals.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Event card 6 -->
+        <div class="col">
+          <div class="service-card">
+            <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=500&q=80&auto=format&fit=crop" 
+                 class="card-img-top" alt="Corporate event stage" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-people me-2" style="color:#b45f3b;"></i>Corporate Setup</h5>
+              <p class="card-text">Modern stage, branding backdrops, and AV arrangements for conferences and galas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- tiny extra contact anchor -->
+    <div id="contact" class="mt-5 pt-2 text-center">
+      <p class="text-muted"><i class="bi bi-clock-history me-1"></i> Reach us at +91 98765 43210 · <a href="#" class="text-decoration-none" style="color:#b45f3b;">book@royalplatter.in</a></p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container text-center">
+      <p class="mb-0"><i class="bi bi-cup-hot-fill me-2" style="color:#7a5d43;"></i> Nila Treat · Edappal · Koodallur <span class="fst-italic"></span></p>
+      <p class="small mb-0 mt-1 text-secondary-emphasis">Catering & Event Management · Designed by <a href="https://cmfyport.in/">cmfy digital</a> 
+        <!-- <i class="bi bi-suit-heart-fill" style="color:#b45f3b; font-size: 0.8rem;"></i> -->
+        </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS for toggling etc. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- no extra custom js needed, but we keep it minimal -->
+</body>
+</html>
