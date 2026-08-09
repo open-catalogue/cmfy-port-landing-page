@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Nila Treat, Nila Treat Catering, Onam Sadya, Onam Sadhya, Onam Special Food, Onam Catering, Kerala Onam Sadya, Traditional Kerala Sadya, Kerala Sadya Catering, Onam Food Catering, Onam Feast, Onam Special Catering, Sadya Catering Service, Kerala Catering Service, Traditional Kerala Food, Kerala Vegetarian Food, Onam Food Delivery, Onam Sadya Delivery, Event Catering Kerala, Catering Services Kerala, Wedding Catering Kerala, Party Catering Kerala, Event Management Kerala, Onam Event Catering, Vishu Catering, Kerala Food Catering">
+  <meta name="description" content="Celebrate Onam with Nila Treat's traditional Kerala Onam Sadya and special festive foods. Delicious Onam catering for families, celebrations, events and gatherings.">
+  <meta property="og:title" content="Nila Treat | Onam Special Sadya & Catering">
+  <meta property="og:description" content="Enjoy a traditional Kerala Onam Sadya and festive special foods from Nila Treat. Perfect for family celebrations, events and gatherings.">
   <title>Nila Treat · Catering & Events</title>
   <!-- Bootstrap 5 + Icons -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -150,6 +154,9 @@
       .hero-sub { font-size: 1rem; padding-left: 0.8rem; }
       .section-title { font-size: 2rem; }
     }
+    html, body {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
@@ -168,7 +175,7 @@
         <ul class="navbar-nav ms-auto gap-2">
           <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-door me-1"></i>Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#catering"><i class="bi bi-egg-fried me-1"></i>Catering</a></li>
-          <li class="nav-item"><a class="nav-link" href="#events"><i class="bi bi-calendar-event me-1"></i>Events</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#events"><i class="bi bi-calendar-event me-1"></i>Events</a></li> -->
           <li class="nav-item"><a class="nav-link" href="#contact"><i class="bi bi-telephone me-1"></i>Contact</a></li>
         </ul>
       </div>
@@ -201,19 +208,44 @@
           <i class="bi bi-brightness-high-fill fs-1" style="color: #d4a373; opacity: 0.4;"></i>
           <!-- <p class="fst-italic text-muted small" style="color: #5f4c38 !important;">“Authentic taste, royal service”</p> -->
         </div>
+        <div class="col-lg-4 d-lg-block">
+          <a href="#whats-new" target="_blank" class="btn btn-success">Onam Bookings</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- MAIN CONTENT -->
   <div class="container py-5">
-
-    <!-- CATERING SECTION -->
-    <section id="catering">
+        <!-- CATERING SECTION -->
+    <section id="whats-new">
       <div class="d-flex align-items-center gap-3 mb-4">
+        <h2 class="section-title mb-0">What's New</h2>
+        <!-- <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · corporate · private</span> -->
+        <!-- <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · Family events · private</span> -->
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Card 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h3 class="section-ti mb-3">Sadhya & Payasam Booking</h3>
+                       <p>Order Onam specials - Onam sadhya, Palada pradhaman and Paripp pradhaman</p>     
+
+          <div class="service-car">
+            <img src="./assets/images/onam/nila-catering-onam-sadhya-payasam-booking-3.jpg" 
+                 class="card-img-to img-fluid" alt="Indian thali spread" loading="lazy">
+            <a href="https://wa.me/9496974020?text=Hi, this is for ordering Onam specials." target="_blank" class="btn btn-success mb-3 mt-3"><i class="bi bi-whatsapp me-2"></i>Order Now</a>
+
+          </div>
+        </div>
+        <!-- Card 2 -->
+      </div>
+    </section>
+    <!-- CATERING SECTION -->
+    <section id="catering" class="mt-5 pt-3">
+      <div class="d-fle flex-col flex-md-row d-md-flex align-items-center gap-3 mb-4">
         <h2 class="section-title mb-0">Catering</h2>
         <!-- <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · corporate · private</span> -->
-        <span class="badge bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · Family events · private</span>
+        <div class="badge mt-2 mt-md-0 bg-warning-subtle text-dark-emphasis px-3 py-2 rounded-pill" style="background: #e4d4c0;">wedding · Family events · private</div>
       </div>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <!-- Card 1 -->
@@ -362,7 +394,8 @@
     </section>
 
     <!-- tiny extra contact anchor -->
-    <div id="contact" class="mt-5 pt-2 text-center">
+    <div id="contact" class="mt-5 pt-2 text-cente">
+      <h2 class=" mb-3">Contact</h2>
       <p class="text-muted"><i class="bi bi-clock-history me-1"></i> Reach us at 
               <span>+91 9995145913 |</span>
               <span>+91 9496974020 |</span>
@@ -375,9 +408,11 @@
   <footer class="footer">
     <div class="container text-center">
       <p class="mb-0"><i class="bi bi-cup-hot-fill me-2" style="color:#2EABAB;"></i> Nila Treat · Edappal · Koodallur <span class="fst-italic"></span></p>
-      <p class="small mb-0 mt-1 text-secondary-emphasis">Catering & Event Management · Designed by <a href="https://cmfyport.in/" target="_blank" class="text-decoration-none text-dark border-bottom border-1 border-dark">cmfy digital</a> 
+      <p class="small mb-0 mt-1 text-secondary-emphasis">Catering & Event Management ·  
         <!-- <i class="bi bi-suit-heart-fill" style="color:#b45f3b; font-size: 0.8rem;"></i> -->
         </p>
+        <p class="small mb-0 mt-1 text-secondary-emphasis">Designed by <a href="https://cmfyport.in/" target="_blank" class="text-decoration-none text-dark border-bottom border-1 border-dark">cmfy digital</a>
+</p>
     </div>
   </footer>
 <a href="https://wa.me/9496974020" target="_blank" class="position-fixed bottom-0 end-0 shadow-none border-0 bg-transparent">
