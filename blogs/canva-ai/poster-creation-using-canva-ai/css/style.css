@@ -1,0 +1,114 @@
+/* Minimal custom CSS - Bootstrap handles most of the layout */
+
+body {
+  background: #fafafa;
+  color: #212529;
+}
+
+.article-content {
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+
+.article-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.article-content h3 {
+  margin-top: 2.25rem;
+  margin-bottom: 0.9rem;
+  font-weight: 650;
+}
+
+.article-content h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.article-content ul {
+  padding-left: 1.5rem;
+}
+
+.translate-box {
+  padding: 0.75rem 1rem;
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+}
+
+/* Prompt examples */
+.prompt-box,
+.code-like-box {
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+  border-radius: 0.25rem;
+}
+
+.code-like-box {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* SEO keywords are present in the document but not visible to visitors */
+.seo-keywords {
+  display: none !important;
+}
+
+/* Keep Google Translate's generated UI compact */
+#google_translate_element select {
+  max-width: 180px;
+  padding: 0.25rem;
+}
+
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+
+.goog-te-gadget select {
+  font-size: 0.9rem !important;
+}
+
+@media (max-width: 576px) {
+  .article-content {
+    font-size: 1rem;
+  }
+}
+
+
+/* Sticky section navigation on larger screens */
+.blog-sidebar {
+  top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+
+.blog-sidebar .list-group-item {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  border: 0;
+  border-left: 2px solid #dee2e6;
+  background: transparent;
+}
+
+.blog-sidebar .list-group-item:hover {
+  border-left-color: #212529;
+  background: #f8f9fa;
+}
+
+.blog-sidebar .list-group-item.active {
+  color: #212529;
+  font-weight: 600;
+  border-left-color: #212529;
+  background: #f8f9fa;
+}
+
+/* Prevent headings from hiding behind the sticky navigation when linked */
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  scroll-margin-top: 1.5rem;
+}
