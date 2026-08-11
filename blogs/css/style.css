@@ -1,0 +1,36 @@
+body {
+  background: #fafafa;
+  color: #212529;
+}
+
+.card {
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-image-link {
+  display: block;
+  overflow: hidden;
+}
+
+.card-img-top {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-title-link:hover {
+  text-decoration: underline !important;
+}
+
+.btn {
+  border-radius: 0.4rem;
+}
