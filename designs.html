@@ -8,6 +8,15 @@
   <link href="./assets/bootstrap.min.css" rel="stylesheet">
   <!-- minimal custom CSS – only where bootstrap utilities are not enough -->
   <style>
+    html{
+        --bs-success-rgb:80, 200, 120 !important;
+        --bs-success-rgb:64, 182, 103 !important;
+        --bs-btn-bg: var(--bs-success-rgb) !important;
+    }
+    .btn-success{
+        background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
+        border-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
+    }
     /* custom only for fine typography and minimal hover effects */
     body {
       background-color: #ffffff;
@@ -73,7 +82,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarMinimal">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link text-white bg-danger" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white bg-success" href="/">Home</a></li>
           <!-- <li class="nav-item"><a class="nav-link text-dark" href="#">work</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="#">journal</a></li>
           <li class="nav-item"><a class="nav-link text-dark" href="#">contact</a></li> -->
@@ -88,8 +97,8 @@
       <h1 class="display-5 text-secondary fw-bold lh-1">
        <div class="ampersand fw-ligh text-secondary mb-4 pt-2">Explore Designs</div> 
       </h1>
-      <a href="#productcataloguesSection" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">Product Catalogues →</a>
-      <a href="#portfoliosSection" class="btn btn-danger rounded-0 px-4 py-2 mt-2 mt-md-0 text-uppercase small fw-medium">Portfolios →</a>
+      <a href="#productcataloguesSection" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">Product Catalogues →</a>
+      <a href="#portfoliosSection" class="btn btn-success rounded-0 px-4 py-2 mt-2 mt-md-0 text-uppercase small fw-medium">Portfolios →</a>
 
     </div>
   </section>
@@ -108,7 +117,7 @@
               <p class="card-text text-secondary">Minimalistic design, 4 products in a row. Suitable for cloths, stationaries or other 
                 related products
               </p>
-              <a href="https://open-catalogue.github.io/product-listing-sample-template/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://open-catalogue.github.io/product-listing-sample-template/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -120,7 +129,7 @@
               <h5 class="card-title fw-semibold">Minimal ( 2 Products in a Row )</h5>
               <p class="card-text text-secondary">Minimalistic design, 2 products in a row. Suitable for jewelleries, Crafts, Medicines or other 
                 related products.</p>
-              <a href="https://open-catalogue.github.io/product-listing-sample-template/2col-design" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://open-catalogue.github.io/product-listing-sample-template/2col-design" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -132,7 +141,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Gardening Plants Collection</h5>
               <p class="card-text text-secondary">Plant items listed in a row, Description added on bottom.</p>
-              <a href="https://website-templates-collection.github.io/plant-store-landing-page-html-css-tailwind/" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/plant-store-landing-page-html-css-tailwind/" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -144,7 +153,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Textiles Ecommerce Template</h5>
               <p class="card-text text-secondary">Cloths are shown in different categories. On clicking a product card it will redirect to it's details page</p>
-              <a href="https://website-templates-collection.github.io/t-shirts-e-commerce-html-css-js-tailwind/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/t-shirts-e-commerce-html-css-js-tailwind/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -164,7 +173,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Artist Portfolio - Mordern Design</h5>
               <p class="card-text text-secondary">Modern UI template for artist portfolio. Navigation menu on left side</p>
-              <a href="https://website-templates-collection.github.io/artist-portfolio-collage-design-sidebar-left/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/artist-portfolio-collage-design-sidebar-left/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -175,7 +184,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Artist Portfolio - Minimalistic</h5>
               <p class="card-text text-secondary">Minimalistic design, White theme</p>
-              <a href="https://website-templates-collection.github.io/simple-portfolio-template/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/simple-portfolio-template/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -186,7 +195,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Graphics Designer Portfolio template</h5>
               <p class="card-text text-secondary">Simple landing page template in dark theme. simple motion graphics shown on hero section</p>
-              <a href="https://website-templates-collection.github.io/motion-graphics-portfolio-gamification-template/#hero" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/motion-graphics-portfolio-gamification-template/#hero" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -197,7 +206,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Doodle Theme Portfolio template</h5>
               <p class="card-text text-secondary">Landing page template in Doodle theme. Suitable for doodle artists or anyone looking for Contemporary design</p>
-              <a href="https://website-templates-collection.github.io/artist-portfolio-doodle-theme-bootstrap/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/artist-portfolio-doodle-theme-bootstrap/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -208,7 +217,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Portfolio template - Flat design</h5>
               <p class="card-text text-secondary">Landing page template in Flat design. Neat design, suitable for organizations, corporates, etc</p>
-              <a href="https://website-templates-collection.github.io/artist-portfolio-tailwind/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/artist-portfolio-tailwind/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -219,7 +228,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Graphic Designer portfolio - with bold typography</h5>
               <p class="card-text text-secondary">Professional Graphic designer portfolio with bold typography</p>
-              <a href="https://website-templates-collection.github.io/artist-portfolio-tailwind-bold-typography/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/artist-portfolio-tailwind-bold-typography/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>
@@ -230,7 +239,7 @@
             <div class="card-body px-0">
               <h5 class="card-title fw-semibold">Designer Profile - Simple theme</h5>
               <p class="card-text text-secondary">Simple design, Profile info and skills are displayed</p>
-              <a href="https://website-templates-collection.github.io/ui-ux-designer-portfolio-website/" target="_blank" class="btn btn-danger rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
+              <a href="https://website-templates-collection.github.io/ui-ux-designer-portfolio-website/" target="_blank" class="btn btn-success rounded-0 px-4 py-2 text-uppercase small fw-medium">view Demo →</a>
             </div>
           </div>
         </div>

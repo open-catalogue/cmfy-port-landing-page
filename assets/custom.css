@@ -1,3 +1,12 @@
+html{
+  --bs-success-rgb:80, 200, 120 !important;
+  --bs-success-rgb:64, 182, 103 !important;
+  --bs-btn-bg: var(--bs-success-rgb) !important;
+}
+.btn-success{
+  background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
+  border-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
+}
 /* Landing page  */
 .product-catalogue-service-card{
     background-image: url('./images/designs/catalogues/textiles-ecommerce.jpg');
@@ -22,5 +31,9 @@
   .lg-text-bg-danger {
     color: #fff !important;
     background-color: RGBA(var(--bs-danger-rgb),var(--bs-bg-opacity,1)) !important;
+  }
+  .lg-text-bg-success {
+    color: #fff !important;
+    background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
   }
 }
