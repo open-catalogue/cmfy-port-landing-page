@@ -1,0 +1,3 @@
+i need to create a responsive carousel as it need to show 3 slides at a time on large screens 1 slide on small screen and switch well individually. please generate code for implementing it using html,css,js and bootstrap css
+
+please use any slider plugins or bootstraps slider and avoid cusom js and css for making slide

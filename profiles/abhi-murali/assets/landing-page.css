@@ -1,0 +1,8 @@
+.yt-video {
+  height: 12rem;
+}
+@media (min-width: 992px) {
+  .yt-video {
+    height: 20rem;
+  }
+}/*# sourceMappingURL=landing-page.css.map */

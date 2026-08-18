@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    padding:0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+.d-sm-only{
+    display: none !important;
+    @media (max-width: 575px) {
+        display: block !important;
+    }
+}
