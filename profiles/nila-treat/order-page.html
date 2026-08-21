@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Platter · Catering & Events</title>
+    <!-- Bootstrap 5 + Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Font (optional, but adds a neat Indian touch) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet">
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcf8f3;
+      color: #2d2a24;
+    }
+    h1, h2, h3, h4, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .nav-link {
+      font-weight: 500;
+      color: #4a3f33 !important;
+      transition: 0.2s;
+    }
+    .nav-link:hover {
+      color: #b45f3b !important;
+      background-color: rgba(180, 95, 59, 0.06);
+      border-radius: 6px;
+    }
+    .hero-section {
+      background: linear-gradient(145deg, #f3ede4 0%, #e8dfd2 100%);
+      padding: 4rem 0 3.5rem;
+      border-bottom: 2px solid #dacfbf;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 600;
+      color: #3e2f23;
+      letter-spacing: 1px;
+    }
+    .hero-sub {
+      font-size: 1.3rem;
+      color: #5f4c38;
+      border-left: 4px solid #b45f3b;
+      padding-left: 1rem;
+      background: rgba(255, 242, 229, 0.5);
+      display: inline-block;
+      backdrop-filter: blur(1px);
+      border-radius: 0 12px 12px 0;
+    }
+    .hero-contact i {
+      color: #b45f3b;
+      width: 1.8rem;
+      font-size: 1.2rem;
+    }
+    .hero-contact span {
+      font-weight: 500;
+      color: #3e2f23;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 2.5rem;
+      color: #3e2f23;
+      border-bottom: 3px double #dac09a;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-card {
+      background: #fffcf7;
+      border: 1px solid #e6dccf;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(70, 50, 30, 0.08);
+      border-color: #ccb69b;
+    }
+    .service-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-bottom: 1px solid #efe6d9;
+      background-color: #ede5d9;
+    }
+    .card-body {
+      padding: 1.2rem 1rem 1.2rem;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #4d3827;
+      letter-spacing: 0.3px;
+    }
+    .card-text {
+      color: #5d4e3b;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .badge-india {
+      background-color: #dac09a;
+      color: #2d241b;
+      font-weight: 400;
+      padding: 0.3rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+    }
+    .footer {
+      background: #e8ddd0;
+      color: #3e3227;
+      padding: 1.5rem 0;
+      border-top: 1px solid #d2c3b2;
+      font-size: 0.95rem;
+    }
+    /* small tweaks */
+    .bg-soft-warm {
+      background-color: #f5efe8;
+    }
+    .card-img-top {
+      background: #e6dbce; /* fallback */
+    }
+    /* lazy load blur effect (optional) */
+    img[loading="lazy"] {
+      background-color: #dcd0c1;
+    }
+    @media (max-width: 576px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-sub { font-size: 1rem; padding-left: 0.8rem; }
+      .section-title { font-size: 2rem; }
+    }
+    .add-order-btn.selected i{
+      visibility: visible !important;
+    }
+    .add-order-btn i{
+      visibility: hidden;
+    }
+    /* quantity input button */
+    .quantity-input {
+    position: relative;
+    width: 180px;
+}
+
+.quantity-input .form-control {
+    padding-right: 70px;
+}
+
+.quantity-buttons {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 2px;
+}
+
+.quantity-buttons .btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 4px;
+    background: #e9ecef;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.quantity-buttons .btn:hover {
+    background: #dee2e6;
+}
+  </style>
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav class="navbar navbar-expand-lg bg-white py-2 shadow-sm"
+      style="border-bottom: 1px solid #e2d5c6;">
+      <div class="container">
+        <a class="navbar-brand fs-3" href="#">
+          <i class="bi bi-cup-hot-fill me-2" style="color: #b45f3b;"></i>Royal
+          Platter
+        </a>
+        <button class="navbar-toggler border-0" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item"><a class="nav-link" href="#home"><i
+                  class="bi bi-house-door me-1"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#catering"><i
+                  class="bi bi-egg-fried me-1"></i>Catering</a></li>
+            <li class="nav-item"><a class="nav-link" href="#events"><i
+                  class="bi bi-calendar-event me-1"></i>Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact"><i
+                  class="bi bi-telephone me-1"></i>Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO / HEADER SECTION -->
+
+    <!-- MAIN CONTENT -->
+    <div class="container-md px-0 py-5">
+
+      <!-- CATERING SECTION -->
+      <section id="catering">
+        <div class="d-flex align-items-center gap-3 mb-2">
+          <h1 class="section-title mb-0">Onam Sadhya & Payasam Order</h1>
+
+        </div>
+        <div class="d-md-flex align-items-center">
+          <h2 class="fs-4">Nila Treat</h2>
+          <span class="hero-su py-1 px-2">
+            <i class="bi bi-geo-alt-fill me-2" style="color:#b45f3b;"></i>
+            Edappal · Kudalloor · Malappuram · Kerala
+            <i class="bi bi-telephone-fill"></i> <span>+91 98765 43210</span>
+          </span>
+          <div></div>
+        </div>
+
+        <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"> -->
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col">
+            <div class="service-card">
+              <img src="./assets/20564329779_b9af3e0191_o.webp"
+                class="card-img-top" alt="Indian thali spread" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-droplet me-2"
+                    style="color:#b45f3b;"></i>Onam Sadhya</h5>
+                <p class="card-text mt-1 mb-1">Traditional Onam Sadhya.</p>
+                <p class="card-text mb-1 fw-bold">Price : 1600 (For 5
+                  people)</p>
+                <small>Quantity (No of Meals)</small>
+                <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity (No of Meals)" min="1"> -->
+                <!-- <input id="sadhyaCount" type="number" class="form-control mb-2"
+                  placeholder="0" min="1" value="0"> -->
+                <!-- input with buttons -->
+                <div class="quantity-input mb-2 d-block w-100">
+                  <input id="sadhyaCount" type="number" class="form-control"
+                    value="0" min="0">
+
+                  <div class="quantity-buttons">
+                    <button type="button" class="btn btn-sm"
+                      onclick="changeSadhyaQuantity(-1)">
+                      −
+                    </button>
+                    <button type="button" class="btn btn-sm"
+                      onclick="changeSadhyaQuantity(1)">
+                      +
+                    </button>
+                  </div>
+                </div>
+                <button class="add-order-btn btn btn-primary w-100"
+                  onclick="addToOrderSadhya(this,event)">
+                  <span class="btn-title">Add to Order</span> <i
+                    class="bi bi-check-circle fs-5 ms-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col">
+            <div class="service-card">
+              <img src="./assets/kerala-style-palada-pradhaman.jpg"
+                class="card-img-top" alt="Biryani and kebabs" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-fire me-2"
+                    style="color:#b45f3b;"></i>Palada Payasam</h5>
+                <p class="card-text mt-1 mb-1">kerala-style-palada-pradhaman</p>
+                <p class="card-text mb-1 fw-bold">Price : 240 - (1 Ltr)</p>
+                <small>Quantity (in Ltr)</small>
+                <!-- <input type="number" class="form-control mb-2" placeholder="Enter quantity" min="1"> -->
+                <!-- <input id="paladaCount" type="number" class="form-control mb-2"
+                  placeholder="0" min="1" value="0"> -->
+                <div class="quantity-input mb-2 d-block w-100">
+                  <input id="paladaCount" type="number" class="form-control"
+                    value="0" min="0">
+
+                  <div class="quantity-buttons">
+                    <button type="button" class="btn btn-sm"
+                      onclick="changePaladaQuantity(-1)">
+                      −
+                    </button>
+                    <button type="button" class="btn btn-sm"
+                      onclick="changePaladaQuantity(1)">
+                      +
+                    </button>
+                  </div>
+                </div>
+                <!-- <span> Ltr</span>   -->
+                <button class="add-order-btn btn btn-primary w-100"
+                  onclick="addToOrderPalada(this,event)">
+                  <span class="btn-title">Add to Order</span> <i
+                    class="bi bi-check-circle fs-5 ms-1"></i>
+
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="col">
+            <div class="service-card">
+              <img src="./assets/payasam.jpg"
+                class="card-img-top" alt="Biryani and kebabs" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-fire me-2"
+                    style="color:#b45f3b;"></i>Paripp Payasam</h5>
+                <p class="card-text mt-1 mb-1">Palada, Paripp</p>
+                <p class="card-text mb-1 fw-bold">Price : 240 - (1 Ltr)</p>
+                <small>Quantity (in Ltr)</small>
+                <!-- <input type="number" class="form-control mb-2" placeholder="1" min="1"> -->
+                <!-- <input id="parippCount" type="number" value="0"
+                  class="form-control mb-2" placeholder="0" min="1"> -->
+                <div class="quantity-input mb-2 d-block w-100">
+                  <input id="parippCount" type="number" class="form-control"
+                    value="0" min="0">
+
+                  <div class="quantity-buttons">
+                    <button type="button" class="btn btn-sm"
+                      onclick="changeParippQuantity(-1)">
+                      −
+                    </button>
+                    <button type="button" class="btn btn-sm"
+                      onclick="changeParippQuantity(1)">
+                      +
+                    </button>
+                  </div>
+                </div>
+                <!-- <span> Ltr</span>   -->
+                <button
+                  class="add-order-btn btn btn-primary w-100 d-flex align-items-center justify-content-center"
+                  onclick="addToOrderParipp(this,event)">
+                  <span class="btn-title">Add to Order</span> <i
+                    class="bi bi-check-circle fs-5 ms-1"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="col">
+            <div class="service-card">
+              <div class="card-body">
+                <h5 class="fs-6 fw-bold"><i class="bi bi-cup-straw me-2"
+                    style="color:#b45f3b;"></i>Your Order</h5>
+                <table class="table small mb-1">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Item</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Onam Sadhya</td>
+                      <td id="summarySadhyaCount">0</td>
+                      <td id="sadhyaTotal">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>Payasam(Palada)</td>
+                      <td id="summaryPaladaCount"><span
+                          class="count-value">0</span> Ltrs</td>
+                      <td id="paladaTotal">0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Payasam(paripp)</td>
+                      <td id="summaryParippCount"><span
+                          class="count-value">0</span> Ltrs</td>
+                      <td id="parippTotal">0</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+                <div class="small text-end fw-bold me-4 mb-1">Total : <span
+                    id="totalAmount">0</span></div>
+                <form id="orderForm" class="row"
+                  action="https://formspree.io/f/mnqvayqj" method="POST">
+                  <div class="col-lg-6">
+                    <input type="text" id="customerName"
+                      class="form-control mb-2" placeholder="Your name">
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="text" id="customerPlace"
+                      class="form-control mb-2" placeholder="place of delivery">
+                  </div>
+                  <div class="col-lg-6">
+                    <div for="customerDeliveryDate"
+                      class="form-labe small mb-0">Delivery Date:</div>
+                    <input type="date" id="customerDeliveryDate"
+                      class="form-control mb-2"
+                      placeholder="Enter delivery date">
+                  </div>
+                  <div class="col-lg-6">
+                    <div for="customerDeliveryTime"
+                      class="form-labe small mb-0">Delivery Time:</div>
+                    <input type="time" id="customerDeliveryTime"
+                      class="form-control mb-2"
+                      placeholder="Enter delivery time">
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="text" class="form-control mb-2"
+                      id="customerPhone" placeholder="Enter your phone number"
+                      required>
+                  </div>
+                  <!-- <button type="submit" class="btn btn-success w-100">Order Now</button> -->
+                  <div class="col-lg-12">
+                    <a href="#" id="whatsappOrder" class="btn btn-success">
+                      Order via WhatsApp
+                    </a>
+                  </div>
+
+                </form>
+                <p class="card-text">.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+
+          <!-- Card 5 -->
+
+          <!-- Card 6 -->
+        </div>
+      </section>
+
+      <!-- tiny extra contact anchor -->
+      <div id="contact" class="mt-5 pt-2 text-center">
+        <p class="text-muted"><i class="bi bi-clock-history me-1"></i> Reach us
+          at +91 98765 43210 · <a href="#" class="text-decoration-none"
+            style="color:#b45f3b;">book@royalplatter.in</a></p>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container text-center">
+        <p class="mb-0"><i class="bi bi-cup-hot-fill me-2"
+            style="color:#7a5d43;"></i> Royal Platter · Jaipur, Rajasthan ·
+          <span class="fst-italic">since 2008</span></p>
+        <p class="small mb-0 mt-1 text-secondary-emphasis">Catering & Event
+          Management · Designed with <i class="bi bi-suit-heart-fill"
+            style="color:#b45f3b; font-size: 0.8rem;"></i> for Indian
+          celebrations</p>
+      </div>
+      <!-- footer  -->
+       <div class="container py-5">
+
+    <!-- Open Modal Button -->
+    <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#confirmModal"
+    >
+        Confirm Action
+    </button>
+
+</div>
+
+
+<!-- Confirm Modal -->
+<div
+    class="modal fade"
+    id="confirmModal"
+    tabindex="-1"
+    aria-labelledby="confirmModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">
+                    Confirm Action
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+
+            <!-- Body -->
+            <div class="modal-body">
+                <p class="mb-0">
+                    Are you sure you want to continue?
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary"
+                    id="confirmButton"
+                >
+                    Confirm
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+document.getElementById("confirmButton").addEventListener("click", function () {
+
+    // Your confirmation action
+    console.log("Confirmed!");
+
+    // Close modal
+    const modalElement = document.getElementById("confirmModal");
+    const modal = bootstrap.Modal.getInstance(modalElement);
+
+    modal.hide();
+
+});
+
+</script>
+
+    </footer>
+
+    <!-- Bootstrap JS for toggling etc. -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- no extra custom js needed, but we keep it minimal -->
+    <script src="./assets/ordering.js"></script>
+  </body>
+</html>
