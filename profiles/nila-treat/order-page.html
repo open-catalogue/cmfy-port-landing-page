@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Royal Platter · Catering & Events</title>
+    <title>Nila Treat · Catering & Events</title>
     <!-- Bootstrap 5 + Icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
@@ -100,11 +100,11 @@
       border-color: #ccb69b;
     }
     .service-card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
+      width: 30%;
+      height: auto;
+      object-fit: contain;
       border-bottom: 1px solid #efe6d9;
-      background-color: #ede5d9;
+      background-color: white;
     }
     .card-body {
       padding: 1.2rem 1rem 1.2rem;
@@ -151,6 +151,15 @@
       .hero-title { font-size: 2.5rem; }
       .hero-sub { font-size: 1rem; padding-left: 0.8rem; }
       .section-title { font-size: 2rem; }
+    }
+    @media (min-width:992px){
+      .service-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-bottom: 1px solid #efe6d9;
+        background-color: #ede5d9;
+      }
     }
     .add-order-btn.selected i{
       visibility: visible !important;
@@ -202,8 +211,8 @@
       style="border-bottom: 1px solid #e2d5c6;">
       <div class="container">
         <a class="navbar-brand fs-3" href="#">
-          <i class="bi bi-cup-hot-fill me-2" style="color: #b45f3b;"></i>Royal
-          Platter
+          <i class="bi bi-cup-hot-fill me-2" style="color: #b45f3b;"></i>
+          Nila Treat
         </a>
         <button class="navbar-toggler border-0" type="button"
           data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -213,14 +222,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto gap-2">
-            <li class="nav-item"><a class="nav-link" href="#home"><i
+            <li class="nav-item"><a class="nav-link" href="/"><i
                   class="bi bi-house-door me-1"></i>Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#catering"><i
+            <!-- <li class="nav-item"><a class="nav-link" href="#catering"><i
                   class="bi bi-egg-fried me-1"></i>Catering</a></li>
             <li class="nav-item"><a class="nav-link" href="#events"><i
                   class="bi bi-calendar-event me-1"></i>Events</a></li>
             <li class="nav-item"><a class="nav-link" href="#contact"><i
-                  class="bi bi-telephone me-1"></i>Contact</a></li>
+                  class="bi bi-telephone me-1"></i>Contact</a></li> -->
           </ul>
         </div>
       </div>
@@ -229,34 +238,36 @@
     <!-- HERO / HEADER SECTION -->
 
     <!-- MAIN CONTENT -->
-    <div class="container-md py-5">
+    <div class="container-md py-4">
 
       <!-- CATERING SECTION -->
       <section id="catering">
         <div class="d-flex align-items-center gap-3 mb-2">
-          <h1 class="section-title mb-0">Onam Sadhya & Payasam Order</h1>
+          <h1 class="mb-0 fs-3 fw-bold">Order Onam Sadhya & Payasam </h1>
 
         </div>
-        <div class="d-md-flex align-items-center">
-          <h2 class="fs-4">Nila Treat</h2>
-          <span class="hero-su py-1 px-2">
+        <div class="d-md-flex align-items-center mb-3">
+          <h2 class="fs-5">Nila Treat</h2>
+          <span class="hero-su small py-1 px-2">
             <i class="bi bi-geo-alt-fill me-2" style="color:#b45f3b;"></i>
-            Edappal · Kudalloor · Malappuram · Kerala
-            <i class="bi bi-telephone-fill"></i> <span>+91 98765 43210</span>
+            Edappal · Kudalloor
+            <i class="bi bi-telephone-fill"></i> <span>+91 9496974020</span>
           </span>
           <div></div>
         </div>
+        <a href="#yourOrders" class="btn btn-primary mb-3"><i class="bi bi-cart"></i> Your Order</a>
 
         <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"> -->
         <div class="row g-4">
           <!-- Card 1 -->
           <div class="col-lg col-12 col-md-6">
-            <div class="service-card">
+            <div class="service-card d-flex d-lg-block">
               <img src="./assets/20564329779_b9af3e0191_o.webp"
                 class="card-img-top" alt="Indian thali spread" loading="lazy">
               <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-droplet me-2"
-                    style="color:#b45f3b;"></i>Onam Sadhya</h5>
+                <h5 class="card-title">
+                  <!-- <i class="bi bi-droplet me-2" style="color:#b45f3b;"></i> -->
+                    Onam Sadhya</h5>
                 <p class="card-text mt-1 mb-1">Traditional Onam Sadhya.</p>
                 <p class="card-text mb-1 fw-bold">Price : 1600 (For 5
                   people)</p>
@@ -282,20 +293,21 @@
                 </div>
                 <button class="add-order-btn btn btn-primary w-100"
                   onclick="addToOrderSadhya(this,event)">
-                  <span class="btn-title">Add to Order</span> <i
-                    class="bi bi-check-circle fs-5 ms-1"></i>
+                  <span class="btn-title">Add to Order</span> 
+                  <!-- <i class="bi bi-check-circle fs-5 ms-1"></i> -->
                 </button>
               </div>
             </div>
           </div>
           <!-- Card 2 -->
           <div class="col-lg col-12 col-md-6">
-            <div class="service-card">
+            <div class="service-card d-flex d-lg-block">
               <img src="./assets/kerala-style-palada-pradhaman.jpg"
                 class="card-img-top" alt="Biryani and kebabs" loading="lazy">
               <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-fire me-2"
-                    style="color:#b45f3b;"></i>Palada Payasam</h5>
+                <h5 class="card-title">
+                  <!-- <i class="bi bi-fire me-2" style="color:#b45f3b;"></i> -->
+                    Palada Payasam</h5>
                 <p class="card-text mt-1 mb-1">kerala-style-palada-pradhaman</p>
                 <p class="card-text mb-1 fw-bold">Price : 240 - (1 Ltr)</p>
                 <small>Quantity (in Ltr)</small>
@@ -320,8 +332,8 @@
                 <!-- <span> Ltr</span>   -->
                 <button class="add-order-btn btn btn-primary w-100"
                   onclick="addToOrderPalada(this,event)">
-                  <span class="btn-title">Add to Order</span> <i
-                    class="bi bi-check-circle fs-5 ms-1"></i>
+                  <span class="btn-title">Add to Order</span>
+                  <!-- <i class="bi bi-check-circle fs-5 ms-1"></i> -->
 
                 </button>
               </div>
@@ -329,12 +341,13 @@
           </div>
           <!-- Card 2 -->
           <div class="col-lg col-12 col-md-6">
-            <div class="service-card">
+            <div class="service-card d-flex d-lg-block">
               <img src="./assets/payasam.jpg"
                 class="card-img-top" alt="Biryani and kebabs" loading="lazy">
               <div class="card-body">
-                <h5 class="card-title"><i class="bi bi-fire me-2"
-                    style="color:#b45f3b;"></i>Paripp Payasam</h5>
+                <h5 class="card-title">
+                  <!-- <i class="bi bi-fire me-2" style="color:#b45f3b;"></i> -->
+                    Paripp Payasam</h5>
                 <p class="card-text mt-1 mb-1">Palada, Paripp</p>
                 <p class="card-text mb-1 fw-bold">Price : 240 - (1 Ltr)</p>
                 <small>Quantity (in Ltr)</small>
@@ -360,14 +373,14 @@
                 <button
                   class="add-order-btn btn btn-primary w-100 d-flex align-items-center justify-content-center"
                   onclick="addToOrderParipp(this,event)">
-                  <span class="btn-title">Add to Order</span> <i
-                    class="bi bi-check-circle fs-5 ms-1"></i>
+                  <span class="btn-title">Add to Order</span> 
+                  <!-- <i class="bi bi-check-circle fs-5 ms-1"></i> -->
                 </button>
               </div>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="col-lg-4 col-md-6">
+          <div class="col-lg-4 col-md-6" id="yourOrders">
             <div class="service-card">
               <div class="card-body">
                 <h5 class="fs-6 fw-bold"><i class="bi bi-cup-straw me-2"
@@ -458,9 +471,11 @@
 
       <!-- tiny extra contact anchor -->
       <div id="contact" class="mt-5 pt-2 text-center">
-        <p class="text-muted"><i class="bi bi-clock-history me-1"></i> Reach us
-          at +91 98765 43210 · <a href="#" class="text-decoration-none"
-            style="color:#b45f3b;">book@royalplatter.in</a></p>
+        <p class="text-muted"><i class="bi bi-clock-history me-1"></i> Reach us at 
+              <span>+91 9995145913 |</span>
+              <span>+91 9496974020 |</span>
+              <span>+91 8111952801 </span>
+              <!-- <a href="#" class="text-decoration-none"style="color:#b45f3b;">book@royalplatter.in</a></p> -->
       </div>
     </div>
 
@@ -468,30 +483,29 @@
     <footer class="footer">
       <div class="container text-center">
         <p class="mb-0"><i class="bi bi-cup-hot-fill me-2"
-            style="color:#7a5d43;"></i> Royal Platter · Jaipur, Rajasthan ·
-          <span class="fst-italic">since 2008</span></p>
+            style="color:#7a5d43;"></i> Nila Treat · Edappal , Kudalloor ·
+          <!-- <span class="fst-italic">since 2008</span></p> -->
         <p class="small mb-0 mt-1 text-secondary-emphasis">Catering & Event
-          Management · Designed with <i class="bi bi-suit-heart-fill"
-            style="color:#b45f3b; font-size: 0.8rem;"></i> for Indian
-          celebrations</p>
+          Management</a>
+        </p>
+        <p class="small mb-0 mt-1">Developed by <a href="/" target="_blank">Cmfy Digital</p>
       </div>
       <!-- footer  -->
-       <div class="container py-5">
+       <!-- <div class="container py-5"> -->
 
     <!-- Open Modal Button -->
-    <button
+    <!-- <button
         type="button"
         class="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#confirmModal"
     >
         Confirm Action
-    </button>
+    </button> -->
 
-</div>
+<!-- </div> -->
 
 
-<!-- Confirm Modal -->
 <div
     class="modal fade"
     id="confirmModal"
@@ -546,7 +560,8 @@
 
         </div>
     </div>
-</div>
+</div><!-- Confirm Modal -->
+
 
 
 <!-- Bootstrap 5 JS -->
