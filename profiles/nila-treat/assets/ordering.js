@@ -9,8 +9,8 @@
     }
     function addToOrderSadhya(element,event) {
       const input = document.querySelector('#sadhyaCount');
-      // const value = parseInt(input.value) || 1;
-      const value = parseInt(input.value);
+      const value = parseInt(input.value) || 1;
+      // const value = parseInt(input.value);
       console.log("Added to order: Onam Sadhya quantity:", value);
       const summarySadhyaCount = document.querySelector('#summarySadhyaCount');
       summarySadhyaCount.textContent = value;
@@ -21,17 +21,17 @@
       }else {
         alert("Added to order: Onam Sadhya quantity: " + value + " people");
         const btnTitle = element.querySelector('.btn-title');
-        if(btnTitle) {
-          btnTitle.textContent = "Added to Order";
-        }
+        // if(btnTitle) {
+        //   btnTitle.textContent = "Added to Order";
+        // }
         element.classList.add('selected'); // Add a class to indicate the button has been clicked
       }
       PriceCalculation(); // Call the price calculation function after adding to order
     }
     function addToOrderPalada(element,event) {
       const input = document.querySelector('#paladaCount');
-      // const value = parseInt(input.value) || 1;
-      const value = parseInt(input.value);
+      const value = parseInt(input.value) || 1;
+      // const value = parseInt(input.value);
       console.log("Added to order: Palada Payasam quantity:", value);
       const summaryPaladaCount = document.querySelector('#summaryPaladaCount');
       summaryPaladaCount.textContent = value + 'Ltrs';
@@ -41,18 +41,18 @@
         return;
       }else {
         alert("Added to order: Palada Payasam quantity: " + value + " Ltrs");
-        const btnTitle = element.querySelector('.btn-title');
-        if(btnTitle) {
-          btnTitle.textContent = "Added to Order";
-        }
+        // const btnTitle = element.querySelector('.btn-title');
+        // if(btnTitle) {
+        //   btnTitle.textContent = "Added to Order";
+        // }
         element.classList.add('selected'); // Add a class to indicate the button has been clicked
       }
       PriceCalculation(); // Call the price calculation function after adding to order
     }
     function addToOrderParipp(element,event) {
       const input = document.querySelector('#parippCount');
-      // const value = parseInt(input.value) || 1;
-      const value = parseInt(input.value);
+      const value = parseInt(input.value) || 1;
+      // const value = parseInt(input.value);
       const summaryParippCount = document.querySelector('#summaryParippCount');
       summaryParippCount.textContent = value + 'Ltrs';
       // Here you can implement logic to add the item to the order summary
@@ -62,10 +62,10 @@
       }else {
         alert("Added to order: Paripp Payasam quantity: " + value + " Ltrs");
         const btnTitle = element.querySelector('.btn-title');
-        if(btnTitle) {
+        // if(btnTitle) {
           // btnTitle.textContent = "Added to Order";
-          btnTitle.textContent = "Added to Order";
-        }
+          // btnTitle.textContent = "Added to Order";
+        // }
         element.classList.add('selected'); // Add a class to indicate the button has been clicked
       }
       PriceCalculation(); // Call the price calculation function after adding to order
@@ -144,7 +144,7 @@ Price: ₹${paladaPrice}
 
 Please confirm my order.`;
 
-    const phone = "917034763747"; // Replace with your phone number in international format without '+' or '00'
+    const phone = "919496974020"; // Replace with your phone number in international format without '+' or '00'
 
     const url =
         `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
