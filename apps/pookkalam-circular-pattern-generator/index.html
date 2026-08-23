@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular Pattern Generator</title>
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../../assets/bootstrap.min.css" rel="stylesheet">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/konva@10.3.0/konva.min.js"></script> -->
+  <script src="./assets/conva.min.js"></script>
+
+  <style>
+    :root {
+      --app-bg: #f3f5f8;
+      --panel: #ffffff;
+      --border: #dee2e6;
+      --muted: #6c757d;
+    }
+
+    body {
+      margin: 0;
+      background: var(--app-bg);
+      color: #212529;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .app-header {
+      background: #111827;
+      color: #fff;
+      min-height: 64px;
+    }
+
+    .workspace {
+      min-height: calc(100vh - 64px);
+    }
+
+    .control-panel {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+    }
+
+    .preview-area {
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        linear-gradient(45deg, #e9edf2 25%, transparent 25%),
+        linear-gradient(-45deg, #e9edf2 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e9edf2 75%),
+        linear-gradient(-45deg, transparent 75%, #e9edf2 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    }
+
+    .canvas-shell {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.12);
+      padding: 18px;
+      width: min(78vh, 760px);
+      height: min(78vh, 760px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #stage-wrap {
+      width: 100%;
+      height: 100%;
+    }
+
+    .section-title {
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .control-group {
+      padding: 18px;
+      border-bottom: 1px solid #edf0f2;
+    }
+
+    .form-range {
+      cursor: pointer;
+    }
+
+    .value-badge {
+      min-width: 42px;
+      text-align: center;
+    }
+
+    .palette {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 7px;
+    }
+
+    .swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .swatch.active {
+      border-color: #111827;
+      box-shadow: 0 0 0 2px #fff inset;
+    }
+
+    .layer-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: .88rem;
+    }
+
+    .layer-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    @media (max-width: 991.98px) {
+      .control-panel {
+        height: auto;
+        max-height: none;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .preview-area {
+        min-height: 70vh;
+      }
+
+      .canvas-shell {
+        width: min(90vw, 650px);
+        height: min(90vw, 650px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header class="app-header d-flex align-items-center px-3 px-lg-4">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <h1 class="h5 mb-0 fw-bold">Circular Pattern Generator</h1>
+        <small class="text-white-50">Radial layers • geometric shapes • color systems</small>
+      </div>
+      <div class="d-flex gap-2">
+        <button id="randomBtn" class="btn btn-sm btn-outline-light">Randomize</button>
+        <button id="downloadBtn" class="btn btn-sm btn-light">Export PNG</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container-fluid">
+  <div class="row workspace">
+
+    <aside class="col-lg-3 col-xl-2 control-panel p-0">
+      <div class="control-group">
+        <div class="section-title">Base</div>
+
+        <label class="form-label small">Circle size</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="circleSize" class="form-range" type="range" min="240" max="700" value="520">
+          <span id="circleSizeValue" class="badge text-bg-light value-badge">520</span>
+        </div>
+
+        <label class="form-label small mt-2">Background</label>
+        <input id="background" class="form-control form-control-color w-100" type="color" value="#ffffff">
+
+        <div class="form-check form-switch mt-3">
+          <input id="showBorder" class="form-check-input" type="checkbox" checked>
+          <label class="form-check-label small" for="showBorder">Circle boundary</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">Radial structure</div>
+
+        <label class="form-label small">Layers / rings</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="rings" class="form-range" type="range" min="1" max="9" value="5">
+          <span id="ringsValue" class="badge text-bg-light value-badge">5</span>
+        </div>
+
+        <label class="form-label small mt-2">Segments</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="segments" class="form-range" type="range" min="2" max="32" value="12">
+          <span id="segmentsValue" class="badge text-bg-light value-badge">12</span>
+        </div>
+
+        <label class="form-label small mt-2">Ring spacing</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="ringGap" class="form-range" type="range" min="0" max="25" value="5">
+          <span id="ringGapValue" class="badge text-bg-light value-badge">5</span>
+        </div>
+
+        <label class="form-label small mt-2">Segment gap</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="segmentGap" class="form-range" type="range" min="0" max="12" value="2">
+          <span id="segmentGapValue" class="badge text-bg-light value-badge">2°</span>
+        </div>
+
+        <label class="form-label small mt-2">Start angle</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="startAngle" class="form-range" type="range" min="0" max="359" value="0">
+          <span id="startAngleValue" class="badge text-bg-light value-badge">0°</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">Shape</div>
+
+        <select id="shape" class="form-select form-select-sm">
+          <option value="arc">Arc segments</option>
+          <option value="circle">Circles</option>
+          <option value="square">Squares</option>
+          <option value="triangle">Triangles</option>
+          <option value="diamond">Diamonds</option>
+          <option value="star">Stars</option>
+        </select>
+
+        <label class="form-label small mt-3">Shape scale</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="shapeScale" class="form-range" type="range" min="30" max="120" value="82">
+          <span id="shapeScaleValue" class="badge text-bg-light value-badge">82%</span>
+        </div>
+
+        <label class="form-label small mt-2">Rotation offset</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="rotationOffset" class="form-range" type="range" min="-45" max="45" value="0">
+          <span id="rotationOffsetValue" class="badge text-bg-light value-badge">0°</span>
+        </div>
+
+        <div class="form-check form-switch mt-3">
+          <input id="alternate" class="form-check-input" type="checkbox" checked>
+          <label class="form-check-label small" for="alternate">Alternate shape rotation</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">Color system</div>
+
+        <select id="paletteSelect" class="form-select form-select-sm">
+          <option value="sunset">Sunset</option>
+          <option value="ocean">Ocean</option>
+          <option value="forest">Forest</option>
+          <option value="candy">Candy</option>
+          <option value="mono">Monochrome</option>
+          <option value="custom">Custom palette</option>
+        </select>
+
+        <div id="palette" class="palette mt-3"></div>
+
+        <div id="customColors" class="mt-3 d-none">
+          <div class="row g-2">
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#ff6b6b"></div>
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#ffd93d"></div>
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#6bcB77"></div>
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#4d96ff"></div>
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#845ec2"></div>
+            <div class="col-4"><input class="form-control form-control-color custom-color" type="color" value="#22223b"></div>
+          </div>
+        </div>
+
+        <label class="form-label small mt-3">Color variation</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="colorVariation" class="form-range" type="range" min="0" max="100" value="20">
+          <span id="colorVariationValue" class="badge text-bg-light value-badge">20%</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">Variation</div>
+
+        <label class="form-label small">Randomness</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="randomness" class="form-range" type="range" min="0" max="100" value="8">
+          <span id="randomnessValue" class="badge text-bg-light value-badge">8%</span>
+        </div>
+
+        <label class="form-label small mt-2">Center size</label>
+        <div class="d-flex align-items-center gap-2">
+          <input id="centerSize" class="form-range" type="range" min="0" max="45" value="10">
+          <span id="centerSizeValue" class="badge text-bg-light value-badge">10%</span>
+        </div>
+
+        <div class="form-check form-switch mt-3">
+          <input id="mirror" class="form-check-input" type="checkbox">
+          <label class="form-check-label small" for="mirror">Mirror every second segment</label>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <div class="section-title">Generated layers</div>
+        <div id="layerList"></div>
+        <div class="hint mt-2">The generator keeps the pattern inside a circular mask and builds each ring independently.</div>
+      </div>
+    </aside>
+
+    <section class="col-lg-9 col-xl-10 preview-area">
+      <div class="canvas-shell">
+        <div id="stage-wrap"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+  const palettes = {
+    sunset: ['#FF6B6B','#FF9F1C','#FFD166','#EF476F','#8E5EA2','#5B2C6F'],
+    ocean: ['#003049','#0077B6','#00B4D8','#48CAE4','#90E0EF','#CAF0F8'],
+    forest: ['#1B4332','#2D6A4F','#40916C','#74C69D','#95D5B2','#D8F3DC'],
+    candy: ['#FF70A6','#FF9770','#FFD670','#E9FF70','#70D6FF','#A06CD5'],
+    mono: ['#111827','#374151','#6B7280','#9CA3AF','#D1D5DB','#F3F4F6']
+  };
+
+  let currentPalette = palettes.sunset;
+  let stage, mainLayer, patternGroup, boundaryLayer;
+
+  const $ = id => document.getElementById(id);
+
+  function initStage() {
+    const wrap = $('stage-wrap');
+    const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+    stage = new Konva.Stage({
+      container: 'stage-wrap',
+      width: size,
+      height: size
+    });
+
+    boundaryLayer = new Konva.Layer();
+    mainLayer = new Konva.Layer();
+    stage.add(boundaryLayer);
+    stage.add(mainLayer);
+
+    generate();
+  }
+
+  function val(id) {
+    return Number($(id).value);
+  }
+
+  function rand(amount) {
+    return (Math.random() - 0.5) * amount;
+  }
+
+  function hexToRgb(hex) {
+    const n = hex.replace('#','');
+    return {
+      r: parseInt(n.substring(0,2),16),
+      g: parseInt(n.substring(2,4),16),
+      b: parseInt(n.substring(4,6),16)
+    };
+  }
+
+  function rgbToHex(r,g,b) {
+    return '#' + [r,g,b].map(v => Math.max(0,Math.min(255,Math.round(v)))
+      .toString(16).padStart(2,'0')).join('');
+  }
+
+  function varyColor(hex, amount) {
+    const c = hexToRgb(hex);
+    const n = amount * 2.55;
+    return rgbToHex(c.r + rand(n), c.g + rand(n), c.b + rand(n));
+  }
+
+  function polar(cx, cy, radius, angle) {
+    const a = angle * Math.PI / 180;
+    return {
+      x: cx + Math.cos(a) * radius,
+      y: cy + Math.sin(a) * radius
+    };
+  }
+
+  function addArc(cx, cy, innerR, outerR, start, end, fill) {
+    const shape = new Konva.Shape({
+      fill,
+      sceneFunc(ctx, shape) {
+        const gap = 0.0001;
+        const s = (start + gap) * Math.PI / 180;
+        const e = (end - gap) * Math.PI / 180;
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, outerR, s, e);
+        ctx.arc(cx, cy, innerR, e, s, true);
+        ctx.closePath();
+        ctx.fillStrokeShape(shape);
+      }
+    });
+    patternGroup.add(shape);
+  }
+
+  function addRadialShape(type, cx, cy, radius, angle, size, fill, rotation) {
+    const p = polar(cx, cy, radius, angle);
+
+    if (type === 'circle') {
+      patternGroup.add(new Konva.Circle({
+        x: p.x, y: p.y, radius: size / 2,
+        fill, rotation
+      }));
+    } else if (type === 'square') {
+      patternGroup.add(new Konva.Rect({
+        x: p.x, y: p.y,
+        width: size, height: size,
+        offsetX: size/2, offsetY: size/2,
+        fill, rotation, cornerRadius: size * .08
+      }));
+    } else if (type === 'diamond') {
+      patternGroup.add(new Konva.RegularPolygon({
+        x: p.x, y: p.y, sides: 4, radius: size/1.35,
+        fill, rotation: rotation + 45
+      }));
+    } else if (type === 'triangle') {
+      patternGroup.add(new Konva.RegularPolygon({
+        x: p.x, y: p.y, sides: 3, radius: size/1.25,
+        fill, rotation: rotation + 30
+      }));
+    } else if (type === 'star') {
+      patternGroup.add(new Konva.Star({
+        x: p.x, y: p.y,
+        numPoints: 5,
+        innerRadius: size * .24,
+        outerRadius: size * .56,
+        fill, rotation
+      }));
+    }
+  }
+
+  function generate() {
+    if (!stage) return;
+
+    boundaryLayer.destroyChildren();
+    mainLayer.destroyChildren();
+
+    const size = val('circleSize');
+    const bg = $('background').value;
+    const rings = val('rings');
+    const segments = val('segments');
+    const ringGap = val('ringGap');
+    const segmentGap = val('segmentGap');
+    const startAngle = val('startAngle');
+    const shape = $('shape').value;
+    const shapeScale = val('shapeScale') / 100;
+    const rotationOffset = val('rotationOffset');
+    const randomness = val('randomness');
+    const centerSize = val('centerSize') / 100;
+    const colorVariation = val('colorVariation');
+    const alternate = $('alternate').checked;
+    const mirror = $('mirror').checked;
+
+    const W = stage.width();
+    const H = stage.height();
+    const cx = W / 2;
+    const cy = H / 2;
+    const maxR = Math.min(W,H) / 2 - 4;
+    const scale = maxR / (size / 2);
+    const R = maxR;
+
+    // White/background disk
+    boundaryLayer.add(new Konva.Circle({
+      x: cx, y: cy, radius: R,
+      fill: bg
+    }));
+
+    // Everything in this group is clipped to the master circle.
+    patternGroup = new Konva.Group({
+      clipFunc: ctx => {
+        ctx.beginPath();
+        ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      }
+    });
+
+    mainLayer.add(patternGroup);
+
+    // Inner circular void.
+    const innerVoid = R * centerSize;
+    const usableR = R - innerVoid;
+
+    for (let ring = 0; ring < rings; ring++) {
+      const ringThickness = usableR / rings;
+      const innerR = innerVoid + ring * ringThickness + ringGap * scale / 2;
+      const outerR = innerVoid + (ring + 1) * ringThickness - ringGap * scale / 2;
+
+      if (outerR <= innerR) continue;
+
+      const angleStep = 360 / segments;
+
+      for (let seg = 0; seg < segments; seg++) {
+        let a1 = startAngle + seg * angleStep + segmentGap / 2;
+        let a2 = startAngle + (seg + 1) * angleStep - segmentGap / 2;
+
+        const localRandom = randomness * angleStep / 100;
+        a1 += rand(localRandom);
+        a2 += rand(localRandom);
+
+        const baseColor = currentPalette[(ring + seg) % currentPalette.length];
+        const fill = varyColor(baseColor, colorVariation);
+
+        if (shape === 'arc') {
+          addArc(cx, cy, innerR, outerR, a1, a2, fill);
+        } else {
+          const radius = (innerR + outerR) / 2;
+          const cellSize = Math.min(
+            (outerR - innerR) * shapeScale,
+            radius * (angleStep * Math.PI / 180) * .72 * shapeScale
+          );
+
+          const rot = rotationOffset +
+            (alternate && (seg + ring) % 2 ? 180 : 0) +
+            (mirror && seg % 2 ? -45 : 0) +
+            rand(randomness * 1.2);
+
+          addRadialShape(shape, cx, cy, radius + rand(randomness * scale), a1 + angleStep/2, cellSize, fill, rot);
+        }
+      }
+    }
+
+    // Center.
+    if (centerSize > 0) {
+      mainLayer.add(new Konva.Circle({
+        x: cx, y: cy,
+        radius: innerVoid,
+        fill: bg
+      }));
+    }
+
+    if ($('showBorder').checked) {
+      boundaryLayer.add(new Konva.Circle({
+        x: cx, y: cy, radius: R,
+        stroke: '#111827',
+        strokeWidth: Math.max(1, 2 * scale),
+        listening: false
+      }));
+    }
+
+    mainLayer.batchDraw();
+    boundaryLayer.batchDraw();
+
+    updateLayerList();
+  }
+
+  function updateLayerList() {
+    const colors = currentPalette;
+    $('layerList').innerHTML = colors.map((c,i) => `
+      <div class="layer-row">
+        <span class="layer-dot" style="background:${c}"></span>
+        <span class="flex-grow-1">Palette ${i + 1}</span>
+        <span class="text-muted">${c}</span>
+      </div>
+    `).join('');
+  }
+
+  function bindRange(id, suffix='') {
+    const input = $(id);
+    const output = $(id + 'Value');
+    const update = () => {
+      output.textContent = input.value + suffix;
+      generate();
+    };
+    input.addEventListener('input', update);
+    update();
+  }
+
+  [
+    ['circleSize',''],
+    ['rings',''],
+    ['segments',''],
+    ['ringGap',''],
+    ['segmentGap','°'],
+    ['startAngle','°'],
+    ['shapeScale','%'],
+    ['rotationOffset','°'],
+    ['colorVariation','%'],
+    ['randomness','%'],
+    ['centerSize','%']
+  ].forEach(([id,suffix]) => bindRange(id,suffix));
+
+  ['background','showBorder','shape','alternate','mirror'].forEach(id => {
+    $(id).addEventListener('input', generate);
+    $(id).addEventListener('change', generate);
+  });
+
+  function renderPalette() {
+    $('palette').innerHTML = currentPalette.map((color, index) => `
+      <button class="swatch ${index === 0 ? 'active' : ''}"
+              style="background:${color}"
+              title="${color}"
+              data-index="${index}"></button>
+    `).join('');
+
+    document.querySelectorAll('.swatch').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  }
+
+  $('paletteSelect').addEventListener('change', e => {
+    const isCustom = e.target.value === 'custom';
+    $('customColors').classList.toggle('d-none', !isCustom);
+
+    if (!isCustom) {
+      currentPalette = palettes[e.target.value];
+      renderPalette();
+      generate();
+    }
+  });
+
+  document.querySelectorAll('.custom-color').forEach(input => {
+    input.addEventListener('input', () => {
+      currentPalette = [...document.querySelectorAll('.custom-color')].map(x => x.value);
+      renderPalette();
+      generate();
+    });
+  });
+
+  $('randomBtn').addEventListener('click', () => {
+    const names = Object.keys(palettes);
+    $('paletteSelect').value = names[Math.floor(Math.random() * names.length)];
+    currentPalette = palettes[$('paletteSelect').value];
+
+    $('rings').value = 2 + Math.floor(Math.random() * 7);
+    $('segments').value = 5 + Math.floor(Math.random() * 20);
+    $('ringGap').value = Math.floor(Math.random() * 15);
+    $('segmentGap').value = Math.floor(Math.random() * 7);
+    $('startAngle').value = Math.floor(Math.random() * 360);
+    $('shapeScale').value = 55 + Math.floor(Math.random() * 40);
+    $('rotationOffset').value = -30 + Math.floor(Math.random() * 61);
+    $('randomness').value = Math.floor(Math.random() * 30);
+    $('colorVariation').value = Math.floor(Math.random() * 45);
+    $('centerSize').value = Math.floor(Math.random() * 25);
+    $('shape').value = ['arc','circle','square','triangle','diamond','star'][Math.floor(Math.random()*6)];
+
+    document.querySelectorAll('.form-range').forEach(input => input.dispatchEvent(new Event('input')));
+    renderPalette();
+    generate();
+  });
+
+  $('downloadBtn').addEventListener('click', () => {
+    const dataURL = stage.toDataURL({
+      pixelRatio: 3,
+      mimeType: 'image/png'
+    });
+
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = 'circular-pattern.png';
+    a.click();
+  });
+
+  window.addEventListener('resize', () => {
+    const wrap = $('stage-wrap');
+    const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+    if (!stage) return;
+    stage.size({width:size, height:size});
+    generate();
+  });
+
+  renderPalette();
+  window.addEventListener('load', initStage);
+</script>
+</body>
+</html>
