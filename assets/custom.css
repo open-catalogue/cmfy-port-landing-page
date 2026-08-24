@@ -2,6 +2,21 @@ html{
   --bs-success-rgb:80, 200, 120 !important;
   --bs-success-rgb:64, 182, 103 !important;
   --bs-btn-bg: var(--bs-success-rgb) !important;
+
+  --bs-primary-rgb: 80, 200, 120 !important;
+
+}
+:root {
+  /* The solid hex color */
+  --bs-primary: #50C878; 
+  --bs-primary-rgb: 80, 200, 120 !important;
+  /* The raw RGB values used for translucent utilities */
+  /* --bs-primary-rgb: 255, 87, 51;  */
+  
+  /* Subtle variations added in v5.3 for alerts and states */
+  /* --bs-primary-bg-subtle: #ffebe6;
+  --bs-primary-border-subtle: #ffc2b3;
+  --bs-primary-text-emphasis: #99240c; */
 }
 .btn-success{
   background-color: RGBA(var(--bs-success-rgb),var(--bs-bg-opacity,1)) !important;
