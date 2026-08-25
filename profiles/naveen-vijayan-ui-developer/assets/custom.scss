@@ -1,0 +1,137 @@
+body{
+    font-size: 15px;
+    font-family: 'inter-regular', sans-serif;
+    line-height: 1.5;
+    // --bs-body-font-family: 'inter-regular', sans-serif;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+@font-face {
+    font-family: 'inter-regular';
+    src: url('./fonts/Inter/static/Inter_18pt-Regular.ttf');
+}
+.banner-text-gradient{
+    font-size: 72px;
+    background: -webkit-linear-gradient(#9845E8 20%, #33D2FF 55%, #DD5789 100%);
+    // background: linear-gradient(to right #9845E8 0%, #33D2FF 55%, #DD5789 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.object-fit-cover{
+    object-fit: cover;
+}
+
+.project-card{
+    &--top-img{
+        width: 100%;
+        height: 15rem;
+        @media only screen and (min-device-width: 768px){
+            height: 14.5rem;
+        }
+
+    }
+}
+
+// project cards top images
+.project-card-1{
+    background-image: url('./images/projects/Sugar-Cream.png');
+}
+.project-card-2{
+    background-image: url('./images/projects/rectangles.png');
+}
+.project-card-3{
+    background-image: url('./images/projects/Earth.png');
+}
+.project-card-4{
+    background-image: url('./images/projects/Sweet-Rain.png');
+}
+.project-card-5{
+    background-image: url('./images/projects/Cold-Breeze.png');
+}
+.project-card-6{
+    background-image: url('./images/projects/Ice-Cream.png');
+}
+.project-card-7{
+    background-image: url('./images/projects/Red-Sun.png');
+}
+
+.social-icon-text{
+    font-size: 0.95rem !important;
+}
+.theme-switch-btn{
+    height: 2rem !important;
+}
+
+.pos-ft{
+    position: fixed;
+    top: 0;
+    // width: 100%;
+    // background-color: white;
+}
+.navbar{
+    background-color: white;
+}
+.instagram-color{
+    color: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+}
+.w-lg-auto{
+    @media (min-width: 992px) {
+        width: auto !important;
+    }
+}
+@media (max-width: 768px) {
+    .w-sm-100 {
+        width: 100% !important;
+    }
+}
+@media (max-width: 768px) {
+    .d-sm-block {
+        display: block;
+    }
+}
+
+element {
+  visibility: visible;
+
+}
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  left: 0;
+
+  top: 55px !important;
+
+  height: 39px;
+
+  width: 100%;
+
+  z-index: 10000001;
+
+  position: fixed;
+
+  border: none;
+
+    border-bottom-width: medium;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+
+  border-bottom: 1px solid #6B90DA;
+
+  margin: 0;
+
+  box-shadow: 0 0 8px 1px #999;
+
+}
+.yt-video {
+  width: 100% !important;
+  height: 18rem !important;
+}
+.text-gray{
+    color:gray !important;
+}
