@@ -79,7 +79,9 @@
     <link rel="stylesheet" href="./assets/chatbot.css">
     <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://analytics.ahrefs.com/analytics.js"
       data-key="sKOJ7bh/X4XsRMn1IBKdPQ" async></script>
     <!-- minimal custom CSS – only where bootstrap utilities are not enough -->
@@ -91,14 +93,31 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5FBNCRJ4');</script>
+
     <!-- End Google Tag Manager -->
     <style>
     /* custom only for fine typography and minimal hover effects */
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       background-color: #ffffff;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family:  Roboto, 'Helvetica Neue', sans-serif;
       --bs-primary-rgb: 99, 159, 247; 
       /* custom primary color (dark gray) */
+      font-size: 1rem;
+    }
+    /* <weight>: Use a value from 100 to 900
+// <uniquifier>: Use a unique and descriptive class name */
+    .roboto-regular {
+      font-family: "Roboto", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 100;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
     }
     .hero-title {
       font-size: clamp(2.5rem, 10vw, 5.5rem);
@@ -149,7 +168,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <!-- ████████ NAVBAR (fully responsive, minimal) -->
-    <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top fixed">
+    <nav class="navbar navbar-expand-lg bg-white py-3 fixed-top fixed shadow-sm">
       <div class="container">
         <a class="navbar-brand fw-semibold fs-3 text-dark" href="/">cmfy Spot</a>
         <button class="navbar-toggler border-0" type="button"
@@ -162,11 +181,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
             <li class="nav-item bg-dange my-2 my-lg-0 text-white"><a
                 class="nav-link text-success fw-semibold"
-                href="/designs.html">Designs</a></li>
+                href="/designs.html">Page Designs</a></li>
             <li
               class="nav-item bg-dange my-2 my-lg-0 ms-0 ms-lg-2 text-white"><a
                 class="nav-link text-success fw-semibold"
-                href="./creator-page.html">Create Your page</a></li>
+                href="./creator-page.html">Services</a></li>
             <li
               class="nav-item bg-dange my-2 my-lg-0 ms-0 ms-lg-2 text-white"><a
                 class="nav-link text-success fw-semibold"
@@ -221,7 +240,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <section class="py-5" id="CreatorsProfessionals">
       <div class="container py-lg-4">
         <h2
-          class="display-6 text-start text-secondary fw-bold lh-1 text-center mb-5">Creators & Professionals</h2>
+          class="fs-2 text-start text-secondary fw-bold lh-1 border-bottom pb-3 border-2 text-center mb-5">Creators & Professionals</h2>
             <div class="row g-4" id="profilesGrid">
       
       <!-- Profile Card 1 -->
@@ -298,7 +317,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </div>
       </div>
     </section>
+    <section>
+      <div class="container">
+        <h2 class="fs-2 text-start text-secondary fw-bold lh-1 border-bottom pb-3 border-2 text-center mb-5">About Cmfy Portal</h2>
+       <p> Cmfy Portal is a web portal designed to help people discover creators, professionals, businesses, and interesting places near them. It focuses on independent creators, gaming centres, aesthetic food spots, small businesses, local stores, and other unique services.
+</p>
+<p>
+The portal also provides **digital product and service catalogues** for businesses, helping them showcase their products and services online in a simple and well-organized way.
+</p>
 
+<p> Cmfy Port primarily focuses on **Edappal and nearby areas along the Malappuram–Thrissur border**, while profiles from other locations can also be added to the portal.
+</p>
+<p> can use Cmfy Port to discover **local businesses, professionals, creators, products, and services**. With its marketplace-oriented approach, the portal can also serve as a platform for connecting customers with businesses and independent professionals.
+</p>
+<p> owners, creators, and professionals can create **customized profile pages** on Cmfy Port to showcase their work, products, services, contact information, and other details. Different page design templates are available on the <a target="_blank" class="text-decoration-none text-success" href="./designs.html">Designs </a> page.
+</p>
+<p> Cmfy Port is currently in its **early development phase**, profile pages are being offered **completely free of charge** to creators, professionals, and business owners.
+</p>
+      </div>
+    </section>
     <!-- ████████ FOOTER – minimal, three columns, small type -->
     <footer class="footer py-5 mt-4">
       <div class="container">
@@ -314,7 +351,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                   class="text-decoration-none fw-semibold text-dark border-botto border-dark border-1 pb-0">Creators & Professionals</a></li>
               <li class="mb-2"><a href="./creator-page.html" target="_blank"
                   class="text-decoration-none fw-semibold text-dark border-botto border-dark border-1 pb-0">
-                 Create Your page </a></li>
+                 Services </a></li>
               <!-- <li class="mb-2"><a href="#" class="text-decoration-none text-dark fw-semibold border-botto border-dark border-1 pb-0">careers</a></li> -->
             </ul>
           </div>
