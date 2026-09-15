@@ -9,6 +9,8 @@
     <link href="../assets/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/custom.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/chatbot.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- minimal custom CSS – only where bootstrap utilities are not enough -->
     <style>
     /* custom only for fine typography and minimal hover effects */
@@ -76,7 +78,7 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
             <li class="nav-item bg-dange my-2 my-lg-0 text-white"><a
                 class="nav-link text-success px-3"
-                href="/services.html">Services</a></li>
+                href="/services/">Services</a></li>
             <li
               class="nav-item bg-dange my-2 my-lg-0 ms-0 ms-lg-2 text-white"><a
                 class="nav-link text-success px-3" href="/blogs/">Blogs</a></li>
@@ -187,28 +189,41 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-md-4">
-            <h6 class="text-uppercase fw-semibold mb-3 fs-6">cmfy</h6>
-            <p class="small text-secondary">Your comfy digital space.</p>
+            <a href="/" class="text-uppercase text-secondary text-decoration-none fw-semibold mb-3 fs-6">cmfy</a>
+            <p class="small text-secondary">Explore inspiring work, useful services, local stores &
+              businesses..</p>
           </div>
           <div class="col-md-2">
             <!-- <h6 class="text-uppercase fw-semibold mb-3 fs-6">info</h6> -->
             <ul class="list-unstyled small">
-              <li class="mb-2"><a href="#servicesSection"
+              <li class="mb-2"><a href="/services/"
                   class="text-decoration-none fw-semibold text-dark border-botto border-dark border-1 pb-0">Services</a></li>
-              <li class="mb-2"><a href="./designs.html"
+              <li class="mb-2"><a href="/designs/"
                   class="text-decoration-none fw-semibold text-dark border-botto border-dark border-1 pb-0">Explore
                   Designs</a></li>
               <!-- <li class="mb-2"><a href="#" class="text-decoration-none text-dark fw-semibold border-botto border-dark border-1 pb-0">careers</a></li> -->
             </ul>
           </div>
-          <!-- <div class="col-md-2">
-          <h6 class="text-uppercase fw-semibold mb-3 fs-6">social</h6>
-          <ul class="list-unstyled small">
-            <li class="mb-2"><a href="#" class="text-decoration-none text-dark border-bottom border-dark border-1 pb-0">instagram</a></li>
-            <li class="mb-2"><a href="#" class="text-decoration-none text-dark border-bottom border-dark border-1 pb-0">linkedin</a></li>
-            <li class="mb-2"><a href="#" class="text-decoration-none text-dark border-bottom border-dark border-1 pb-0">pinterest</a></li>
-          </ul>
-        </div> -->
+          <div class="col-md-2">
+            <h6 class="text-uppercase fw-semibold mb-3 fs-6">social</h6>
+            <ul class="list-unstyled small">
+              <!-- <li class="mb-2"><a href="#" class="text-decoration-none text-dark border-bottom border-dark border-1 pb-0">instagram</a></li> -->
+              <li class="mb-2"><a
+                  href="https://wa.me/7034763747?text=Hi, I just visited your website"
+                  class="text-decoration-none text-dark text-dark  border-dark border-1"
+                  target="_blank"><i class="fab fa-whatsapp"></i>
+                  Whatsapp</a></li>
+              <li class="mb-2"><a
+                  href="https://www.linkedin.com/in/naveen-vijayan-frontend/"
+                  target="_blank"
+                  class="text-decoration-none text-dark  border-dark border-1 pb-0"><i
+                    class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li class="mb-2"><a href="mailto:naveenvtechdev@gmail.com"
+                  target="_blank"
+                  class="text-decoration-none text-dark  border-dark border-1 pb-0">
+                  <i class="fa fa-envelope"></i> Mail</a></li>
+            </ul>
+          </div>
           <div class="col-md-4 text-md-end">
             <p class="small text-secondary mb-1">© <span
                 id="footer-year"></span> cmfy. all rights reserved.</p>
@@ -253,7 +268,7 @@
     </div>
     <a href="https://wa.me/7034763747" target="_blank"
       class="position-fixed bottom-0 end-0 shadow-none border-0 bg-transparent">
-      <img src="./assets/icons/icons8-whatsapp-480.png" alt="WhatsApp Icon"
+      <img src="../assets/icons/icons8-whatsapp-480.png" alt="WhatsApp Icon"
         class="img-fluid hover-scale-up rounded-circle m-3"
         style="width: 85px; height: 85px;" id="chatToggle">
     </a>
