@@ -161,6 +161,77 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
     
+    /* design collage */
+    .design-collage {
+      min-height: 500px;
+    }
+
+    .design-card {
+      width: 280px;
+      position: absolute;
+      transition: transform 0.3s ease;
+    }
+
+    .design-card img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    .design-1 {
+      left: 5%;
+      top: 80px;
+      transform: rotate(-9deg);
+      z-index: 1;
+    }
+
+    .design-2 {
+      left: 25%;
+      top: 35px;
+      transform: rotate(3deg);
+      z-index: 3;
+    }
+
+    .design-3 {
+      left: 48%;
+      top: 85px;
+      transform: rotate(9deg);
+      z-index: 2;
+    }
+
+    .design-card:hover {
+      z-index: 10;
+      transform: rotate(0deg) translateY(-15px);
+    }
+
+    @media (max-width: 767px) {
+      .design-collage {
+        min-height: 430px;
+      }
+
+      .design-card {
+        width: 190px;
+      }
+
+      .design-card img {
+        height: 270px;
+      }
+
+      .design-1 {
+        left: 0;
+        top: 80px;
+      }
+
+      .design-2 {
+        left: 20%;
+        top: 35px;
+      }
+
+      .design-3 {
+        left: 40%;
+        top: 80px;
+      }
+    }
   </style>
   </head>
   <body>
@@ -226,22 +297,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <!-- <h1 class="hero-title display-1 fw-bold lh-1">
         Customized <span class="ampersand fw-light text-secondary">Professional</span><br>Portfolios for you
       </h1> -->
-        <h1 class="display-5 text-start text-secondary fw-bold lh-1 pt-5">
+        <div class="row">
+          <div class="col-lg-8">
+            <h1 class="display-5 text-start text-secondary fw-bold lh-1 pt-5">
 
-          <div class="mt-3 text-success mb-3"> <span
-              class="text-secondary">Discover </span>
-            Services in Edappal
-          </div>
-          <div class="ampersand fw-medium text-secondary mb-5 fs-5">Explore
-            inspiring work, useful services, local stores & businesses.</div>
+              <div class="mt-3 text-success mb-3 display-1"> <span
+                  class="text-secondary ">Discover </span>
+                Services in Edappal
+              </div>
+              <div class="ampersand fw-medium text-secondary mb-5 fs-5">Explore
+                inspiring work, useful services, local stores &
+                businesses.</div>
 
-        </h1>
-        <div class="text-center">
-          <a href="#CreatorsProfessionals"
-            class="btn btn-success rounded-1 px-5 py-2 text-uppercas small fw-medium">Explore
-            →</a>
-        </div>
-        <!-- <div class="fs-5 mt-2">
+            </h1>
+            <div class="">
+              <a href="#CreatorsProfessionals"
+                class="btn btn-success rounded-1 px-5 py-2 text-uppercas small fw-medium">Explore
+                →</a>
+            </div>
+            <!-- <div class="fs-5 mt-2">
           <a href="https://whatsapp.com/channel/0029Vb5wMYRLSmbVg5L7CE3I"
             class="text-decoration-none text-secondary" target="_blank"><i
               class="fab fa-whatsapp"></i></a>
@@ -253,8 +327,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             class="text-decoration-none text-secondary border-dark border-1 pb-0">
             <i class="fa fa-envelope"></i></a>
         </div> -->
-        <!-- <p class="lead text-secondary mt-4 mx-auto" style="max-width: 600px;">We believe in design that breathes. no clutter, no noise — just purpose.</p> -->
-        <!-- <p class="lead text-secondary mt-4 mx-auto" style="max-width: 600px;">Show case your works in your own taste</p> -->
+            <!-- <p class="lead text-secondary mt-4 mx-auto" style="max-width: 600px;">We believe in design that breathes. no clutter, no noise — just purpose.</p> -->
+            <!-- <p class="lead text-secondary mt-4 mx-auto" style="max-width: 600px;">Show case your works in your own taste</p> -->
+          </div>
+          <div class="col-lg-4">
+
+            <div class="design-collage position-relative">
+
+              <!-- Design 1 -->
+              <div class="design-card design-1">
+
+                <div class="card border-0 shadow-lg overflow-hidden">
+
+                  <img
+                    src="./assets/images/landing/hoyoun-lee-yqwTBPHbeJQ-unsplash.jpg"
+                    alt="Portfolio website design"
+                    class="card-img-top">
+
+                  <div class="card-body bg-white">
+                    <h6 class="fw-bold mb-1">
+                      Fine & Portrait Artists
+                    </h6>
+
+                    <small class="text-secondary">
+                      <!-- Creative Website -->
+                    </small>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- Design 2 -->
+              <div class="design-card design-2">
+
+                <div class="card border-0 shadow-lg overflow-hidden">
+
+                  <img
+                    src="./assets/images/landing/caleb-_hnL_961xTk-unsplash.jpg"
+                    alt="Business website design"
+                    class="card-img-top">
+
+                  <div class="card-body bg-white">
+                    <h6 class="fw-bold mb-1">
+                      Cafes & Food Spots
+                    </h6>
+
+                    <small class="text-secondary">
+                      Business Website
+                    </small>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- Design 3 -->
+              <div class="design-card design-3">
+
+                <div class="card border-0 shadow-lg overflow-hidden">
+
+                  <img
+                    src="./assets/images/landing/anton-savinov-aQxOYwG_GyI-unsplash.jpg"
+                    alt="Product catalogue design"
+                    class="card-img-top">
+
+                  <div class="card-body bg-white">
+                    <h6 class="fw-bold mb-1">
+                      Home services
+                    </h6>
+
+                    <small class="text-secondary">
+                      Product Catalogue
+                    </small>
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
     <section class="py-5" id="CreatorsProfessionals">
@@ -522,20 +678,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </div>
 
     </section>
-    <section class="py-5">
+    <!-- <section class="py-5">
       <div class="container pt-4">
 
         <div class="text-center mb-5">
           <h2 class=" mb-2 fs-3"><span class="fw-bold">Blogs</span>
-            <!-- <div class="text-secondary small mb-0 fs-5 mt-3">
-              Tips, tutorials and ideas for digital marketing, product catalogue
-              and digital content creation.
-            </div> -->
+
           </h2>
         </div>
 
         <div class="row g-4">
-          <!-- Blog Card 2 -->
           <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
               <a href="/blogs/digital-product-catalogue-small-business.html"
@@ -577,7 +729,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               </div>
             </article>
           </div>
-          <!-- Blog Card 2 -->
           <div class="col-md-6 col-lg-4">
             <article class="card h-100 shadow-sm border-0">
               <a href="/blogs/importance-of-portfolio-website-in-2026.html"
@@ -639,9 +790,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           </div>
 
 
-          <!-- Add future blog cards here -->
-
         </div>
+        </div>
+      </section> -->
         <section id="aboutsection">
           <div class="container py-5">
             <h2
