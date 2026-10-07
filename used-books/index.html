@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>BookNest · Discover & Rent Books</title>
+  <!-- Bootstrap 5 CSS + icons for subtle touches -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons (optional, used for rent icon) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <style>
+    /* minimal custom CSS – only where bootstrap utilities cannot easily achieve the design */
+    body {
+      background-color: #f8f9fa;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+    .book-cover {
+      height: 260px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: none;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      background: #ffffff;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12), 0 8px 15px -5px rgba(0,0,0,0.06);
+    }
+    .category-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      background-color: #eef2ff;
+      color: #4338ca;
+      padding: 0.25rem 0.9rem;
+      border-radius: 2rem;
+    }
+    .search-input {
+      max-width: 480px;
+      border-radius: 3rem;
+      padding-left: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .btn-rent {
+      background-color: #0d6efd;
+      border: none;
+      padding: 0.4rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .btn-rent:hover {
+      background-color: #0b5ed7;
+    }
+    .btn-outline-view {
+      border-radius: 2rem;
+      padding: 0.4rem 1.2rem;
+      border: 1px solid #ced4da;
+      color: #495057;
+    }
+    .btn-outline-view:hover {
+      background: #f1f3f5;
+      border-color: #adb5bd;
+    }
+    .description-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 0.9rem;
+      color: #495057;
+      line-height: 1.5;
+    }
+    .writer-name {
+      font-size: 0.85rem;
+      color: #6c757d;
+      font-weight: 500;
+    }
+    /* grid gap handled by bootstrap g-4, row-cols */
+
+    /* category slider */
+            /* Only custom CSS needed for horizontal scrolling */
+        .category-list {
+            overflow-x: auto;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+
+        .category-list::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .category-list {
+                overflow-x: visible;
+                flex-wrap: wrap;
+            }
+
+            .category-nav {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .category-wrapper {
+                padding: 0 35px;
+            }
+
+            .category-nav {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+            }
+
+            .category-prev {
+                left: 0;
+            }
+
+            .category-next {
+                right: 0;
+            }
+        }
+  </style>
+</head>
+<body class="">
+    <nav class="navbar navbar-expand-lg bg-white w-100 fixed-top top-0 py-3">
+      <div class="container">
+        <a class="navbar-brand fw-semibold fs-3 text-dark" href="/">cmfy</a>
+        <button class="navbar-toggler border-0" type="button"
+          data-bs-toggle="collapse" data-bs-target="#navbarMinimal"
+          aria-controls="navbarMinimal" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMinimal">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ms-5">
+            <li class="nav-item bg-dange my-2 my-lg-0 text-white"><a
+                class="nav-link text-success fw-semibold"
+                href="/designs/">Designs</a></li>
+            <!-- <li
+              class="nav-item bg-dange my-2 my-lg-0 ms-0 ms-lg-2 text-white"><a
+                class="nav-link text-success fw-semibold"
+                href="./profiles.html">Explore Profiles</a></li> -->
+            <li
+              class="nav-item bg-dange my-2 my-lg-0 ms-0 ms-lg-2 text-white"><a
+                class="nav-link text-success fw-semibold"
+                href="/blogs/">Blogs</a></li>
+            <!--
+          <li class="nav-item"><a class="nav-link text-dark" href="#">journal</a></li>
+          <li class="nav-item"><a class="nav-link text-dark" href="#">contact</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  <div class="container-lg py-5 mt-5 px-3 px-md-4">
+    
+    <!-- Header & Search -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-2 gap-3">
+      <div>
+        <h1 class="fw-bold mb-1 text-dark">📚 Comfy - Used books</h1>
+        <p class="text-secondary mb-0">Curated reads waiting for you</p>
+      </div>
+      <!-- <div class="w-100 w-md-auto">
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0 rounded-pill-start ps-3" id="search-icon"><i class="bi bi-search text-secondary"></i></span>
+          <input type="search" id="searchInput" class="form-control search-input border-start-0 ps-0" placeholder="Search by title, author or category..." aria-label="Search books" aria-describedby="search-icon" autocomplete="off">
+        </div>
+      </div> -->
+    </div>
+    <!-- Category Slider Section -->
+    <section class="bg-light mb-4">
+    <div class="">
+
+        <div class="category-wrapper position-relative">
+
+            <!-- Previous Button -->
+            <button
+                type="button"
+                id="categoryPrev"
+                class="category-nav category-prev btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+                style="width:36px;height:36px;"
+                aria-label="Previous categories"
+            >
+                &lsaquo;
+            </button>
+
+
+            <!-- Category List -->
+            <div
+                id="categoryList"
+                class="category-list d-flex gap-2 py-2"
+            >
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2
+                          shadow-sm active">
+                    All
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Short Stories
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Novels
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Poems
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    non-fiction
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Biography
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Education
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Travel
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Lifestyle
+                </a>
+
+                <a href="#"
+                   class="category-item flex-shrink-0 text-decoration-none
+                          text-dark bg-white border rounded px-3 py-2 shadow-sm">
+                    Entertainment
+                </a>
+
+            </div>
+
+
+            <!-- Next Button -->
+            <button
+                type="button"
+                id="categoryNext"
+                class="category-nav category-next btn btn-light rounded-circle shadow-sm d-flex align-items-center justify-content-center"
+                style="width:36px;height:36px;"
+                aria-label="Next categories"
+            >
+                &rsaquo;
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- Book Grid: 4 columns on lg, 2 on sm, 1 on mobile using row-cols -->
+    <div id="booksGrid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+      <!-- Books will be dynamically rendered by JavaScript -->
+    </div>
+
+    <!-- Empty state when no books match (hidden by default) -->
+    <div id="noResultsMessage" class="text-center py-5 d-none">
+      <i class="bi bi-bookmark-x display-3 text-muted"></i>
+      <h5 class="mt-3 text-secondary">No books found</h5>
+      <p class="text-muted">Try adjusting your search term.</p>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS + Popper for interactive components (though we use minimal js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    (function() {
+      // ----- BOOK DATA (cover images from placeholder services, realistic titles) -----
+      const books = [
+        {
+          id: 1,
+          title: "മഞ്ഞ്",
+          category: "Novel",
+          writer: "എം.ടി. വാസുദേവൻ നായർ",
+          description: "പ്രസിദ്ധ മലയാള സാഹിത്യകാരനായ എം.ടി. വാസുദേവൻ നായർ രചിച്ച് 1964-ൽ ഡി.സി. ബുക്സ് പ്രസിദ്ധീകരിച്ച പ്രശസ്തമായ ഒരു നോവലാണ് 'മഞ്ഞ്'. നൈനിറ്റാളിന്റെ പശ്ചാത്തലത്തിൽ വിമല എന്ന അധ്യാപികയുടെയും സുധീർ മിശ്രയുടെയും കാത്തിരിപ്പിന്റെയും പ്രണയത്തിന്റെയും വിരഹത്തിന്റെയും കഥയാണ് ഈ നോവൽ പറയുന്നത്..",
+          cover: "./assets/mt-.jpg"
+        },
+        {
+          id: 2,
+          title: "Leaves of Grass",
+          category: "Poem",
+          writer: "Walt Whitman",
+          description: "A timeless collection of poetry celebrating the self, nature, and the human spirit. Whitman's free verse revolutionized American literature.",
+          cover: "https://images.unsplash.com/photo-1604754742629-0e6f2a5e3e0f?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 3,
+          title: "Dune",
+          category: "Novel",
+          writer: "Frank Herbert",
+          description: "Set on the desert planet Arrakis, this epic science fiction saga blends politics, religion, and ecology in a struggle for the most valuable substance in the universe.",
+          cover: "https://images.unsplash.com/photo-1531072901881-d644216d4b67?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 4,
+          title: "The Raven",
+          category: "Poem",
+          writer: "Edgar Allan Poe",
+          description: "A narrative poem that tells of a mysterious raven's visit to a distraught lover, tracing his slow descent into madness with unforgettable rhythm.",
+          cover: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 5,
+          title: "Pride and Prejudice",
+          category: "Novel",
+          writer: "Jane Austen",
+          description: "A witty exploration of manners, marriage, and morality in Regency England. Elizabeth Bennet navigates love and misunderstanding with Mr. Darcy.",
+          cover: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 6,
+          title: "Where the Sidewalk Ends",
+          category: "Poem",
+          writer: "Shel Silverstein",
+          description: "A beloved collection of imaginative poems and drawings that invites readers into a world of whimsy, wonder, and playful language.",
+          cover: "https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 7,
+          title: "1984",
+          category: "Novel",
+          writer: "George Orwell",
+          description: "A dystopian masterpiece exploring surveillance, totalitarianism, and truth. Winston Smith struggles to retain humanity in a world controlled by Big Brother.",
+          cover: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 8,
+          title: "The Waste Land",
+          category: "Poem",
+          writer: "T.S. Eliot",
+          description: "A landmark modernist poem that captures the disillusionment of the post-World War I generation, weaving myth and fragmented narrative.",
+          cover: "https://images.unsplash.com/photo-1473186505569-9c61870c11f9?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 9,
+          title: "To Kill a Mockingbird",
+          category: "Novel",
+          writer: "Harper Lee",
+          description: "Scout Finch grows up in the segregated South, witnessing her father Atticus defend a Black man falsely accused of a crime. A story of empathy and justice.",
+          cover: "https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 10,
+          title: "The Sun and Her Flowers",
+          category: "Poem",
+          writer: "Rupi Kaur",
+          description: "A vibrant poetry collection divided into five chapters about wilting, falling, rooting, rising, and blooming. A journey of growth and healing.",
+          cover: "https://images.unsplash.com/photo-1546529468-6a96a4b74625?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 11,
+          title: "The Great Gatsby",
+          category: "Novel",
+          writer: "F. Scott Fitzgerald",
+          description: "Mysterious millionaire Jay Gatsby pursues the elusive Daisy Buchanan in a tale of love, decadence, and the American Dream during the Roaring Twenties.",
+          cover: "https://images.unsplash.com/photo-1476275466078-4007374efbbe?q=80&w=400&auto=format&fit=crop"
+        },
+        {
+          id: 12,
+          title: "Ariel",
+          category: "Poem",
+          writer: "Sylvia Plath",
+          description: "A posthumous collection of Plath's finest poems, intensely personal and filled with vivid imagery, exploring identity, nature, and rebirth.",
+          cover: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=400&auto=format&fit=crop"
+        }
+      ];
+
+      // DOM elements
+      const booksGrid = document.getElementById('booksGrid');
+      const searchInput = document.getElementById('searchInput');
+      const noResultsMessage = document.getElementById('noResultsMessage');
+
+      // Helper to generate a single book card using Bootstrap classes
+      function createBookCard(book) {
+        const colDiv = document.createElement('div');
+        colDiv.className = 'col'; // row-cols handles width; we need col for g-4 spacing
+        
+        colDiv.innerHTML = `
+          <div class="card h-100 shadow-sm">
+            <img src="${book.cover}" class="book-cover card-img-top" alt="${book.title} cover" loading="lazy">
+            <div class="card-body d-flex flex-column p-3">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title fw-semibold mb-0 me-2 text-dark">${book.title}</h5>
+                <span class="category-badge text-uppercase">${book.category}</span>
+              </div>
+              <p class="writer-name mb-2"><i class="bi bi-person-circle me-1"></i>${book.writer}</p>
+              <p class="description-text flex-grow-1 mb-3">${book.description}</p>
+              <div class="d-flex gap-2 mt-auto">
+                <button class="btn btn-rent btn-primary text-white flex-grow-1 rent-btn" data-book-title="${book.title}">
+                  <i class="bi bi-bookmark-check me-1"></i>Rent Now
+                </button>
+                <button class="btn btn-outline-view view-more-btn" data-book-title="${book.title}">
+                  View more
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+        return colDiv;
+      }
+
+      // Render books based on an array
+      function renderBooks(bookArray) {
+        // Clear grid
+        booksGrid.innerHTML = '';
+        
+        if (bookArray.length === 0) {
+          noResultsMessage.classList.remove('d-none');
+          booksGrid.classList.add('d-none'); // hide grid to show only message
+        } else {
+          noResultsMessage.classList.add('d-none');
+          booksGrid.classList.remove('d-none');
+          
+          bookArray.forEach(book => {
+            const cardElement = createBookCard(book);
+            booksGrid.appendChild(cardElement);
+          });
+        }
+        
+        // Attach event listeners to buttons after rendering
+        attachButtonEvents();
+      }
+
+      // Attach click events to rent and view more buttons (delegation not necessary but simple)
+      function attachButtonEvents() {
+        // Rent Now buttons
+        document.querySelectorAll('.rent-btn').forEach(btn => {
+          btn.removeEventListener('click', handleRentClick);
+          btn.addEventListener('click', handleRentClick);
+        });
+        
+        // View more buttons
+        document.querySelectorAll('.view-more-btn').forEach(btn => {
+          btn.removeEventListener('click', handleViewMoreClick);
+          btn.addEventListener('click', handleViewMoreClick);
+        });
+      }
+
+      function handleRentClick(e) {
+        const button = e.currentTarget;
+        const bookTitle = button.getAttribute('data-book-title') || 'this book';
+        // Bootstrap modal alternative? Simple alert styled with bootstrap look is fine.
+        alert(`📖 You've started the rental process for "${bookTitle}".\n(Checkout flow would open here.)`);
+      }
+
+      function handleViewMoreClick(e) {
+        const button = e.currentTarget;
+        const bookTitle = button.getAttribute('data-book-title') || 'the book';
+        alert(`🔍 More details about "${bookTitle}".\n(Full description, reviews, and availability would be shown.)`);
+      }
+
+      // Filter books based on search input value
+      function filterBooks() {
+        const query = searchInput.value.trim().toLowerCase();
+        
+        if (query === '') {
+          // Show all books if search is empty
+          renderBooks(books);
+          return;
+        }
+        
+        const filtered = books.filter(book => {
+          return (
+            book.title.toLowerCase().includes(query) ||
+            book.writer.toLowerCase().includes(query) ||
+            book.category.toLowerCase().includes(query) ||
+            book.description.toLowerCase().includes(query)
+          );
+        });
+        
+        renderBooks(filtered);
+      }
+
+      // Debounce utility to avoid excessive re-renders while typing
+      function debounce(func, delay) {
+        let timeoutId;
+        return function(...args) {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+          }, delay);
+        };
+      }
+
+      // Initialize page: render all books, set up search listener
+      function init() {
+        renderBooks(books);
+        
+        const debouncedFilter = debounce(filterBooks, 250);
+        searchInput.addEventListener('input', debouncedFilter);
+        
+        // Optional: clear search with escape key (little extra)
+        searchInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            searchInput.value = '';
+            filterBooks(); // reset to full list immediately
+          }
+        });
+      }
+
+      // Start everything when DOM is ready
+      window.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+  <script src="category-slider.js"></script>
+</body>
+</html>
