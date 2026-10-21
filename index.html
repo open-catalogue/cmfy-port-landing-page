@@ -150,7 +150,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     body {
       background-color: #ffffff;
       /* font-family:  Roboto, 'Helvetica Neue', sans-serif; */
-      font-family:  Inter, 'Helvetica Neue', sans-serif;
+      font-family:  Inter, 'Helvetica Neue', sans-serif !important;
       --bs-primary-rgb: 99, 159, 247; 
       /* custom primary color (dark gray) */
       font-size: 15px;
@@ -164,6 +164,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       font-style: normal;
       font-variation-settings:
         "wdth" 100;
+    }
+    .inter-regular {
+      font-family: "Inter", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 100;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
+    }
+    .nav-item .nav-link{
+      /* font-family: Inter, sans-serif !important; */
+      font-family: Roboto !important;
     }
     .hero-title {
       font-size: clamp(2.5rem, 10vw, 5.5rem);
@@ -289,7 +301,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       class="navbar navbar-expand-lg bg-white py-3 fixed-top fixed shadow-sm">
       <div class="container">
         <a
-          class="navbar-brand fw-semibold fs-4 text-dark border rounded-1 p-1 px-3 py-0"
+          class="navbar-brand fw-semibold roboto-regular fs-4 text-dark border rounded-1 p-1 px-3 py-0"
           href="#herosection">
           <svg style="width:1.5rem;" viewBox="0 0 1024 1024" class="icon"
             version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g
@@ -300,7 +312,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 fill="#5F6379"></path><path
                 d="M810.4 981.3H215.7c-70.8 0-128.4-57.6-128.4-128.4V534.2c0-23.5 19.1-42.6 42.6-42.6s42.6 19.1 42.6 42.6v318.7c0 23.8 19.4 43.2 43.2 43.2h594.8c23.8 0 43.2-19.4 43.2-43.2V534.2c0-23.5 19.1-42.6 42.6-42.6s42.6 19.1 42.6 42.6v318.7c-0.1 70.8-57.7 128.4-128.5 128.4z"
                 fill="#3688FF"></path></g></svg>
-          cmfy</a>
+         <span class="text-success">Comfy Portal</span> </a>
         <button class="navbar-toggler border-0" type="button"
           data-bs-toggle="collapse" data-bs-target="#navbarMinimal"
           aria-controls="navbarMinimal" aria-expanded="false"
