@@ -1,0 +1,939 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Read the latest story and join the conversation on ZenBlog.">
+    <title>Single Post | ZenBlog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --article-ink: #30343a;
+        --article-muted: #777c82;
+        --article-accent: #40536b;
+        --article-line: #e8e9eb;
+        --article-footer: #080808;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--article-ink);
+        background: #fff;
+        font-family: "Lora", Georgia, serif;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #6c8099;
+      }
+
+      .demo-bar {
+        position: relative;
+        display: flex;
+        height: 27px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 12px;
+        color: #fff;
+        background: #07588d;
+        font: 700 11px Arial, sans-serif;
+      }
+
+      .demo-bar a {
+        color: #fff;
+      }
+
+      .demo-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .site-header {
+        border-bottom: 1px solid #f0f0f0;
+      }
+
+      .site-header .navbar {
+        min-height: 56px;
+        padding: 0;
+      }
+
+      .site-brand {
+        margin: 0;
+        color: #292929;
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: -0.7px;
+      }
+
+      .site-brand:hover {
+        color: #292929;
+      }
+
+      .navbar-nav {
+        gap: 8px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: 15px 8px;
+        color: #5d6268;
+        font: 13px Arial, sans-serif;
+      }
+
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: var(--article-accent);
+      }
+
+      .header-socials,
+      .author-socials {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        color: #72777e;
+        font: 700 14px Arial, sans-serif;
+      }
+
+      .header-socials {
+        margin-left: 27px;
+      }
+
+      .header-socials a,
+      .author-socials a {
+        display: inline-flex;
+        min-width: 12px;
+        justify-content: center;
+      }
+
+      .page-heading {
+        padding: 11px 0;
+        border-bottom: 1px solid #f1f1f1;
+      }
+
+      .page-heading h1 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .breadcrumb {
+        font: 12px Arial, sans-serif;
+      }
+
+      .breadcrumb-item a {
+        color: #66717e;
+      }
+
+      .breadcrumb-item.active {
+        color: #8a8d92;
+      }
+
+      .page-content {
+        padding-top: 20px;
+        padding-bottom: 36px;
+      }
+
+      .post-card {
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 2px 9px rgb(0 0 0 / 8%);
+      }
+
+      .post-hero,
+      .post-inline-image {
+        display: block;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .post-hero {
+        aspect-ratio: 1.55 / 1;
+      }
+
+      .post-body {
+        padding: 14px 16px 16px;
+      }
+
+      .post-body h2 {
+        margin: 0 0 9px;
+        color: #2e3034;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 13px;
+        color: #85898e;
+        font: 12px Arial, sans-serif;
+      }
+
+      .post-body p {
+        margin: 0 0 10px;
+        color: #555a60;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .post-body blockquote {
+        display: grid;
+        min-height: 86px;
+        margin: 14px 0;
+        padding: 20px;
+        place-items: center;
+        border-left: 2px solid #8495a9;
+        background: #f5f5f5;
+        text-align: center;
+      }
+
+      .post-body blockquote p {
+        margin: 0;
+        color: #484b50;
+        font-size: 17px;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .post-body h3 {
+        margin: 14px 0 4px;
+        color: #33373c;
+        font-size: 19px;
+        font-weight: 600;
+      }
+
+      .post-inline-image {
+        margin: 12px 0;
+        aspect-ratio: 1.38 / 1;
+      }
+
+      .post-tags {
+        margin-top: 12px;
+        padding-top: 9px;
+        border-top: 1px solid #ededed;
+        color: #93979c;
+        font-size: 13px;
+      }
+
+      .post-tags a {
+        color: #767d86;
+      }
+
+      .comments-section {
+        margin-top: 20px;
+      }
+
+      .comments-section h2 {
+        margin: 0 0 13px;
+        font-size: 19px;
+        font-weight: 600;
+      }
+
+      .comment-list {
+        display: grid;
+        gap: 19px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .comment {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .comment-reply {
+        margin-left: 32px;
+      }
+
+      .comment-avatar {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        border-radius: 2px;
+        object-fit: cover;
+      }
+
+      .comment-content {
+        min-width: 0;
+      }
+
+      .comment-heading {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .comment-heading strong {
+        font-weight: 600;
+      }
+
+      .comment-heading a {
+        color: #626d79;
+        font: 12px Arial, sans-serif;
+      }
+
+      .comment-content time {
+        display: block;
+        color: #969a9e;
+        font: 11px Arial, sans-serif;
+      }
+
+      .comment-content p {
+        margin: 4px 0 0;
+        color: #62666b;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .comment-form-card {
+        margin-top: 24px;
+        padding: 16px;
+        background: #fff;
+        box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+      }
+
+      .comment-form-card h2 {
+        margin: 0 0 2px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .comment-form-card > p {
+        margin: 0 0 10px;
+        color: #777c82;
+        font-size: 13px;
+      }
+
+      .form-control {
+        min-height: 34px;
+        border-color: #dfe1e4;
+        border-radius: 2px;
+        font: 13px "Lora", Georgia, serif;
+      }
+
+      .form-control:focus {
+        border-color: #8596aa;
+        box-shadow: 0 0 0 0.15rem rgb(64 83 107 / 12%);
+      }
+
+      textarea.form-control {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .submit-button {
+        padding: 7px 13px;
+        border-radius: 2px;
+        color: #fff;
+        background: var(--article-accent);
+        font-size: 13px;
+      }
+
+      .submit-button:hover,
+      .submit-button:focus {
+        color: #fff;
+        background: #324257;
+      }
+
+      .sidebar-card {
+        margin-bottom: 18px;
+        padding: 15px;
+        border: 1px solid #e9eaec;
+        background: #fff;
+      }
+
+      .author-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 7px;
+      }
+
+      .author-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .author-header h2 {
+        margin: 0 0 2px;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
+      .author-card p {
+        margin: 0;
+        color: #85898e;
+        font-size: 13px;
+        font-style: italic;
+        line-height: 1.6;
+      }
+
+      .sidebar-title {
+        margin: 0 0 12px;
+        padding-left: 7px;
+        border-left: 3px solid var(--article-accent);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+      }
+
+      .search-form {
+        display: flex;
+        height: 32px;
+        overflow: hidden;
+        border: 1px solid #e0e2e4;
+        border-radius: 18px;
+      }
+
+      .search-form input {
+        width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+        border: 0;
+        outline: 0;
+        font: 13px Arial, sans-serif;
+      }
+
+      .search-form button {
+        width: 36px;
+        flex: 0 0 36px;
+        border: 0;
+        color: #6d747c;
+        background: transparent;
+        font-size: 18px;
+      }
+
+      .recent-posts {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .recent-posts a {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+
+      .recent-posts img {
+        width: 42px;
+        height: 36px;
+        flex: 0 0 42px;
+        object-fit: cover;
+      }
+
+      .recent-posts span {
+        display: grid;
+        min-width: 0;
+      }
+
+      .recent-posts strong {
+        color: #383b3f;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .recent-posts time {
+        color: #9a9da1;
+        font-size: 11px;
+        font-style: italic;
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tag-list a {
+        padding: 2px 8px;
+        border-radius: 14px;
+        color: #747a80;
+        background: #f1f2f3;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .tag-list a:hover {
+        color: #fff;
+        background: var(--article-accent);
+      }
+
+      .site-footer {
+        padding: 27px 0 14px;
+        color: #c2c2c2;
+        background: var(--article-footer);
+        font-size: 13px;
+      }
+
+      .footer-main {
+        padding-bottom: 21px;
+      }
+
+      .footer-brand {
+        margin: 0 0 15px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+      }
+
+      .site-footer address {
+        margin: 0;
+        font-size: 13px;
+        font-style: normal;
+        line-height: 1.8;
+      }
+
+      .site-footer h3 {
+        margin: 3px 0 11px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .site-footer ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .site-footer li {
+        margin-bottom: 5px;
+        line-height: 1.5;
+      }
+
+      .site-footer li a,
+      .site-footer .copyright a {
+        color: #b4b4b4;
+      }
+
+      .site-footer li a:hover,
+      .site-footer .copyright a:hover {
+        color: #fff;
+      }
+
+      .footer-socials {
+        display: flex;
+        gap: 7px;
+        margin-top: 12px;
+      }
+
+      .footer-socials a {
+        display: grid;
+        width: 23px;
+        height: 23px;
+        place-items: center;
+        border: 1px solid #555;
+        border-radius: 50%;
+        color: #ddd;
+        font: 700 12px Arial, sans-serif;
+      }
+
+      .copyright {
+        padding-top: 11px;
+        border-top: 1px solid #222;
+        color: #ccc;
+        text-align: center;
+        font-size: 11px;
+        line-height: 1.6;
+      }
+
+      .copyright p {
+        margin: 0;
+      }
+
+      .back-to-top {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 2px;
+        color: #fff;
+        background: var(--article-accent);
+        font: 17px Arial, sans-serif;
+      }
+
+      .back-to-top:hover {
+        color: #fff;
+        background: #324257;
+      }
+
+      @media (max-width: 767.98px) {
+        .site-header .navbar {
+          padding: 5px 0;
+        }
+
+        .navbar-nav {
+          gap: 0;
+        }
+
+        .navbar-nav .nav-link {
+          padding: 8px 0;
+        }
+
+        .header-socials {
+          margin: 8px 0 5px;
+        }
+
+        .page-heading {
+          padding: 10px 0;
+        }
+
+        .page-heading h1 {
+          font-size: 17px;
+        }
+
+        .breadcrumb {
+          font-size: 11px;
+        }
+
+        .page-content {
+          padding-top: 16px;
+        }
+
+        .post-body {
+          padding: 13px;
+        }
+
+        .post-body h2 {
+          font-size: 21px;
+        }
+
+        .post-body p {
+          font-size: 15px;
+        }
+
+        .sidebar {
+          padding-left: calc(var(--bs-gutter-x) * 0.5);
+        }
+      }
+
+      @media (max-width: 420px) {
+        .demo-title {
+          display: none;
+        }
+
+        .page-heading .container {
+          align-items: flex-start !important;
+          flex-direction: column;
+          gap: 3px;
+        }
+
+        .post-hero {
+          aspect-ratio: 1.25 / 1;
+        }
+
+        .comment-reply {
+          margin-left: 17px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="demo-bar">
+      <a class="demo-brand" href="#" aria-label="BootstrapMade home">BOOTSTRAPMADE</a>
+      <a class="demo-title" href="#">ZenBlog</a>
+      <a class="demo-download" href="#article">↓ <span>DOWNLOAD</span></a>
+    </div>
+
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md" aria-label="Main navigation">
+        <div class="container site-container">
+          <a class="navbar-brand site-brand" href="#" aria-label="ZenBlog home">ZenBlog</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavigation" aria-controls="siteNavigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="siteNavigation">
+            <ul class="navbar-nav ms-auto align-items-md-center">
+              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="#article">Single Post</a></li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#categories" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#business">Business</a></li>
+                  <li><a class="dropdown-item" href="#creative">Creative</a></li>
+                  <li><a class="dropdown-item" href="#marketing">Marketing</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+            <div class="header-socials" aria-label="Social links">
+              <a href="#x" aria-label="X">𝕏</a>
+              <a href="#facebook" aria-label="Facebook">f</a>
+              <a href="#instagram" aria-label="Instagram">◎</a>
+              <a href="#linkedin" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-heading">
+      <div class="container site-container d-flex justify-content-between align-items-center">
+        <h1>Single Post</h1>
+        <nav aria-label="Breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#home">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Single Post</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <main class="container site-container page-content">
+      <div class="row g-4">
+        <div class="col-md-8">
+          <article class="post-card" id="article">
+            <img class="post-hero" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85" alt="Developer working at a computer in a bright studio">
+            <div class="post-body">
+              <h2>Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
+              <div class="post-meta">
+                <span><span aria-hidden="true">♙</span> John Doe</span>
+                <span><span aria-hidden="true">◷</span> <time datetime="2022-01-01">Jan 1, 2022</time></span>
+                <a href="#comments"><span aria-hidden="true">▤</span> 12 Comments</a>
+              </div>
+
+              <p class="lead-copy">Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta. Et eveniet enim. Qui velit est ea doloremque dolorem.</p>
+              <p>Et repellat molestiae qui sed. Deserunt ullam voluptatem. Quia eum consequuntur et assumenda. Quia quisquam et eius ut. Aliquam aliquid quisquam aut praesentium. Cumque non inventore aperiam. Adipisci quod sit laboriosam qui veritatis voluptatem. Et animi omnis.</p>
+              <p>Sequi repellat temporibus hic atque. Qui velit nam occaecati. Sunt et rerum nam cumque eveniet. Assumenda ut et. Autem distinctio deserunt saepe praesentium laborum dolore dolores vel.</p>
+
+              <blockquote>
+                <p>Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.</p>
+              </blockquote>
+
+              <p>Sed quia laboriosam architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptatem mollitia id. Repellendus enim magnam fugiat, et suscipit. Voluptate ut enim assumenda dolorem. Atque explicabo esse omnis omnis libero.</p>
+              <p>Dolor porro tempora et quibusdam voluptas. Beatae aut ad qui tempore corrupti aspernatur rerum. Omnis dolorem necessitatibus harum quas aliquam doloribus neque. Ipsam autem atque.</p>
+
+              <h3>Et quae iure vel ut odit alias.</h3>
+              <p>Officiis animi maxime nulla quo et harum. Id hic sit consequatur quos aut. Ut aut sunt maiores. Voluptatum tenetur enim suscipit quia. Voluptatem suscipit unde. Quia quisquam et rerum. Nam earum nihil molestiae omnis.</p>
+              <p>Voluptatem ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem enim asperiores natus aperiam. Doloremque ut ex sed. Quibusdam rerum dolores sint consequatur quidem ea. Beatae minima sunt libero saepe sapiente in rem assumenda.</p>
+
+              <img class="post-inline-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1400&q=85" alt="Bright modern office lounge with floor-to-ceiling windows">
+              <h3>Ut repellat blanditiis est dolor sunt dolorum quae.</h3>
+              <p>Rerum ea incidunt architecto. Quam enim porro aut natus. Et repellat quo qui praesentium. Quo delectus libero sed occaecati aut porro autem. Consequatur sed excepturi sunt non placeat quia repellat labore.</p>
+              <p>Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi aperiam est veniam.</p>
+
+              <div class="post-tags" aria-label="Article tags">
+                <span aria-hidden="true">▱</span>
+                <a href="#business">Business</a>,
+                <a href="#creative">Creative</a>,
+                <a href="#tips">Tips</a>,
+                <a href="#marketing">Marketing</a>
+              </div>
+            </div>
+          </article>
+
+          <section class="comments-section" id="comments" aria-labelledby="comments-heading">
+            <h2 id="comments-heading">8 Comments</h2>
+            <ol class="comment-list">
+              <li class="comment">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Georgia Reader</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-01">01 Jan, 2022</time>
+                  <p>Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et est. Est ad sit sapiente quis molestiae et qui cum soluta. Vero aut rerum vel.</p>
+                </div>
+              </li>
+              <li class="comment">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Aron Alvarado</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-01">01 Jan, 2022</time>
+                  <p>Ipam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.</p>
+                </div>
+              </li>
+              <li class="comment comment-reply">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Lynda Small</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-02">02 Jan, 2022</time>
+                  <p>Enim ipsa eum fugiat repellat. Commodi quo dicta. Est ullam aspernatur ut vitae mollitia id non. Qui ad quas nostrum rem sed necessitatibus aut.</p>
+                </div>
+              </li>
+              <li class="comment comment-reply">
+                <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Sanna Ramsay</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-02">02 Jan, 2022</time>
+                  <p>Ut dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam.</p>
+                </div>
+              </li>
+              <li class="comment">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Nolan Davidson</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-03">03 Jan, 2022</time>
+                  <p>Distinctio nesciunt rerum reprehenderit sed. Est omnis eius repellendus quia nihil at accusantium tempore.</p>
+                </div>
+              </li>
+              <li class="comment">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="" class="comment-avatar">
+                <div class="comment-content">
+                  <div class="comment-heading"><strong>Kay Duggan</strong><a href="#comment-form">↩ Reply</a></div>
+                  <time datetime="2022-01-03">03 Jan, 2022</time>
+                  <p>Dolorem atque aut. Quia doloribus blanditiis quia cumque porro quis ut velit tenetur. Cumque sed quia ut maxime. Et ad aut cum.</p>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="comment-form-card" id="comment-form" aria-labelledby="comment-form-heading">
+            <h2 id="comment-form-heading">Post Comment</h2>
+            <p>Your email address will not be published. Required fields are marked *</p>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="comment-name">Your Name *</label>
+                  <input class="form-control" id="comment-name" name="name" placeholder="Your Name *" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="comment-email">Your Email *</label>
+                  <input class="form-control" id="comment-email" name="email" type="email" placeholder="Your Email *" required>
+                </div>
+                <div class="col-12">
+                  <label class="visually-hidden" for="comment-website">Your Website</label>
+                  <input class="form-control" id="comment-website" name="website" type="url" placeholder="Your Website">
+                </div>
+                <div class="col-12">
+                  <label class="visually-hidden" for="comment-message">Your Comment *</label>
+                  <textarea class="form-control" id="comment-message" name="comment" rows="4" placeholder="Your Comment *" required></textarea>
+                </div>
+                <div class="col-12 text-center">
+                  <button class="btn submit-button" type="submit">Post Comment</button>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <aside class="col-md-4 sidebar" aria-label="Blog sidebar">
+          <section class="sidebar-card author-card">
+            <div class="author-header">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=180&q=85" alt="Jane Smith" class="author-avatar">
+              <div>
+                <h2>Jane Smith</h2>
+                <div class="author-socials" aria-label="Jane Smith social links">
+                  <a href="#x" aria-label="X">𝕏</a>
+                  <a href="#facebook" aria-label="Facebook">f</a>
+                  <a href="#instagram" aria-label="Instagram">◎</a>
+                  <a href="#linkedin" aria-label="LinkedIn">in</a>
+                </div>
+              </div>
+            </div>
+            <p>Imque quidem optio quae voluptatibus dolorem dolor. Modi enim est accusamus. Quia repellat voluptatum officia molestias sunt asperiores facere. Est aut exercitationem ut vero aliquid.</p>
+          </section>
+
+          <section class="sidebar-card search-card">
+            <h2 class="sidebar-title">Search</h2>
+            <form class="search-form" role="search">
+              <label class="visually-hidden" for="site-search">Search articles</label>
+              <input id="site-search" type="search" placeholder="Search...">
+              <button type="submit" aria-label="Submit search">⌕</button>
+            </form>
+          </section>
+
+          <section class="sidebar-card recent-card">
+            <h2 class="sidebar-title">Recent Posts</h2>
+            <ul class="recent-posts">
+              <li>
+                <a href="#recent-1"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=120&q=80" alt=""><span><strong>Nihil blanditiis at in nihil autem</strong><time datetime="2022-01-01">Jan 1, 2022</time></span></a>
+              </li>
+              <li>
+                <a href="#recent-2"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=120&q=80" alt=""><span><strong>Quidem autem et impedit</strong><time datetime="2022-01-01">Jan 1, 2022</time></span></a>
+              </li>
+              <li>
+                <a href="#recent-3"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=120&q=80" alt=""><span><strong>Id quia et et ut maxime similique</strong><time datetime="2022-01-01">Jan 1, 2022</time></span></a>
+              </li>
+              <li>
+                <a href="#recent-4"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=120&q=80" alt=""><span><strong>Laborum corporis quo dara net para</strong><time datetime="2022-01-01">Jan 1, 2022</time></span></a>
+              </li>
+              <li>
+                <a href="#recent-5"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=120&q=80" alt=""><span><strong>Et dolores corrupti quae illo quod dolor</strong><time datetime="2022-01-01">Jan 1, 2022</time></span></a>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sidebar-card tags-card">
+            <h2 class="sidebar-title">Tags</h2>
+            <div class="tag-list">
+              <a href="#app">App</a><a href="#it">IT</a><a href="#business">Business</a>
+              <a href="#mac">Mac</a><a href="#design">Design</a><a href="#office">Office</a>
+              <a href="#creative">Creative</a><a href="#studio">Studio</a><a href="#smart">Smart</a>
+              <a href="#tips">Tips</a><a href="#marketing">Marketing</a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer" id="contact">
+      <div class="container site-container">
+        <div class="row g-4 footer-main">
+          <div class="col-12 col-md-4 col-lg-4">
+            <h2 class="footer-brand">ZenBlog</h2>
+            <address>
+              A108 Adam Street<br>
+              New York, NY 535022<br>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com
+            </address>
+            <div class="footer-socials" aria-label="Social links">
+              <a href="#x" aria-label="X">𝕏</a><a href="#facebook" aria-label="Facebook">f</a><a href="#instagram" aria-label="Instagram">◎</a><a href="#linkedin" aria-label="LinkedIn">in</a>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <h3>Useful Links</h3>
+            <ul><li><a href="#home">Home</a></li><li><a href="#about">About us</a></li><li><a href="#services">Services</a></li><li><a href="#terms">Terms of service</a></li><li><a href="#privacy">Privacy policy</a></li></ul>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <h3>Our Services</h3>
+            <ul><li><a href="#design">Web Design</a></li><li><a href="#development">Web Development</a></li><li><a href="#management">Product Management</a></li><li><a href="#marketing">Marketing</a></li><li><a href="#graphics">Graphic Design</a></li></ul>
+          </div>
+          <div class="col-6 col-md-6 col-lg-2">
+            <h3>Hic solutasetp</h3>
+            <ul><li><a href="#molestiae">Molestiae accusamus iure</a></li><li><a href="#excepturi">Excepturi dignissimos</a></li><li><a href="#suscipit">Suscipit distinctio</a></li><li><a href="#dilecta">Dilecta</a></li><li><a href="#sit">Sit quaerat</a></li></ul>
+          </div>
+          <div class="col-6 col-md-6 col-lg-2">
+            <h3>Nobis illum</h3>
+            <ul><li><a href="#ipsum">Ipsum</a></li><li><a href="#laudantium">Laudantium dolorum</a></li><li><a href="#dinera">Dinera</a></li><li><a href="#trodelas">Trodelas</a></li><li><a href="#flexo">Flexo</a></li></ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>© Copyright <strong>ZenBlog</strong>. All Rights Reserved</p>
+          <p>Designed by <a href="#bootstrapmade">BootstrapMade</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <a class="back-to-top" href="#" aria-label="Back to top">↑</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
