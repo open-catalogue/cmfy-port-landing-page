@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A practical five-step web development roadmap, from no-code builders to full-stack applications.">
+    <meta name="theme-color" content="#7546e8">
+    <title>Web Development Learning Roadmap | Comfy</title>
+    <link rel="icon" href="../assets/images/comfy-portal-logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="../assets/bootstrap.min.css" rel="stylesheet">
+    <style>
+      :root {
+        --accent: #7546e8;
+        --accent-dark: #5124c1;
+        --ink: #303030;
+        --muted: #737373;
+        --page: #fbfbfb;
+        --line: #e9e5f5;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--page);
+        font-family: "Inter", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      html { scroll-behavior: smooth; }
+
+      a { color: inherit; text-decoration: none; }
+
+      .site-container { width: min(86%, 1110px); margin-inline: auto; }
+
+      .site-header { min-height: 62px; }
+
+      .navbar-inner {
+        display: flex;
+        align-items: center;
+        min-height: 62px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -1px;
+      }
+
+      .brand:hover { color: #333; }
+
+      .brand-mark {
+        width: 29px;
+        height: 29px;
+        color: var(--accent);
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        padding: 76px 0 69px;
+      }
+
+      .hero::after {
+        position: absolute;
+        right: -120px;
+        bottom: -180px;
+        width: 480px;
+        height: 480px;
+        border: 1px solid #eee8ff;
+        border-radius: 50%;
+        content: "";
+      }
+
+      .hero h1 {
+        max-width: 740px;
+        color: #333;
+        font-size: clamp(36px, 5vw, 62px);
+        font-weight: 700;
+        letter-spacing: -2.8px;
+        line-height: 1.08;
+      }
+
+      .hero h1 span { color: var(--accent); }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 1.5px;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin: 21px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      .hero-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-top: 25px;
+        color: #666;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .hero-note i {
+        display: grid;
+        width: 25px;
+        height: 25px;
+        place-items: center;
+        border-radius: 50%;
+        color: var(--accent);
+        background: #f0ebff;
+        font-style: normal;
+      }
+
+      .roadmap-wrap { padding: 53px 0 80px; }
+
+      .roadmap-layout {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 54px;
+        align-items: start;
+      }
+
+      .progress-nav {
+        position: sticky;
+        top: 24px;
+      }
+
+      .progress-nav p {
+        margin: 0 0 17px;
+        color: #999;
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      .progress-list {
+        position: relative;
+        display: grid;
+        gap: 4px;
+        list-style: none;
+      }
+
+      .progress-list::before {
+        position: absolute;
+        top: 20px;
+        bottom: 20px;
+        left: 13px;
+        width: 1px;
+        background: #ddd6f2;
+        content: "";
+      }
+
+      .progress-number {
+        display: grid;
+        width: 27px;
+        height: 27px;
+        flex: 0 0 27px;
+        place-items: center;
+        border: 1px solid #ddd6f2;
+        border-radius: 50%;
+        color: #999;
+        background: var(--page);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .progress-link {
+        position: relative;
+        color: #8a8a8a;
+        line-height: 1.35;
+      }
+
+      .progress-link.active { color: var(--accent); font-weight: 700; }
+      .progress-link.active .progress-number {
+        border-color: var(--accent);
+        color: #fff;
+        background: var(--accent);
+      }
+
+      .step {
+        display: none;
+        animation: step-in 300ms ease both;
+      }
+
+      .step.active { display: block; }
+
+      @keyframes step-in {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .step-kicker::after {
+        width: 45px;
+        height: 1px;
+        background: #cfc3f4;
+        content: "";
+      }
+
+      .step h2 {
+        max-width: 680px;
+        margin: 0;
+        color: #333;
+        font-size: clamp(28px, 4vw, 42px);
+        letter-spacing: -1.5px;
+        line-height: 1.17;
+      }
+
+      .step-intro {
+        max-width: 650px;
+        margin: 16px 0 27px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+      }
+
+      .content-card {
+        margin-bottom: 22px;
+        padding: 25px;
+        border: 1px solid var(--line);
+      }
+
+      .content-card h3 {
+        margin: 0 0 17px;
+        color: #343434;
+        font-size: 16px;
+      }
+
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .chip-list a,
+      .chip-list span {
+        display: inline-flex;
+        color: #5e4d99;
+        background: #f3efff;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .chip-list a:hover {
+        color: #fff;
+        background: var(--accent);
+      }
+
+      .project {
+        min-height: 106px;
+        border-radius: 9px;
+        background: #f8f7fb;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .project {
+        width: auto;
+        flex: none;
+      }
+
+      .project-number {
+        display: block;
+        margin-bottom: 12px;
+        color: #b1a2e3;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .project strong {
+        display: block;
+        color: #4a4a4a;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .outcome {
+        display: flex;
+        gap: 13px;
+        align-items: flex-start;
+        margin: 0 0 27px;
+        padding: 16px 18px;
+        border-left: 3px solid var(--accent);
+        border-radius: 0 8px 8px 0;
+        background: #f5f1ff;
+      }
+
+      .step-actions button {
+        border: 0;
+        font: 600 12px "Inter", Arial, sans-serif;
+        cursor: pointer;
+      }
+
+      .step-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 31px;
+      }
+
+      .previous-step {
+        color: #777;
+        background: #eeeef0;
+      }
+
+      .previous-step:hover { background: #e5e3e9; }
+
+      .next-step {
+        color: #fff;
+        background: var(--accent);
+      }
+
+      .next-step:hover { background: var(--accent-dark); }
+      .next-step.is-finish { background: #292929; }
+
+      .site-footer {
+        padding: 30px 0;
+        color: #aaa;
+        background: #27242d;
+        font-size: 12px;
+        text-align: center;
+      }
+
+      @media (max-width: 767.98px) {
+        .site-container { width: min(92%, 560px); }
+        .navbar-inner { flex-wrap: wrap; }
+        .navbar-collapse { flex-basis: 100%; padding: 8px 0 15px; }
+        .navbar-nav { gap: 5px; }
+        .navbar-nav .nav-link { font-size: 13px; }
+        .hero { padding: 54px 0 49px; }
+        .hero h1 { letter-spacing: -1.8px; }
+        .progress-list { grid-template-columns: repeat(5, 1fr); gap: 0; }
+        .progress-list::before { top: 13px; right: 12%; bottom: auto; left: 12%; width: auto; height: 1px; }
+        .progress-link { display: block; padding: 0; text-align: center; }
+        .progress-number { margin: 0 auto 7px; }
+        .progress-label { display: block; padding: 0 3px; font-size: 10px; }
+        .content-card { padding: 19px; }
+        .project-grid { grid-template-columns: 1fr; }
+        .project { min-height: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header border-bottom bg-white">
+      <nav class="navbar navbar-expand-md">
+        <div class="site-container navbar-inner">
+          <a class="brand" href="../index.html" aria-label="Comfy home">
+            <!-- <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M16 3 28 9.5v13L16 29 4 22.5v-13L16 3Z" fill="none" stroke="currentColor" stroke-width="2"></path>
+              <path d="m10 13 6-3 6 3-6 3-6-3Zm0 0v6l6 3 6-3v-6" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
+            </svg> -->
+            Comfy
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#roadmapMenu" aria-controls="roadmapMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="roadmapMenu">
+            <ul class="navbar-nav align-items-md-center gap-md-4">
+              <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link active" href="#roadmap">Roadmap</a></li>
+              <li class="nav-item"><a class="nav-link" href="../blogs/index.html">Blog</a></li>
+              <!-- <li class="nav-item ms-md-3"><a class="btn btn-primary d-inline-block text-center" href="../index.html#contact">Contact us</a></li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero py-5">
+        <div class="site-container">
+          <p class="eyebrow text-primary fw-bold text-uppercase mb-3">Your practical learning path</p>
+          <h1 class="fw-bold mb-0">From first page to <span class="text-primary">full-stack builder.</span></h1>
+          <p class="hero-copy text-secondary fs-6 lh-lg my-3">A simple, project-first roadmap for learning web development. Move at your own pace, build something at every stage, and turn your practice into a portfolio.</p>
+          <div class="hero-note"><i aria-hidden="true">→</i> Five steps. Real projects. A clear next move.</div>
+        </div>
+      </section>
+
+      <section class="roadmap-wrap py-5" id="roadmap">
+        <div class="site-container roadmap-layout">
+          <aside class="progress-nav" aria-label="Roadmap steps">
+            <p class="text-secondary fw-bold text-uppercase small mb-3">Learning path</p>
+            <ol class="progress-list p-0 m-0">
+              <li><a class="progress-link active d-flex align-items-center gap-2 py-2 text-secondary small" href="#step-1" data-step-link="1"><span class="progress-number">01</span><span class="progress-label">No-code</span></a></li>
+              <li><a class="progress-link d-flex align-items-center gap-2 py-2 text-secondary small" href="#step-2" data-step-link="2"><span class="progress-number">02</span><span class="progress-label">CMS</span></a></li>
+              <li><a class="progress-link d-flex align-items-center gap-2 py-2 text-secondary small" href="#step-3" data-step-link="3"><span class="progress-number">03</span><span class="progress-label">Frontend</span></a></li>
+              <li><a class="progress-link d-flex align-items-center gap-2 py-2 text-secondary small" href="#step-4" data-step-link="4"><span class="progress-number">04</span><span class="progress-label">Backend</span></a></li>
+              <li><a class="progress-link d-flex align-items-center gap-2 py-2 text-secondary small" href="#step-5" data-step-link="5"><span class="progress-number">05</span><span class="progress-label">More skills</span></a></li>
+            </ol>
+          </aside>
+
+          <div class="steps">
+            <article class="step active" id="step-1" data-step="1">
+              <div class="step-kicker d-flex align-items-center gap-2 text-primary fw-bold text-uppercase mb-2">Step 01</div>
+              <h2 class="fw-bold mb-0">Try no-code website and application builders</h2>
+              <p class="step-intro text-secondary lh-lg my-3">Start by learning how digital products are structured. Use ready-made design elements, layouts, and workflows to create a simple website or dashboard without writing code.</p>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Explore these tools</h3>
+                <ul class="chip-list d-flex flex-wrap gap-2 list-unstyled mb-0">
+                  <li><a class="badge rounded-pill px-3 py-2" href="https://www.framer.com/" target="_blank" rel="noopener">Framer</a></li>
+                  <li><a class="badge rounded-pill px-3 py-2" href="https://webflow.com/" target="_blank" rel="noopener">Webflow</a></li>
+                  <li><a class="badge rounded-pill px-3 py-2" href="https://www.wix.com/" target="_blank" rel="noopener">Wix</a></li>
+                  <li><a class="badge rounded-pill px-3 py-2" href="https://bubble.io/" target="_blank" rel="noopener">Bubble</a></li>
+                </ul>
+              </div>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Build up to three projects</h3>
+                <div class="project-grid row g-2">
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 01</span><strong>Personal portfolio</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 02</span><strong>Blog website</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 03</span><strong>Simple store page</strong></div>
+                </div>
+              </div>
+              <div class="outcome d-flex align-items-start p-3 mb-4"><div><strong class="d-block mb-1">What you’ll gain</strong><p class="text-secondary small mb-0">Confidence with layouts, content structure, visual hierarchy, and publishing a working page.</p></div></div>
+              <div class="step-actions d-flex align-items-center justify-content-between gap-2 mt-4"><span class="step-count text-secondary small">1 of 5</span><button class="next-step btn btn-primary" type="button" data-next="2">Next step <span aria-hidden="true">→</span></button></div>
+            </article>
+
+            <article class="step" id="step-2" data-step="2">
+              <div class="step-kicker d-flex align-items-center gap-2 text-primary fw-bold text-uppercase mb-2">Step 02</div>
+              <h2 class="fw-bold mb-0">Create websites using CMS platforms</h2>
+              <p class="step-intro text-secondary lh-lg my-3">Learn how content management systems help teams publish, update, and grow a website. Practice with themes, plugins, products, and content workflows.</p>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Choose a platform</h3>
+                <ul class="chip-list d-flex flex-wrap gap-2 list-unstyled mb-0">
+                  <li><a href="https://wordpress.org/" target="_blank" rel="noopener">WordPress</a></li>
+                  <li><a href="https://www.shopify.com/" target="_blank" rel="noopener">Shopify</a></li>
+                  <li><a href="https://www.drupal.org/" target="_blank" rel="noopener">Drupal</a></li>
+                </ul>
+              </div>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Build up to three projects</h3>
+                <div class="project-grid row g-2">
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 01</span><strong>Organization website</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 02</span><strong>Magazine blog</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 03</span><strong>E-commerce store</strong></div>
+                </div>
+              </div>
+              <div class="outcome d-flex align-items-start p-3 mb-4"><div><strong class="d-block mb-1">Career checkpoint</strong><p class="text-secondary small mb-0">At this stage, you can start freelancing or apply for entry-level website and CMS roles.</p></div></div>
+              <div class="step-actions d-flex align-items-center justify-content-between gap-2 mt-4"><button class="previous-step btn" type="button" data-next="1">← Previous</button><span class="step-count text-secondary small">2 of 5</span><button class="next-step btn btn-primary" type="button" data-next="3">Next step <span aria-hidden="true">→</span></button></div>
+            </article>
+
+            <article class="step" id="step-3" data-step="3">
+              <div class="step-kicker d-flex align-items-center gap-2 text-primary fw-bold text-uppercase mb-2">Step 03</div>
+              <h2 class="fw-bold mb-0">Learn the coding fundamentals of web pages</h2>
+              <p class="step-intro text-secondary lh-lg my-3">Now learn what the browser is actually doing. HTML gives your page structure, CSS shapes the experience, and JavaScript adds behavior and interaction.</p>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Learn these essentials</h3>
+                <ul class="chip-list d-flex flex-wrap gap-2 list-unstyled mb-0">
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">HTML</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">CSS</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript</a></li>
+                  <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
+                </ul>
+              </div>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Projects to practise with</h3>
+                <div class="project-grid row g-2">
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 01</span><strong>Responsive landing page</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 02</span><strong>Interactive to-do app</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 03</span><strong>Weather dashboard</strong></div>
+                </div>
+              </div>
+              <div class="outcome d-flex align-items-start p-3 mb-4"><div><strong class="d-block mb-1">What you’ll gain</strong><p class="text-secondary small mb-0">A strong frontend foundation and the ability to turn a design into a responsive, interactive interface.</p></div></div>
+              <div class="step-actions d-flex align-items-center justify-content-between gap-2 mt-4"><button class="previous-step btn" type="button" data-next="2">← Previous</button><span class="step-count text-secondary small">3 of 5</span><button class="next-step btn btn-primary" type="button" data-next="4">Next step <span aria-hidden="true">→</span></button></div>
+            </article>
+
+            <article class="step" id="step-4" data-step="4">
+              <div class="step-kicker d-flex align-items-center gap-2 text-primary fw-bold text-uppercase mb-2">Step 04</div>
+              <h2 class="fw-bold mb-0">Learn languages and tools for creating servers</h2>
+              <p class="step-intro text-secondary lh-lg my-3">Go behind the interface. Learn how servers, databases, authentication, and APIs work together, then combine your frontend and backend into a full-stack application.</p>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Pick one backend path</h3>
+                <ul class="chip-list d-flex flex-wrap gap-2 list-unstyled mb-0">
+                  <li><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a></li>
+                  <li><a href="https://www.djangoproject.com/" target="_blank" rel="noopener">Django</a></li>
+                  <li><a href="https://nodejs.org/" target="_blank" rel="noopener">Node.js</a></li>
+                  <li><a href="https://dotnet.microsoft.com/" target="_blank" rel="noopener">.NET</a></li>
+                  <li><a href="https://www.postgresql.org/" target="_blank" rel="noopener">PostgreSQL</a></li>
+                </ul>
+              </div>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Projects to practise with</h3>
+                <div class="project-grid row g-2">
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 01</span><strong>REST API</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 02</span><strong>Login and user profile</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 03</span><strong>Full-stack task manager</strong></div>
+                </div>
+              </div>
+              <div class="outcome d-flex align-items-start p-3 mb-4"><div><strong class="d-block mb-1">Milestone</strong><p class="text-secondary small mb-0">Build and deploy one full-stack application that stores real data and has a complete user flow.</p></div></div>
+              <div class="step-actions d-flex align-items-center justify-content-between gap-2 mt-4"><button class="previous-step btn" type="button" data-next="3">← Previous</button><span class="step-count text-secondary small">4 of 5</span><button class="next-step btn btn-primary" type="button" data-next="5">Next step <span aria-hidden="true">→</span></button></div>
+            </article>
+
+            <article class="step" id="step-5" data-step="5">
+              <div class="step-kicker d-flex align-items-center gap-2 text-primary fw-bold text-uppercase mb-2">Step 05</div>
+              <h2 class="fw-bold mb-0">Learn the tools and skills that make you complete</h2>
+              <p class="step-intro text-secondary lh-lg my-3">Keep building beyond the code. The best web developers understand how to ship, measure, explain, and improve the products they make.</p>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Round out your toolkit</h3>
+                <ul class="chip-list d-flex flex-wrap gap-2 list-unstyled mb-0">
+                  <li><a href="https://www.figma.com/" target="_blank" rel="noopener">Figma</a></li>
+                  <li><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener">TypeScript</a></li>
+                  <li><a href="https://react.dev/" target="_blank" rel="noopener">React</a></li>
+                  <li><a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a></li>
+                  <li><a href="https://vercel.com/" target="_blank" rel="noopener">Deployment</a></li>
+                  <li><a href="https://analytics.google.com/" target="_blank" rel="noopener">Analytics</a></li>
+                </ul>
+              </div>
+              <div class="content-card card shadow-sm rounded-3 p-4 mb-4">
+                <h3 class="fw-bold mb-3">Projects to take your portfolio further</h3>
+                <div class="project-grid row g-2">
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 01</span><strong>Design system</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 02</span><strong>Accessible product page</strong></div>
+                  <div class="project col-md-4 p-3"><span class="project-number">PROJECT 03</span><strong>Portfolio case study</strong></div>
+                </div>
+              </div>
+              <div class="outcome d-flex align-items-start p-3 mb-4"><div><strong class="d-block mb-1">Keep going</strong><p class="text-secondary small mb-0">Choose a problem you care about, talk to users, ship consistently, and let every project teach you the next skill.</p></div></div>
+              <div class="step-actions d-flex align-items-center justify-content-between gap-2 mt-4"><button class="previous-step btn" type="button" data-next="4">← Previous</button><span class="step-count text-secondary small">5 of 5</span><button class="next-step is-finish btn" type="button" data-next="1">Start again ↺</button></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">Build thoughtfully. Learn continuously. &copy; Comfy Portal</footer>
+
+    <script src="../assets/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        var steps = document.querySelectorAll(".step");
+        var links = document.querySelectorAll("[data-step-link]");
+        var buttons = document.querySelectorAll("[data-next]");
+
+        function showStep(stepNumber, updateHash) {
+          var target = String(stepNumber);
+          steps.forEach(function (step) {
+            step.classList.toggle("active", step.dataset.step === target);
+          });
+          links.forEach(function (link) {
+            var isActive = link.dataset.stepLink === target;
+            link.classList.toggle("active", isActive);
+            if (isActive) {
+              link.setAttribute("aria-current", "step");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+          if (updateHash) {
+            window.history.replaceState(null, "", "#step-" + target);
+          }
+          document.querySelector(".roadmap-wrap").scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        buttons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            showStep(button.dataset.next, true);
+          });
+        });
+
+        links.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            event.preventDefault();
+            showStep(link.dataset.stepLink, true);
+          });
+        });
+
+        var hashStep = window.location.hash.match(/^#step-([1-5])$/);
+        if (hashStep) {
+          showStep(hashStep[1], false);
+        }
+      }());
+    </script>
+  </body>
+</html>
