@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>6 AI-Powered UI Builders to Create Websites and Applications | ZenBlog</title>
+  <title>6 AI-Powered UI Builders to Create Websites and Applications | Comfy Blog</title>
   <meta name="description" content="A practical comparison of Wix AI, Relume, Figma Make, 10Web, CodeDesign.ai, and Base44 for creating websites and applications with AI.">
   <meta name="keywords" content="AI website builders, AI UI builders, prompt to app, Wix AI, Relume, Figma Make, 10Web, CodeDesign.ai, Base44">
   <meta name="author" content="Naveen V">
@@ -14,7 +14,7 @@
   <meta property="og:description" content="Explore six AI-powered tools for generating websites, interfaces, prototypes, and functional applications.">
   <meta property="og:image" content="https://example.com/blogs/images/retail-web-presence.png">
   <meta property="og:url" content="https://example.com/blogs/6-ai-based-website-and-application-builders.html">
-  <meta property="og:site_name" content="ZenBlog">
+  <meta property="og:site_name" content="Comfy">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="6 AI-Powered UI Builders to Create Websites and Applications">
   <meta name="twitter:description" content="A practical comparison of six AI website and application builders.">
@@ -22,7 +22,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <style>
     :root { --ink: #30343a; --muted: #737981; --accent: #40536b; --line: #e8e9eb; }
     html { scroll-behavior: smooth; }
@@ -51,7 +52,21 @@
     .note { border-left: 3px solid var(--accent); background: #f5f7f9; padding: 1rem 1.25rem; margin: 1.5rem 0; }
     .pricing-card { border: 1px solid var(--line); height: 100%; padding: 1rem; }
     .pricing-card h3 { margin-top: 0; }
-    .table-wrap { overflow-x: auto; }
+    .tool-card { border: 1px solid var(--line); height: 100%; padding: 1rem; transition: border-color .2s ease, transform .2s ease; }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tool-card img { width: 42px; height: 42px; object-fit: contain; margin-bottom: .75rem; }
+    .tool-card h4 { font: 600 1rem/1.35 Arial, sans-serif; margin: 0; }
+    .tool-card h4 a { color: var(--ink); text-decoration: none; }
+    .tool-card h4 a:hover { color: var(--accent); text-decoration: underline; }
+    .tool-card p { font: .9rem/1.55 Arial, sans-serif; margin: .45rem 0 0; }
+    .author-card { border: 1px solid var(--line); padding: 1rem; margin-bottom: 1.5rem; }
+    .author-header { display: flex; align-items: center; gap: 10px; margin-bottom: .45rem; }
+    .author-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+    .author-header h2 { margin: 0 0 2px; font-size: 17px; font-weight: 600; }
+    .author-socials { display: flex; align-items: center; gap: 7px; color: #72777e; font: 700 14px Arial, sans-serif; }
+    .author-socials a { display: inline-flex; min-width: 12px; justify-content: center; color: inherit; text-decoration: none; }
+    .author-socials a:hover { color: var(--accent); }
+    .author-card p { margin: 0; color: #85898e; font: italic 13px/1.6 Arial, sans-serif; }
     .toc { position: sticky; top: 1.25rem; border-left: 1px solid var(--line); padding-left: 1.25rem; }
     .toc-title { font: 700 12px Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
     .toc a { display: block; color: #747a81; font: 13px/1.45 Arial, sans-serif; padding: .3rem 0; }
@@ -85,7 +100,7 @@
   <header class="site-header">
     <nav class="navbar navbar-expand-md" aria-label="Primary navigation">
       <div class="container">
-        <a class="navbar-brand site-brand" href="../index.html">ZenBlog</a>
+        <a class="navbar-brand site-brand" href="../index.html">Comfy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -113,7 +128,7 @@
         </nav>
         <p class="text-uppercase small text-secondary mb-2">Website development · AI tools</p>
         <h1 class="fw-semibold mb-3">I Tried 6 AI-Powered UI Builders: Tools to Create Websites and Applications</h1>
-        <p class="article-deck mb-3">A practical look at the features, integrations, pricing, and best use cases of six AI-powered platforms for creating websites and functional applications.</p>
+        <p class="article-deck mb-3">Explored the features, integrations, pricing, and best use cases of six AI-powered platforms for creating websites and functional applications.</p>
         <div class="post-meta d-flex flex-wrap gap-3">
           <span>By Naveen V</span><time datetime="2026-11-03">November 3, 2026</time><span>18 min read</span>
         </div>
@@ -135,7 +150,9 @@
           <p>Being a front-end developer, I have traditionally built user interfaces using HTML, CSS, JavaScript, Bootstrap, and similar tools. There have also always been CMS platforms such as WordPress, Drupal, Shopify, and others. They make publishing easier, although coding can still be needed to fix bugs or add custom functionality.</p>
           <p>With the rise of AI, creating websites and applications has become much easier, even for people without prior coding or design experience. These tools can generate layouts, design interfaces, and build functional digital products from simple text prompts. This has opened new possibilities for entrepreneurs, startup founders, and small businesses while also helping developers with rapid prototyping and repetitive tasks.</p>
           <blockquote class="note">The best tool depends on the product you are building. Use AI for speed, but still review accessibility, content quality, security, performance, and maintainability before publishing.</blockquote>
-          <p>In this article, I explore six AI-powered UI builders. Each offers a different workflow, so the comparison below focuses on where each platform is most useful.</p>
+          <p>In this article, I explore six AI-powered UI builders. Each offers a different workflow, so the overview below focuses on where each platform is most useful.
+            Wix AI Website Builder, Relume, Figma Make, 10Web, CodeDesign.ai, and Base44 are compared based on their features, integrations, pricing, and best use cases.
+          </p>
 
           <h2>Wix AI Website Builder</h2>
           <p><strong>Best for beginners.</strong> Wix AI helps users generate websites by describing their business, goals, and design preferences. It creates an initial structure and content that can be customized in the Wix editor.</p>
@@ -158,7 +175,17 @@
             <li>Custom interactive element generation.</li>
           </ul>
           <h3>Useful native Wix applications</h3>
-          <p>Wix Stores supports products, inventory, orders, and online selling. Wix Bookings supports appointments and payments. Wix Blog helps organize and publish articles, while Wix Events &amp; Tickets supports registrations and ticket sales. Wix Members Area, Pricing Plans, Groups, Pro Gallery, Restaurants Menus, and FAQ add membership, subscriptions, communities, portfolios, menus, and support content.</p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/ecommerce/website" rel="noopener noreferrer">Wix Stores</a></h4><p>Products, inventory, orders, and online selling.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/bookings" rel="noopener noreferrer">Wix Bookings</a></h4><p>Appointments, scheduling, and payments.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/blog" rel="noopener noreferrer">Wix Blog</a></h4><p>Article publishing and content organization.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/events" rel="noopener noreferrer">Wix Events &amp; Tickets</a></h4><p>Event registration and ticket sales.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/members-area" rel="noopener noreferrer">Wix Members Area</a></h4><p>Member accounts and gated content.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/pricing-plans" rel="noopener noreferrer">Pricing Plans</a></h4><p>Subscriptions and recurring payments.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/marketplace/web-design/portfolio" rel="noopener noreferrer">Pro Gallery</a></h4><p>Professional image and video portfolios.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/restaurant/website" rel="noopener noreferrer">Restaurants Menus</a></h4><p>Online menus and restaurant ordering.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wix" alt="Wix icon"><h4><a href="https://www.wix.com/faq" rel="noopener noreferrer">Wix FAQ</a></h4><p>Searchable answers and support content.</p></div></div>
+          </div>
           <h3>Wix pricing</h3>
           <div class="row row-cols-1 row-cols-md-3 g-3">
             <div class="col"><div class="pricing-card"><h3>Free</h3><p class="fs-4">₹0</p><p>Wix subdomain, branding, basic editor, templates, and hosting.</p></div></div>
@@ -168,6 +195,13 @@
 
           <h2>Relume</h2>
           <p><strong>Best for website structures and wireframes.</strong> Relume uses AI to generate sitemaps, page structures, and wireframes from text descriptions. Designers can use it to plan a website quickly and export their work to Figma or Webflow.</p>
+          <h3>Relume tools and integrations</h3>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/relume" alt="Relume icon"><h4><a href="https://www.relume.io/" rel="noopener noreferrer">Relume Site Builder</a></h4><p>AI sitemaps, wireframes, and page structures.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/figma" alt="Figma icon"><h4><a href="https://www.relume.io/figma-library" rel="noopener noreferrer">Figma</a></h4><p>Design-system and wireframe export.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/webflow" alt="Webflow icon"><h4><a href="https://www.relume.io/webflow-library" rel="noopener noreferrer">Webflow</a></h4><p>Visual website build and publishing workflow.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/react" alt="React icon"><h4><a href="https://www.relume.io/react" rel="noopener noreferrer">React export</a></h4><p>Developer-ready component output.</p></div></div>
+          </div>
           <h3>Relume plans and hosting</h3>
           <ul>
             <li><strong>Site Builder Starter — $18/month:</strong> One project, up to five pages, Figma, Webflow, and React exports.</li>
@@ -189,7 +223,17 @@
           </ol>
           <p>Figma Make does not provide a dedicated App Market. Instead, it supports services and APIs that can extend an application.</p>
           <h3>Useful Figma Make integrations</h3>
-          <p>Supabase can provide databases and authentication; Payload CMS can provide content management; Stripe can process payments; Resend can send email; Google Maps can provide location features; Calendly can handle appointments; HubSpot and Crisp can support CRM and chat; and Google Analytics can measure performance.</p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/supabase" alt="Supabase icon"><h4><a href="https://supabase.com/" rel="noopener noreferrer">Supabase</a></h4><p>Database, authentication, and APIs.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/payloadcms" alt="Payload CMS icon"><h4><a href="https://payloadcms.com/" rel="noopener noreferrer">Payload CMS</a></h4><p>Content management and APIs.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/stripe" alt="Stripe icon"><h4><a href="https://stripe.com/" rel="noopener noreferrer">Stripe</a></h4><p>Online payments and billing.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/resend" alt="Resend icon"><h4><a href="https://resend.com/" rel="noopener noreferrer">Resend</a></h4><p>Transactional email delivery.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlemaps" alt="Google Maps icon"><h4><a href="https://mapsplatform.google.com/" rel="noopener noreferrer">Google Maps</a></h4><p>Maps and location features.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/calendly" alt="Calendly icon"><h4><a href="https://calendly.com/" rel="noopener noreferrer">Calendly</a></h4><p>Appointments and scheduling.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot icon"><h4><a href="https://www.hubspot.com/" rel="noopener noreferrer">HubSpot</a></h4><p>CRM and marketing workflows.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/crisp" alt="Crisp icon"><h4><a href="https://crisp.chat/" rel="noopener noreferrer">Crisp</a></h4><p>Chat and customer support.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googleanalytics" alt="Google Analytics icon"><h4><a href="https://analytics.google.com/" rel="noopener noreferrer">Google Analytics</a></h4><p>Traffic and performance measurement.</p></div></div>
+          </div>
           <h3>Figma pricing</h3>
           <ul>
             <li><strong>Starter — $0:</strong> Unlimited drafts, UI kits, templates, and up to 500 AI credits per month.</li>
@@ -208,6 +252,12 @@
             <li>AI-generated website structures, pages, content, and images.</li>
           </ul>
           <p>10Web also includes AI content generation, SEO assistance, image generation, automated hosting, backups, and performance tools. Its three-day free trial includes five AI credits so users can build and preview before upgrading.</p>
+          <h3>Native 10Web and WordPress tools</h3>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/wordpress" alt="WordPress icon"><h4><a href="https://wordpress.org/" rel="noopener noreferrer">WordPress</a></h4><p>CMS, themes, plugins, and content management.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/elementor" alt="Elementor icon"><h4><a href="https://elementor.com/" rel="noopener noreferrer">Elementor</a></h4><p>Visual WordPress page editing.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/woocommerce" alt="WooCommerce icon"><h4><a href="https://woocommerce.com/" rel="noopener noreferrer">WooCommerce</a></h4><p>Products, checkout, and store management.</p></div></div>
+          </div>
 
           <h2>CodeDesign.ai</h2>
           <p><strong>Best for beginners, freelancers, and landing pages.</strong> CodeDesign.ai generates website layouts, content, and designs from instructions. Users can edit with AI chat or a visual drag-and-drop editor, export HTML and React code, and publish with hosting.</p>
@@ -220,7 +270,17 @@
             <li>Forms, CRM, email automation, cookie management, scheduling, and integrations.</li>
           </ol>
           <h3>CodeDesign.ai integrations</h3>
-          <p>Supported extensions include an AI chatbot, Calendly, Stripe, Zapier, Google Maps, YouTube, Google Analytics, Google Tag Manager, webhooks, and custom code. Integrations can be added from project settings, embedded widgets, supported connectors, or webhook workflows.</p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/codesign" alt="CodeDesign.ai icon"><h4><a href="https://codedesign.ai/" rel="noopener noreferrer">AI chatbot</a></h4><p>On-site automated visitor support.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/calendly" alt="Calendly icon"><h4><a href="https://calendly.com/" rel="noopener noreferrer">Calendly</a></h4><p>Appointments and scheduling.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/stripe" alt="Stripe icon"><h4><a href="https://stripe.com/" rel="noopener noreferrer">Stripe</a></h4><p>Payments and subscriptions.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/zapier" alt="Zapier icon"><h4><a href="https://zapier.com/" rel="noopener noreferrer">Zapier</a></h4><p>Cross-app workflow automation.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlemaps" alt="Google Maps icon"><h4><a href="https://mapsplatform.google.com/" rel="noopener noreferrer">Google Maps</a></h4><p>Maps and location embeds.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/youtube" alt="YouTube icon"><h4><a href="https://www.youtube.com/" rel="noopener noreferrer">YouTube</a></h4><p>Video embeds and channels.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googleanalytics" alt="Google Analytics icon"><h4><a href="https://analytics.google.com/" rel="noopener noreferrer">Google Analytics</a></h4><p>Traffic and visitor analytics.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googletagmanager" alt="Google Tag Manager icon"><h4><a href="https://tagmanager.google.com/" rel="noopener noreferrer">Google Tag Manager</a></h4><p>Tags and measurement scripts.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/webhooks" alt="Webhooks icon"><h4><a href="https://webhooks.fyi/" rel="noopener noreferrer">Webhooks</a></h4><p>Event-driven custom workflows.</p></div></div>
+          </div>
           <h3>CodeDesign.ai pricing</h3>
           <ul>
             <li><strong>Free:</strong> Website generation, visual editing, and a CodeDesign subdomain.</li>
@@ -239,7 +299,20 @@
             <li>Third-party integrations, GitHub sync, code editing, publishing, and collaboration.</li>
           </ol>
           <h3>Base44 integrations</h3>
-          <p>Base44 can connect Google Sheets, Google Calendar, Slack, Notion, HubSpot, Salesforce, Gmail, Google Drive, Stripe, Zapier, Resend, and Twilio. One-click connectors authorize supported services, while manual API integrations handle other workflows. Some advanced integrations require a Builder plan or higher.</p>
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlesheets" alt="Google Sheets icon"><h4><a href="https://www.google.com/sheets/about/" rel="noopener noreferrer">Google Sheets</a></h4><p>Spreadsheet data and workflows.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlecalendar" alt="Google Calendar icon"><h4><a href="https://calendar.google.com/" rel="noopener noreferrer">Google Calendar</a></h4><p>Events and scheduling.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/slack" alt="Slack icon"><h4><a href="https://slack.com/" rel="noopener noreferrer">Slack</a></h4><p>Team messages and notifications.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/notion" alt="Notion icon"><h4><a href="https://www.notion.so/" rel="noopener noreferrer">Notion</a></h4><p>Notes, databases, and project content.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot icon"><h4><a href="https://www.hubspot.com/" rel="noopener noreferrer">HubSpot</a></h4><p>CRM and marketing data.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/salesforce" alt="Salesforce icon"><h4><a href="https://www.salesforce.com/" rel="noopener noreferrer">Salesforce</a></h4><p>Customer relationship management.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/gmail" alt="Gmail icon"><h4><a href="https://mail.google.com/" rel="noopener noreferrer">Gmail</a></h4><p>Email and notification workflows.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive icon"><h4><a href="https://www.google.com/drive/" rel="noopener noreferrer">Google Drive</a></h4><p>Files and shared documents.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/stripe" alt="Stripe icon"><h4><a href="https://stripe.com/" rel="noopener noreferrer">Stripe</a></h4><p>Payments and billing.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/zapier" alt="Zapier icon"><h4><a href="https://zapier.com/" rel="noopener noreferrer">Zapier</a></h4><p>Automation across connected apps.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/resend" alt="Resend icon"><h4><a href="https://resend.com/" rel="noopener noreferrer">Resend</a></h4><p>Transactional email delivery.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/twilio" alt="Twilio icon"><h4><a href="https://www.twilio.com/" rel="noopener noreferrer">Twilio</a></h4><p>SMS and communications APIs.</p></div></div>
+          </div>
           <h3>How to add an integration</h3>
           <ol>
             <li>Open the project and describe the integration in the AI chat.</li>
@@ -255,28 +328,29 @@
             <li><strong>Elite — $160/month:</strong> 1,200 message credits, 50,000 integration credits, premium support, and higher limits.</li>
           </ul>
 
-          <h2>Comparison of the six AI builders</h2>
-          <div class="table-wrap">
-            <table class="table table-bordered align-middle">
-              <caption class="small text-secondary">High-level comparison of extension ecosystems and core capabilities.</caption>
-              <thead><tr><th scope="col">Feature</th><th scope="col">Wix</th><th scope="col">Relume</th><th scope="col">Figma Make</th><th scope="col">10Web</th><th scope="col">CodeDesign.ai</th><th scope="col">Base44</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Extension ecosystem</th><td>Wix App Market</td><td>External integrations</td><td>APIs and integrations</td><td>WordPress plugins</td><td>Built-in features</td><td>Connectors and APIs</td></tr>
-                <tr><th scope="row">Database</th><td>Built-in options</td><td>Depends on platform</td><td>External backend</td><td>WordPress database</td><td>Platform features</td><td>Built-in</td></tr>
-                <tr><th scope="row">Authentication</th><td>Built-in options</td><td>Depends on platform</td><td>Backend integration</td><td>WordPress plugins</td><td>Platform features</td><td>Built-in</td></tr>
-                <tr><th scope="row">Payments</th><td>Wix Payments</td><td>External tools</td><td>External integrations</td><td>WooCommerce</td><td>Supported integrations</td><td>Stripe and integrations</td></tr>
-                <tr><th scope="row">Automation</th><td>Wix tools</td><td>External tools</td><td>Custom integrations</td><td>Plugins</td><td>Integrations</td><td>Connectors and APIs</td></tr>
-              </tbody>
-            </table>
-          </div>
-
           <h2>Which AI builder should you choose?</h2>
           <p>Choose Wix when you need a polished small-business website and built-in business applications. Choose Relume for information architecture and wireframes, Figma Make for design-led prototypes, and 10Web when WordPress is central to your workflow. CodeDesign.ai is a practical choice for quick landing pages and exportable websites, while Base44 is better suited to functional MVPs that need data, authentication, and integrations.</p>
           <p>Whatever you choose, treat generated output as a starting point. Test keyboard navigation, responsive layouts, page speed, forms, permissions, privacy, and content accuracy before inviting real users.</p>
           <p class="small text-secondary">Pricing and features can change. Check each provider's official website before purchasing or making a technical decision.</p>
         </article>
 
-        <aside class="col-lg-4 d-none d-lg-block" aria-label="Article navigation">
+        <aside class="col-lg-4 d-none d-lg-block" aria-label="Article sidebar">
+          <section class="author-card" aria-label="About the author">
+            <div class="author-header">
+              <img
+                src="../profiles/naveen-vijayan-ui-developer/assets/profile/naveenv-vijayan-web-developer.jpg"
+                alt="Naveen V" class="author-avatar">
+              <div>
+                <h2>Naveen V</h2>
+                <div class="author-socials" aria-label="Naveen V social links">
+                  <a href="https://www.instagram.com/webdesignanddev.naveenv/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram bi bi-instagram"></i></a>
+                  <a href="https://www.linkedin.com/in/naveen-vijayan-frontend/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+                </div>
+              </div>
+            </div>
+            <p>Web Designer, Developer</p>
+            <p>With four years of experience in web design and development.</p>
+          </section>
           <nav class="toc" id="table-of-contents">
             <p class="toc-title mb-2">On this page</p>
             <div id="toc-links"></div>
@@ -288,7 +362,7 @@
 
   <footer>
     <div class="container d-flex flex-wrap justify-content-between gap-2">
-      <span>&copy; 2026 ZenBlog</span>
+      <span>&copy; 2026 Comfy</span>
       <span><a href="../index.html">Home</a> · <a href="index.html">All blogs</a> · <a href="../index.html#contact">About / Contact</a></span>
     </div>
   </footer>
