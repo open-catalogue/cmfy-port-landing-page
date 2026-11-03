@@ -50,8 +50,10 @@
     .post-content li { margin-bottom: .35rem; }
     .post-content a { color: #355d80; text-decoration: underline; text-underline-offset: 2px; }
     .note { border-left: 3px solid var(--accent); background: #f5f7f9; padding: 1rem 1.25rem; margin: 1.5rem 0; }
-    .pricing-card { border: 1px solid var(--line); height: 100%; padding: 1rem; }
-    .pricing-card h3 { margin-top: 0; }
+    .pricing-card { border: 1px solid var(--line); height: 100%; padding: 1.25rem; background: #fff; }
+    .pricing-card h3 { margin: 0 0 .45rem; font-size: 1.15rem; }
+    .pricing-card .price { color: var(--accent); font: 600 1.35rem/1.3 Arial, sans-serif; }
+    .pricing-card p:last-child { margin-bottom: 0; }
     .tool-card { border: 1px solid var(--line); height: 100%; padding: 1rem; transition: border-color .2s ease, transform .2s ease; }
     .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
     .tool-card img { width: 42px; height: 42px; object-fit: contain; margin-bottom: .75rem; }
@@ -203,13 +205,13 @@
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/react" alt="React icon"><h4><a href="https://www.relume.io/react" rel="noopener noreferrer">React export</a></h4><p>Developer-ready component output.</p></div></div>
           </div>
           <h3>Relume plans and hosting</h3>
-          <ul>
-            <li><strong>Site Builder Starter — $18/month:</strong> One project, up to five pages, Figma, Webflow, and React exports.</li>
-            <li><strong>Site Builder Pro — $40/month:</strong> Unlimited projects and pages, exports, component library, and sharing.</li>
-            <li><strong>Site Builder Team — $36/user/month:</strong> Team workspace and Pro features for a minimum of three users.</li>
-            <li><strong>Free hosting:</strong> Relume subdomain, 1,500 monthly page views, and branding.</li>
-            <li><strong>Launch hosting:</strong> Custom domain, SSL, analytics, more page views, and branding removal from $12/project/month.</li>
-          </ul>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+            <div class="col"><div class="pricing-card"><h3>Site Builder Starter</h3><p class="price">$18/month</p><p>One project, up to five pages, Figma, Webflow, and React exports.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Site Builder Pro</h3><p class="price">$40/month</p><p>Unlimited projects and pages, exports, component library, and sharing.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Site Builder Team</h3><p class="price">$36/user/month</p><p>Team workspace and Pro features for a minimum of three users.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Free hosting</h3><p class="price">$0</p><p>Relume subdomain, 1,500 monthly page views, and branding.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Launch hosting</h3><p class="price">From $12/project/month</p><p>Custom domain, SSL, analytics, more page views, and branding removal.</p></div></div>
+          </div>
 
           <h2>Figma Make</h2>
           <p><strong>Best for UI/UX designers and interactive prototypes.</strong> Figma Make transforms text prompts, existing Figma designs, and visual references into functional interactive prototypes and web applications.</p>
@@ -231,16 +233,16 @@
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlemaps" alt="Google Maps icon"><h4><a href="https://mapsplatform.google.com/" rel="noopener noreferrer">Google Maps</a></h4><p>Maps and location features.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/calendly" alt="Calendly icon"><h4><a href="https://calendly.com/" rel="noopener noreferrer">Calendly</a></h4><p>Appointments and scheduling.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot icon"><h4><a href="https://www.hubspot.com/" rel="noopener noreferrer">HubSpot</a></h4><p>CRM and marketing workflows.</p></div></div>
-            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/crisp" alt="Crisp icon"><h4><a href="https://crisp.chat/" rel="noopener noreferrer">Crisp</a></h4><p>Chat and customer support.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="images/tools/crisp.png" alt="Crisp icon"><h4><a href="https://crisp.chat/" rel="noopener noreferrer">Crisp</a></h4><p>Chat and customer support.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googleanalytics" alt="Google Analytics icon"><h4><a href="https://analytics.google.com/" rel="noopener noreferrer">Google Analytics</a></h4><p>Traffic and performance measurement.</p></div></div>
           </div>
           <h3>Figma pricing</h3>
-          <ul>
-            <li><strong>Starter — $0:</strong> Unlimited drafts, UI kits, templates, and up to 500 AI credits per month.</li>
-            <li><strong>Professional — $16/full seat/month:</strong> Figma Make, 3,000 AI credits, and advanced collaboration.</li>
-            <li><strong>Organization — $55/full seat/month:</strong> Shared libraries and centralized design systems.</li>
-            <li><strong>Enterprise — $90/full seat/month:</strong> Advanced security, workspaces, and design systems.</li>
-          </ul>
+          <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col"><div class="pricing-card"><h3>Starter</h3><p class="price">$0</p><p>Unlimited drafts, UI kits, templates, and up to 500 AI credits per month.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Professional</h3><p class="price">$16/full seat/month</p><p>Figma Make, 3,000 AI credits, and advanced collaboration.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Organization</h3><p class="price">$55/full seat/month</p><p>Shared libraries and centralized design systems.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Enterprise</h3><p class="price">$90/full seat/month</p><p>Advanced security, workspaces, and design systems.</p></div></div>
+          </div>
 
           <h2>10Web</h2>
           <p><strong>Best for WordPress websites.</strong> 10Web is an AI-powered website builder and hosting platform built around WordPress. It generates websites from prompts, recreates existing layouts from a URL, converts Figma designs, and supports visual editing through Elementor.</p>
@@ -279,15 +281,15 @@
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/youtube" alt="YouTube icon"><h4><a href="https://www.youtube.com/" rel="noopener noreferrer">YouTube</a></h4><p>Video embeds and channels.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googleanalytics" alt="Google Analytics icon"><h4><a href="https://analytics.google.com/" rel="noopener noreferrer">Google Analytics</a></h4><p>Traffic and visitor analytics.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googletagmanager" alt="Google Tag Manager icon"><h4><a href="https://tagmanager.google.com/" rel="noopener noreferrer">Google Tag Manager</a></h4><p>Tags and measurement scripts.</p></div></div>
-            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/webhooks" alt="Webhooks icon"><h4><a href="https://webhooks.fyi/" rel="noopener noreferrer">Webhooks</a></h4><p>Event-driven custom workflows.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="images/tools/webhook.png" alt="Webhooks icon"><h4><a href="https://webhooks.fyi/" rel="noopener noreferrer">Webhooks</a></h4><p>Event-driven custom workflows.</p></div></div>
           </div>
           <h3>CodeDesign.ai pricing</h3>
-          <ul>
-            <li><strong>Free:</strong> Website generation, visual editing, and a CodeDesign subdomain.</li>
-            <li><strong>Individual — $15/month:</strong> One website, 20 generations, 10 GB storage, and code export.</li>
-            <li><strong>Growth — $29/month:</strong> Up to 11 websites, more AI credits, advanced SEO, blog, and scheduling tools.</li>
-            <li><strong>Scale — $99/month:</strong> Up to 100 websites, unlimited generation, CRM, and agency features.</li>
-          </ul>
+          <div class="row row-cols-1 row-cols-md-2 g-3">
+            <div class="col"><div class="pricing-card"><h3>Free</h3><p class="price">$0</p><p>Website generation, visual editing, and a CodeDesign subdomain.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Individual</h3><p class="price">$15/month</p><p>One website, 20 generations, 10 GB storage, and code export.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Growth</h3><p class="price">$29/month</p><p>Up to 11 websites, more AI credits, advanced SEO, blog, and scheduling tools.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Scale</h3><p class="price">$99/month</p><p>Up to 100 websites, unlimited generation, CRM, and agency features.</p></div></div>
+          </div>
 
           <h2>Base44</h2>
           <p><strong>Best for entrepreneurs and MVPs.</strong> Base44 builds functional websites and applications from natural-language requirements. It can generate interfaces, databases, authentication, backend logic, analytics, integrations, and publishing workflows.</p>
@@ -302,16 +304,16 @@
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlesheets" alt="Google Sheets icon"><h4><a href="https://www.google.com/sheets/about/" rel="noopener noreferrer">Google Sheets</a></h4><p>Spreadsheet data and workflows.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googlecalendar" alt="Google Calendar icon"><h4><a href="https://calendar.google.com/" rel="noopener noreferrer">Google Calendar</a></h4><p>Events and scheduling.</p></div></div>
-            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/slack" alt="Slack icon"><h4><a href="https://slack.com/" rel="noopener noreferrer">Slack</a></h4><p>Team messages and notifications.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="images/tools/slack.png" alt="Slack icon"><h4><a href="https://slack.com/" rel="noopener noreferrer">Slack</a></h4><p>Team messages and notifications.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/notion" alt="Notion icon"><h4><a href="https://www.notion.so/" rel="noopener noreferrer">Notion</a></h4><p>Notes, databases, and project content.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/hubspot" alt="HubSpot icon"><h4><a href="https://www.hubspot.com/" rel="noopener noreferrer">HubSpot</a></h4><p>CRM and marketing data.</p></div></div>
-            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/salesforce" alt="Salesforce icon"><h4><a href="https://www.salesforce.com/" rel="noopener noreferrer">Salesforce</a></h4><p>Customer relationship management.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="images/tools/salesforce-icon.webp" alt="Salesforce icon"><h4><a href="https://www.salesforce.com/" rel="noopener noreferrer">Salesforce</a></h4><p>Customer relationship management.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/gmail" alt="Gmail icon"><h4><a href="https://mail.google.com/" rel="noopener noreferrer">Gmail</a></h4><p>Email and notification workflows.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/googledrive" alt="Google Drive icon"><h4><a href="https://www.google.com/drive/" rel="noopener noreferrer">Google Drive</a></h4><p>Files and shared documents.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/stripe" alt="Stripe icon"><h4><a href="https://stripe.com/" rel="noopener noreferrer">Stripe</a></h4><p>Payments and billing.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/zapier" alt="Zapier icon"><h4><a href="https://zapier.com/" rel="noopener noreferrer">Zapier</a></h4><p>Automation across connected apps.</p></div></div>
             <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/resend" alt="Resend icon"><h4><a href="https://resend.com/" rel="noopener noreferrer">Resend</a></h4><p>Transactional email delivery.</p></div></div>
-            <div class="col"><div class="tool-card"><img src="https://cdn.simpleicons.org/twilio" alt="Twilio icon"><h4><a href="https://www.twilio.com/" rel="noopener noreferrer">Twilio</a></h4><p>SMS and communications APIs.</p></div></div>
+            <div class="col"><div class="tool-card"><img src="images/tools/twilio.png" alt="Twilio icon"><h4><a href="https://www.twilio.com/" rel="noopener noreferrer">Twilio</a></h4><p>SMS and communications APIs.</p></div></div>
           </div>
           <h3>How to add an integration</h3>
           <ol>
@@ -320,13 +322,13 @@
             <li>Test the integration and verify that information is synchronized.</li>
           </ol>
           <h3>Base44 pricing</h3>
-          <ul>
-            <li><strong>Free — $0:</strong> 25 message credits, 100 integration credits, five applications, authentication, database, and analytics.</li>
-            <li><strong>Starter — $16/month:</strong> 100 message credits, 2,000 integration credits, unlimited applications, and code editing.</li>
-            <li><strong>Builder — $40/month:</strong> 250 message credits, 10,000 integration credits, GitHub integration, and model selection.</li>
-            <li><strong>Pro — $80/month:</strong> 500 message credits, 20,000 integration credits, and all Builder features.</li>
-            <li><strong>Elite — $160/month:</strong> 1,200 message credits, 50,000 integration credits, premium support, and higher limits.</li>
-          </ul>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+            <div class="col"><div class="pricing-card"><h3>Free</h3><p class="price">$0</p><p>25 message credits, 100 integration credits, five applications, authentication, database, and analytics.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Starter</h3><p class="price">$16/month</p><p>100 message credits, 2,000 integration credits, unlimited applications, and code editing.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Builder</h3><p class="price">$40/month</p><p>250 message credits, 10,000 integration credits, GitHub integration, and model selection.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Pro</h3><p class="price">$80/month</p><p>500 message credits, 20,000 integration credits, and all Builder features.</p></div></div>
+            <div class="col"><div class="pricing-card"><h3>Elite</h3><p class="price">$160/month</p><p>1,200 message credits, 50,000 integration credits, premium support, and higher limits.</p></div></div>
+          </div>
 
           <h2>Which AI builder should you choose?</h2>
           <p>Choose Wix when you need a polished small-business website and built-in business applications. Choose Relume for information architecture and wireframes, Figma Make for design-led prototypes, and 10Web when WordPress is central to your workflow. CodeDesign.ai is a practical choice for quick landing pages and exportable websites, while Base44 is better suited to functional MVPs that need data, authentication, and integrations.</p>
