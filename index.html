@@ -59,7 +59,7 @@
         ]
       }
     </script>
-    <title>Explore Digital Design, Technology and Creativity | Comfy</title>
+    <title>Explore the World of Web Design & Development | Comfy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -208,6 +208,36 @@
         color: var(--muted);
         font-size: 14px;
         line-height: 1.65;
+      }
+
+      .faq-section {
+        margin-top: 72px;
+      }
+
+      .faq-section .accordion {
+        max-width: 820px;
+        margin-inline: auto;
+      }
+
+      .faq-section .accordion-button {
+        color: #333;
+        font-weight: 600;
+      }
+
+      .faq-section .accordion-button:not(.collapsed) {
+        color: var(--accent);
+        background-color: #f7f4ff;
+        box-shadow: none;
+      }
+
+      .faq-section .accordion-button:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 0.25rem rgba(117, 70, 232, 0.2);
+      }
+
+      .faq-section .accordion-body {
+        color: #666;
+        line-height: 1.7;
       }
 
       .blog-section {
@@ -840,8 +870,11 @@
         <div class="site-container text-center">
           <!-- <p class="eyebrow">OUR BLOGS</p> -->
           <!-- <h1>Learn the Basics of Creating Digital Experiences</h1> -->
-          <h1>Explore How to Create Digital Spaces</h1>
-          <p class="intro-copy">Explore blogs on web design, digital creativity, UI development, technology, and more. Discover useful insights, beginner-friendly guides, creative ideas, and practical resources to help you learn, create, and grow in the digital world.</p>
+          <!-- <h1>Explore How to Create Digital Spaces</h1> -->
+          <h1>Explore the World of Web Design & Development</h1>
+          <p class="intro-copy">Explore the World of Web Design & Development
+Discover curated articles, practical tutorials, and creative insights for independent creators.
+.</p>
           <div class="div mt-3">
             <a href="https://www.youtube.com/@hobbytechml6529" target="_blank" rel="noopener noreferrer" aria-label="Comfy YouTube Channel">
               <i class="fab fa-youtube fa-4x text-danger"></i>
@@ -1110,6 +1143,47 @@
           <div class="col-12 col-md-3 lg-h-35re lg-overflow-scroll">
             <iframe class="w-100 h-35re" src="https://www.youtube.com/embed/4GrJWR4XOdc" title="Create Simple Website Using Canva in minutes" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           <iframe class="w-100 h-35re mt-3" src="https://www.youtube.com/embed/FCMx0FRzhLM" title="How to Create Social Media Posters Using Canva AI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section site-container mb-5" aria-label="Frequently Asked Questions">
+      <div class="accordion" id="webDesignFaq">
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="faq-heading-one">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer-one" aria-expanded="true" aria-controls="faq-answer-one">
+              How can I get started with web design?
+            </button>
+          </h3>
+          <div id="faq-answer-one" class="accordion-collapse collapse show" aria-labelledby="faq-heading-one" data-bs-parent="#webDesignFaq">
+            <div class="accordion-body">
+              Start by exploring websites you like, understanding their layouts and purpose, and experimenting with beginner-friendly no-code website builders. If you enjoy the process, gradually learn HTML, CSS, JavaScript, and other web technologies.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="faq-heading-two">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer-two" aria-expanded="false" aria-controls="faq-answer-two">
+              Can I build a website without knowing how to code?
+            </button>
+          </h3>
+          <div id="faq-answer-two" class="accordion-collapse collapse" aria-labelledby="faq-heading-two" data-bs-parent="#webDesignFaq">
+            <div class="accordion-body">
+              Yes! Tools like Canva, Wix, Webflow, and Bubble allow you to create and publish websites using visual editors, templates, and drag-and-drop components.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="faq-heading-three">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-answer-three" aria-expanded="false" aria-controls="faq-answer-three">
+              Can I build a website using AI?
+            </button>
+          </h3>
+          <div id="faq-answer-three" class="accordion-collapse collapse" aria-labelledby="faq-heading-three" data-bs-parent="#webDesignFaq">
+            <div class="accordion-body">
+              Yes! AI-powered tools like Wix AI, Relume, Figma Make, 10Web, CodeDesign.ai, and Base44 can help generate websites, layouts, prototypes, and applications from text prompts.
+            </div>
           </div>
         </div>
       </div>
