@@ -1,138 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"> 
-<url>
-  <loc>https://cmfyport.in/</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/services.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./creator-page.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./blogs/</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/blogs/five-stages-of-developing-retail-presence.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./profiles/punyalan/</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./profiles/abhi-mural/</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./designs.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/designs.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./blogs/digital-product-catalogue-small-business.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/../../../profiles.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./canva-ai/poster-creation-using-canva-ai/</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./canva-ai/poster-creation-using-canva-ai/index.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./importance-of-portfolio-website-in-2026.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./digital-product-catalogue-small-business.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./digi-locker-and-related-applications.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/age-poster-fashion.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/beautician-course-ad.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/bridal-workshop-jan 6.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/bridal-workshop-nov-1.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/bridal-workshop.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/cake-making-workshop.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/random-1.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/Vogue-1.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/vogue-bridal-ad.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/vogue/vogue-classical- dance.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/erachichoru.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/fried-rice-chicken-chilly.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/fried-rice-chily-fish.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/ghee-rice-beef-roast.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/kanji.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/kappa-biriyani.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/neychorum-iracheem.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/pothichoru.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/pothum-kal-curry.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/pothumkal-biriyani.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/putt-beef-curry.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./assets/images/njangada kada/weekend-special.jpg</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/1</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/../../index.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/../profiles/naveen-vijayan-ui-developer/index.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./portfolio-website-templates.html</loc>
-</url>
-<url>
-  <loc>https://cmfyport.in/./front-end-development-training.html</loc>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cmfyport.in/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/apps/pookkalam-circular-pattern-generator/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/6-ai-based-website-and-application-builders.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/canva/beginners-guide-to-canva-tools/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/digi-locker-and-related-applications.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/digital-product-catalogue-small-business.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/explore-the-web-development-learning-roadmap.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/five-stages-of-developing-retail-presence.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/importance-of-portfolio-website-in-2026.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/lifestyle/how-to-build-home-theater-owner-peespective.html</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/blogs/self-learn-web-design-and-ui-development/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/profiles/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/profiles/abhi-mural/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/profiles/naveen-vijayan-ui-developer/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/profiles/nila-treat/</loc>
+  </url>
+  <url>
+    <loc>https://cmfyport.in/profiles/punyalan/</loc>
+  </url>
 </urlset>
