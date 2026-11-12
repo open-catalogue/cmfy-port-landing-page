@@ -3,13 +3,13 @@ html{
   --bs-success-rgb:64, 182, 103 !important;
   --bs-btn-bg: var(--bs-success-rgb) !important;
 
-  --bs-primary-rgb: 80, 200, 120 !important;
+  --bs-primary-rgb: 117, 70, 232 !important;
 
 }
 :root {
   /* The solid hex color */
-  --bs-primary: #50C878; 
-  --bs-primary-rgb: 80, 200, 120 !important;
+  --bs-primary: #7546e8;
+  --bs-primary-rgb: 117, 70, 232 !important;
   /* The raw RGB values used for translucent utilities */
   /* --bs-primary-rgb: 255, 87, 51;  */
   
