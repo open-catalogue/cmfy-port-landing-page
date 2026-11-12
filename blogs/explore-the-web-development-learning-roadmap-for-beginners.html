@@ -314,6 +314,8 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
+      .project-grid.row { margin-inline: 0; }
+
       .project {
         width: auto;
         flex: none;
@@ -382,22 +384,35 @@
         text-align: center;
       }
 
+      @media (min-width: 768px) and (max-width: 991.98px) {
+        .site-container { width: min(90%, 860px); }
+        .roadmap-layout { grid-template-columns: 175px minmax(0, 1fr); gap: 30px; }
+        .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+
       @media (max-width: 767.98px) {
         .site-container { width: min(92%, 560px); }
         .navbar-inner { flex-wrap: wrap; }
+        .navbar-toggler { margin-left: auto; }
         .navbar-collapse { flex-basis: 100%; padding: 8px 0 15px; }
         .navbar-nav { gap: 5px; }
         .navbar-nav .nav-link { font-size: 13px; }
         .hero { padding: 54px 0 49px; }
         .hero h1 { letter-spacing: -1.8px; }
+        .roadmap-layout { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+        .progress-nav { position: static; }
         .progress-list { grid-template-columns: repeat(5, 1fr); gap: 0; }
         .progress-list::before { top: 13px; right: 12%; bottom: auto; left: 12%; width: auto; height: 1px; }
-        .progress-link { display: block; padding: 0; text-align: center; }
+        .progress-link { display: flex !important; flex-direction: column; align-items: center; gap: 0 !important; padding: 0 !important; text-align: center; }
         .progress-number { margin: 0 auto 7px; }
-        .progress-label { display: block; padding: 0 3px; font-size: 10px; }
+        .progress-label { display: block; padding: 0 3px; font-size: 10px; line-height: 1.2; }
         .content-card { padding: 19px; }
-        .project-grid { grid-template-columns: 1fr; }
+        .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         .project { min-height: auto; }
+      }
+
+      @media (max-width: 479.98px) {
+        .project-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
