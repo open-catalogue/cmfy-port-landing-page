@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Best Practices: Writing Clean, Accessible Code | Web Dev Guide</title>
+    <meta name="description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages. Proper heading structure, semantic elements, and more.">
+    <meta name="keywords" content="HTML, best practices, accessibility, semantic HTML, SEO, web development">
+    <meta name="author" content="Web Development Guide">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="HTML Best Practices: Writing Clean, Accessible Code">
+    <meta property="og:description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://example.com/html-best-practices">
+    <meta property="og:image" content="https://example.com/images/html-best-practices.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HTML Best Practices: Writing Clean, Accessible Code">
+    <meta name="twitter:description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages.">
+    <meta name="twitter:image" content="https://example.com/images/html-best-practices.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://example.com/html-best-practices">
+    
+    <link rel="icon" href="../../assets/images/comfy-portal-logo.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #7546e8;
+            --accent-dark: #5124c1;
+            --ink: #23262d;
+            --muted: #697280;
+            --page: #f7f7fb;
+            --panel: #ffffff;
+            --line: #e9e7f1;
+            --soft: #f3f1ff;
+            --code-bg: #1b2330;
+            --code-ink: #edf2ff;
+            --success: #1f9d61;
+            --danger: #d84d4d;
+        }
+
+        * { box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--page);
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .site-container {
+            width: min(86%, 1110px);
+            margin-inline: auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            border-bottom: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 64px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1f1f1f;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .brand-mark {
+            width: 28px;
+            height: 28px;
+            color: var(--accent);
+            display: block;
+        }
+
+        .main-nav ul {
+            display: flex;
+            gap: 22px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover,
+        .main-nav a:focus {
+            color: var(--accent);
+        }
+
+        .page-heading {
+            padding: 56px 0 30px;
+            background: #fff;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .page-heading h1 {
+            max-width: 760px;
+            margin: 0;
+            color: #222;
+            font-size: clamp(2.1rem, 4vw, 3.8rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -0.08em;
+        }
+
+        .eyebrow {
+            margin: 0 0 12px;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .lead {
+            max-width: 710px;
+            margin: 18px 0 0;
+            color: var(--muted);
+            font-size: 1.06rem;
+            line-height: 1.8;
+        }
+
+        .article-shell {
+            padding: 52px 0 80px;
+        }
+
+        .article-layout {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr);
+            gap: 42px;
+            align-items: start;
+        }
+
+        .toc-panel {
+            position: sticky;
+            top: 86px;
+            padding: 18px 18px 12px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(17, 24, 39, 0.03);
+        }
+
+        .toc-panel h2 {
+            margin: 0 0 16px;
+            color: #39404d;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .toc-panel ol {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.9;
+        }
+
+        .toc-panel a {
+            color: var(--muted);
+        }
+
+        .toc-panel a:hover,
+        .toc-panel a:focus {
+            color: var(--accent);
+        }
+
+        .article-body {
+            min-width: 0;
+        }
+
+        .article-section {
+            margin-bottom: 48px;
+            padding: 0;
+        }
+
+        .article-section h2,
+        .highlight-box h2 {
+            margin: 0 0 16px;
+            color: #1f2430;
+            font-size: clamp(1.5rem, 2vw, 2.2rem);
+            line-height: 1.25;
+            letter-spacing: -0.03em;
+        }
+
+        .article-section h3 {
+            margin: 26px 0 12px;
+            color: #2b3240;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .article-section p,
+        .highlight-box p {
+            margin: 0 0 16px;
+            color: #4b5563;
+            font-size: 1.02rem;
+            line-height: 1.85;
+        }
+
+        .article-section code,
+        .highlight-box code {
+            padding: 0.12rem 0.38rem;
+            border-radius: 6px;
+            background: #eceaf9;
+            color: #3c2d78;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
+
+        .code-block {
+            margin: 20px 0;
+            padding: 18px 20px;
+            overflow-x: auto;
+            border: 1px solid #dfe4ef;
+            border-left-width: 4px;
+            border-radius: 14px;
+            background: var(--code-bg);
+            color: var(--code-ink);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+        }
+
+        .code-block h4 {
+            margin: 0 0 12px;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .code-block code {
+            display: block;
+            background: transparent;
+            color: var(--code-ink);
+            white-space: pre-wrap;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            padding: 0;
+        }
+
+        .bad-example {
+            border-left-color: var(--danger);
+        }
+
+        .good-example {
+            border-left-color: var(--success);
+        }
+
+        .example-figure {
+            margin: 28px 0 0;
+            padding: 14px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 24px rgba(17, 24, 39, 0.03);
+        }
+
+        .example-figure img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .example-figure figcaption {
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 0.84rem;
+            text-align: center;
+        }
+
+        .demo-form {
+            margin-top: 22px;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(17, 24, 39, 0.02);
+        }
+
+        .demo-form fieldset {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .demo-form legend {
+            margin-bottom: 18px;
+            color: #2e3440;
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .form-row {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .form-row label {
+            color: #3d4655;
+            font-size: 0.94rem;
+            font-weight: 600;
+        }
+
+        .form-row input,
+        .form-row button {
+            min-height: 44px;
+            border-radius: 10px;
+            font: inherit;
+        }
+
+        .form-row input {
+            width: 100%;
+            border: 1px solid #dfe4ef;
+            padding: 0 14px;
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .form-row button {
+            width: fit-content;
+            padding: 0 18px;
+            border: 0;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-row button:hover,
+        .form-row button:focus {
+            background: var(--accent-dark);
+        }
+
+        .highlight-box {
+            margin-top: 42px;
+            padding: 28px 30px;
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--accent);
+            border-radius: 18px;
+            background: var(--soft);
+        }
+
+        .highlight-box a {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        .site-footer {
+            border-top: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 74px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        a:focus, button:focus, input:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 920px) {
+            .article-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .toc-panel {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .site-container {
+                width: min(90%, 1110px);
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .page-heading {
+                padding-top: 36px;
+            }
+
+            .post-meta {
+                gap: 8px 14px;
+            }
+
+            .article-shell {
+                padding-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-container navbar-inner">
+            <a href="/" class="brand" aria-label="Comfy Portal home">
+                <span class="brand-mark" aria-hidden="true">
+                    <!-- <svg viewBox="0 0 64 64" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M12 46.5V17.5L32 9L52 17.5V46.5L32 55L12 46.5Z" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+                        <path d="M20 22.5L32 16L44 22.5V38.5L32 45L20 38.5V22.5Z" fill="currentColor" opacity="0.14"/>
+                        <path d="M21 26L32 20L43 26V35L32 41L21 35V26Z" fill="currentColor" opacity="0.22"/>
+                        <path d="M32 9V55" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.75"/>
+                    </svg> -->
+                                <img class="logo-img" src="/assets/images/comfy-portal-logo.png" alt="Comfy Portal Logo">
+
+                </span>
+                cmfy
+            </a>
+            <nav aria-label="Main navigation" class="main-nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/blogs/">Blogs</a></li>
+                    <li><a href="/profiles/">Profiles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-heading">
+        <div class="site-container">
+            <p class="eyebrow">WEB DESIGN</p>
+            <h1>HTML Best Practices: Writing Clean, Accessible Code</h1>
+            <div class="post-meta">
+                <span>Published: <time datetime="2023-10-15">October 15, 2023</time></span>
+                <span>Reading time: 8 minutes</span>
+            </div>
+            <p class="lead">Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages that work for everyone.</p>
+        </div>
+    </div>
+
+    <main class="site-container article-shell">
+        <article class="article-layout">
+            <nav aria-label="Article sections" class="toc-panel">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#heading-structure">Proper Heading Structure</a></li>
+                    <li><a href="#semantic-elements">Semantic Elements for Headers and Footers</a></li>
+                    <li><a href="#image-captions">Image Captions with Figure Element</a></li>
+                    <li><a href="#text-formatting">Semantic Text Formatting</a></li>
+                    <li><a href="#element-nesting">Proper Element Nesting</a></li>
+                    <li><a href="#consistent-structure">Consistent Structure and Indentation</a></li>
+                    <li><a href="#accessibility">Accessibility (WCAG Compliance)</a></li>
+                    <li><a href="#external-stylesheets">External Stylesheets</a></li>
+                    <li><a href="#doctype">Always Declare a Doctype</a></li>
+                </ol>
+            </nav>
+
+            <div class="article-body">
+                <section id="heading-structure" class="article-section">
+                    <h2>1. Proper Heading Structure</h2>
+                    <p>Using proper heading hierarchy is crucial for both SEO and accessibility. Screen readers rely on heading structure to navigate content, and search engines use it to understand page organization.</p>
+
+                    <h3>Avoid Multiple H1 Elements</h3>
+                    <p>Each page should have only one <code>&lt;h1&gt;</code> element representing the main topic of the page.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;main&gt;<br>
+                        &nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Understanding Web Development&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Web development involves creating websites and web applications.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Frontend Technologies&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;HTML, CSS, and JavaScript form the foundation of frontend development.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &lt;/main&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;main&gt;<br>
+                        &nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Understanding Web Development&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Web development involves creating websites and web applications.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2&gt;Frontend Technologies&lt;/h2&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;HTML, CSS, and JavaScript form the foundation of frontend development.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &lt;/main&gt;
+                        </code>
+                    </div>
+
+                    <h3>Don't Skip Heading Levels</h3>
+                    <p>Maintain a logical heading hierarchy without skipping levels to ensure a coherent structure.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;h1&gt;Web Development Fundamentals&lt;/h1&gt;<br>
+                        &lt;h3&gt;Understanding HTML Structure&lt;/h3&gt;<br>
+                        &lt;h5&gt;CSS Styling Techniques&lt;/h5&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;h1&gt;Web Development Fundamentals&lt;/h1&gt;<br>
+                        &lt;h2&gt;Understanding HTML Structure&lt;/h2&gt;<br>
+                        &lt;h3&gt;CSS Styling Techniques&lt;/h3&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="semantic-elements" class="article-section">
+                    <h2>2. Semantic Elements for Headers and Footers</h2>
+                    <p>HTML5 introduced semantic elements that provide meaning to the structure of web pages. Use <code>&lt;header&gt;</code> and <code>&lt;footer&gt;</code> instead of generic <code>&lt;div&gt;</code> elements.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;div class="header"&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="#"&gt;Services&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="#"&gt;Portfolio&lt;/a&gt;<br>
+                        &lt;/div&gt;<br>
+                        &lt;div class="footer"&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="#"&gt;Privacy Policy&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="#"&gt;Contact&lt;/a&gt;<br>
+                        &lt;/div&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;header&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Services&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Portfolio&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/header&gt;<br>
+                        &lt;footer&gt;<br>
+                        &nbsp;&nbsp;&lt;nav&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="index.html"&gt;Home&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Privacy Policy&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#"&gt;Contact&lt;/a&gt;<br>
+                        &nbsp;&nbsp;&lt;/nav&gt;<br>
+                        &lt;/footer&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="image-captions" class="article-section">
+                    <h2>3. Image Captions with Figure Element</h2>
+                    <p>Use the <code>&lt;figure&gt;</code> and <code>&lt;figcaption&gt;</code> elements to associate images with their captions semantically.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;div&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="responsive-design.jpg" alt="Example of responsive web design"&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;This diagram shows how responsive design adapts to different screen sizes.&lt;/p&gt;<br>
+                        &lt;/div&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;figure&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="responsive-design.jpg" alt="Example of responsive web design"&gt;<br>
+                        &nbsp;&nbsp;&lt;figcaption&gt;This diagram shows how responsive design adapts to different screen sizes.&lt;/figcaption&gt;<br>
+                        &lt;/figure&gt;
+                        </code>
+                    </div>
+
+                    <figure class="example-figure">
+                        <img src="https://via.placeholder.com/800x400" alt="Placeholder image showing web development concepts">
+                        <figcaption>Example of a properly captioned image using the figure element.</figcaption>
+                    </figure>
+                </section>
+
+                <section id="text-formatting" class="article-section">
+                    <h2>4. Semantic Text Formatting</h2>
+                    <p>Use semantic HTML elements like <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> instead of presentational tags like <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;It is &lt;b&gt;extremely important&lt;/b&gt; to follow accessibility guidelines<br>
+                        &nbsp;&nbsp;when &lt;i&gt;designing websites&lt;/i&gt; for all users.<br>
+                        &lt;/p&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;It is &lt;strong&gt;extremely important&lt;/strong&gt; to follow accessibility guidelines<br>
+                        &nbsp;&nbsp;when &lt;em&gt;designing websites&lt;/em&gt; for all users.<br>
+                        &lt;/p&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="element-nesting" class="article-section">
+                    <h2>5. Proper Element Nesting</h2>
+                    <p>Follow proper nesting rules: block-level elements can contain inline elements, but inline elements cannot contain block-level elements.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>
+                        &lt;a href="#"&gt;<br>
+                        &nbsp;&nbsp;&lt;p&gt;Click here to learn more about web accessibility standards.&lt;/p&gt;<br>
+                        &lt;/a&gt;
+                        </code>
+                    </div>
+
+                    <div class="code-block good-example">
+                        <h4>Do this instead:</h4>
+                        <code>
+                        &lt;p&gt;<br>
+                        &nbsp;&nbsp;&lt;a href="#"&gt;Click here&lt;/a&gt; to learn more about web accessibility standards.<br>
+                        &lt;/p&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="consistent-structure" class="article-section">
+                    <h2>6. Consistent Structure and Indentation</h2>
+                    <p>Maintain consistent indentation (typically 2 or 4 spaces) to improve code readability and maintainability.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html lang="en"&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Document&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;header&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;Website Title&lt;/h1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/header&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;main&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Main content goes here.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/main&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Copyright information&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/footer&gt;<br>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="accessibility" class="article-section">
+                    <h2>7. Accessibility (WCAG Compliance)</h2>
+                    <p>Ensure your HTML is accessible to all users, including those using assistive technologies.</p>
+
+                    <h3>Proper Form Structure</h3>
+                    <p>Use <code>&lt;label&gt;</code> elements correctly associated with form controls, and group related fields with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;form action="#" method="POST" aria-labelledby="form-title" id="contact-form"&gt;<br>
+                        &nbsp;&nbsp;&lt;fieldset&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;legend id="form-title"&gt;Contact Information&lt;/legend&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Full Name Input --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label for="full-name"&gt;Full Name:&lt;/label&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" id="full-name" name="full-name" required aria-required="true" placeholder="John Doe"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Submit Button --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit" id="submit" disabled&gt;Submit&lt;/button&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                        &nbsp;&nbsp;&lt;/fieldset&gt;<br>
+                        &lt;/form&gt;
+                        </code>
+                    </div>
+
+                    <h3>Accessible Form Example</h3>
+                    <form action="#" method="POST" aria-labelledby="form-title" class="demo-form">
+                        <fieldset>
+                            <legend id="form-title">Contact Information</legend>
+
+                            <div class="form-row">
+                                <label for="full-name">Full Name:</label>
+                                <input type="text" id="full-name" name="full-name" required aria-required="true" placeholder="John Doe">
+                            </div>
+
+                            <div class="form-row">
+                                <label for="email">Email Address:</label>
+                                <input type="email" id="email" name="email" required aria-required="true" placeholder="john@example.com">
+                            </div>
+
+                            <div class="form-row">
+                                <button type="submit">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </section>
+
+                <section id="external-stylesheets" class="article-section">
+                    <h2>8. External Stylesheets</h2>
+                    <p>Keep CSS in external files rather than inline or embedded within <code>&lt;style&gt;</code> tags in HTML. This makes styles reusable, improves maintainability and keeps HTML clean.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html lang="en"&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;My Website&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Content --&gt;<br>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section id="doctype" class="article-section">
+                    <h2>9. Always Declare a Doctype</h2>
+                    <p>The DOCTYPE declaration is required for informing the browser what standards you're using. It should be the first line of your HTML document.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;!DOCTYPE html&gt;<br>
+                        &lt;html lang="en"&gt;<br>
+                        &nbsp;&nbsp;&lt;head&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Document&lt;/title&gt;<br>
+                        &nbsp;&nbsp;&lt;/head&gt;<br>
+                        &nbsp;&nbsp;&lt;body&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Content --&gt;<br>
+                        &nbsp;&nbsp;&lt;/body&gt;<br>
+                        &lt;/html&gt;
+                        </code>
+                    </div>
+                </section>
+
+                <section class="highlight-box">
+                    <h2>Conclusion</h2>
+                    <p>Following HTML best practices ensures your websites are accessible, maintainable, and SEO-friendly. Remember that just because your code works doesn't mean you're following best practices.</p>
+                    <p>Always validate your HTML using the <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Markup Validation Service</a> to catch potential issues early.</p>
+                    <p>By implementing these practices, you'll create better experiences for all users and make your code easier to maintain and scale.</p>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-container footer-inner">
+            <p>© 2026 Comfy Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Share functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("Check out this article on HTML Best Practices");
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
