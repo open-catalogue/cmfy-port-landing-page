@@ -7,22 +7,57 @@
     <meta name="description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages. Proper heading structure, semantic elements, and more.">
     <meta name="keywords" content="HTML, best practices, accessibility, semantic HTML, SEO, web development">
     <meta name="author" content="Web Development Guide">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="theme-color" content="#7546e8">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="HTML Best Practices: Writing Clean, Accessible Code">
     <meta property="og:description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://example.com/html-best-practices">
-    <meta property="og:image" content="https://example.com/images/html-best-practices.jpg">
+    <meta property="og:url" content="https://cmfyport.in/blogs/web-design/html-best-practices-for-better-performance-and-seo.html">
+    <meta property="og:image" content="https://cmfyport.in/assets/images/comfy-portal-logo.png">
+    <meta property="og:image:alt" content="HTML best practices guide by Comfy Portal">
+    <meta property="og:site_name" content="Comfy Portal">
+    <meta property="og:locale" content="en_US">
+    <meta property="article:published_time" content="2023-10-15">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="HTML Best Practices: Writing Clean, Accessible Code">
     <meta name="twitter:description" content="Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages.">
-    <meta name="twitter:image" content="https://example.com/images/html-best-practices.jpg">
+    <meta name="twitter:image" content="https://cmfyport.in/assets/images/comfy-portal-logo.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://example.com/html-best-practices">
+    <link rel="canonical" href="https://cmfyport.in/blogs/web-design/html-best-practices-for-better-performance-and-seo.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "HTML Best Practices: Writing Clean, Accessible Code",
+      "description": "Learn essential HTML best practices for creating clean, accessible, and SEO-friendly web pages.",
+      "image": "https://cmfyport.in/assets/images/comfy-portal-logo.png",
+      "datePublished": "2023-10-15",
+      "dateModified": "2026-11-19",
+      "author": {
+        "@type": "Organization",
+        "name": "Comfy Portal",
+        "url": "https://cmfyport.in/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Comfy Portal",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cmfyport.in/assets/images/comfy-portal-logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://cmfyport.in/blogs/web-design/html-best-practices-for-better-performance-and-seo.html"
+      }
+    }
+    </script>
     
     <link rel="icon" href="../../assets/images/comfy-portal-logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -500,6 +535,9 @@
                     <li><a href="#accessibility">Accessibility (WCAG Compliance)</a></li>
                     <li><a href="#external-stylesheets">External Stylesheets</a></li>
                     <li><a href="#doctype">Always Declare a Doctype</a></li>
+                    <li><a href="#metadata-and-crawlability">Metadata and Crawlability</a></li>
+                    <li><a href="#performance">Performance and Core Web Vitals</a></li>
+                    <li><a href="#internal-links-and-urls">Internal Links and URL Structure</a></li>
                 </ol>
             </nav>
 
@@ -631,7 +669,7 @@
                     </div>
 
                     <figure class="example-figure">
-                        <img src="https://via.placeholder.com/800x400" alt="Placeholder image showing web development concepts">
+                        <img src="../../assets/images/comfy-portal-logo.png" width="800" height="400" loading="lazy" decoding="async" alt="Comfy Portal HTML best practices guide">
                         <figcaption>Example of a properly captioned image using the figure element.</figcaption>
                     </figure>
                 </section>
@@ -803,6 +841,56 @@
                         &lt;/html&gt;
                         </code>
                     </div>
+                </section>
+
+                <section id="metadata-and-crawlability" class="article-section">
+                    <h2>10. Use Metadata and Crawlability Controls</h2>
+                    <p>Write a unique title and description for every page, use one canonical URL, and provide structured data that accurately describes the page content.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;title&gt;Page-Specific Topic | Comfy Portal&lt;/title&gt;<br>
+                        &lt;meta name="description" content="A concise, accurate summary of the page."&gt;<br>
+                        &lt;meta name="robots" content="index, follow"&gt;<br>
+                        &lt;link rel="canonical" href="https://cmfyport.in/current-page/"&gt;<br>
+                        &lt;meta property="og:type" content="article"&gt;
+                        </code>
+                    </div>
+
+                    <p>Keep titles under approximately 60 characters and descriptions under approximately 160 characters where practical. Avoid duplicate titles and descriptions across pages.</p>
+                </section>
+
+                <section id="performance" class="article-section">
+                    <h2>11. Optimize Performance and Core Web Vitals</h2>
+                    <p>Performance affects usability and search visibility. Reserve layout space for media, use modern image formats, and load non-critical resources efficiently.</p>
+
+                    <div class="code-block">
+                        <code>
+                        &lt;img src="optimized-image.webp" alt="Descriptive alternative text"<br>
+                        &nbsp;&nbsp; width="800" height="400" loading="lazy" decoding="async"&gt;<br>
+                        &lt;link rel="preload" href="/assets/fonts/font.woff2" as="font"<br>
+                        &nbsp;&nbsp; type="font/woff2" crossorigin&gt;
+                        </code>
+                    </div>
+
+                    <p>Add width and height attributes to images to reduce layout shift. Preload only resources that are essential for the initial page view, and avoid blocking the page with unnecessary scripts.</p>
+                </section>
+
+                <section id="internal-links-and-urls" class="article-section">
+                    <h2>12. Build Clear Internal Links and URLs</h2>
+                    <p>Use descriptive link text and stable, readable URLs so users and search engines can understand the destination.</p>
+
+                    <div class="code-block bad-example">
+                        <h4>Don't do this:</h4>
+                        <code>&lt;a href="/page2.html"&gt;Click here&lt;/a&gt;</code>
+                    </div>
+
+                    <div class="code-block">
+                        <h4>Do this:</h4>
+                        <code>&lt;a href="/blogs/web-design/semantic-html/"&gt;Learn about semantic HTML&lt;/a&gt;</code>
+                    </div>
+
+                    <p>Link to relevant related content with natural anchor text, keep important pages within a few clicks of the homepage, and do not use placeholder, broken, or redirect-heavy navigation links.</p>
                 </section>
 
                 <section class="highlight-box">
